@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/Nick-s-Modded-KAVO-Lib/main/Nick'sModdedKavoLib.lua"))()
-local Window = Library.CreateLib("سكربت Y|سكربت يوسف", "BloodTheme")
+local Window = Library.CreateLib("Script Y | 2.0", "BloodTheme")
 local Tab = Window:NewTab("سكربتات بلوكس فروت ")
 local Section = Tab:NewSection("هنا تكدر تحمل سكربتات بلوكس فروت")
 Section:NewButton("يحتاج مفتاح(سكربت القمر)", "ButtonInfo", function()_G.Key = "Your Key" 
@@ -24,11 +24,20 @@ end)
 Section:NewButton("سكربت أمبرل", "ButtonInfo", function()loadstring(game:HttpGet(("https://raw.githubusercontent.com/Trev0rZ/LoaderM/main/ImperialHub-Working.lua"),true))()
     print("Clicked")
 end)
-local Tab = Window:NewTab("تهكير السرعة")
-local Section = Tab:NewSection("هنا تكدر تغير السرعة ") 
+local Tab = Window:NewTab("تهكير الاعب")
+local Section = Tab:NewSection("هنا تكدر تتحكم بالاعب ") 
 
 Section:NewTextBox("اکتب السرعة 1 - 500", "اكتب السرعة الي تريدها من 1 الي 500", function(s) -- 500 (MaxValue) | 0 (MinValue)
 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 	print(y)
 end)
+Section:NewButton("قفز لا نهائي", "قفز لا نهائي غير محدود", function()
 
+local infjmp = true
+game:GetService("UserInputService").jumpRequest:Connect(function()
+    if infjmp then
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass"Humanoid":ChangeState("Jumping")
+    end
+end)
+
+end)
