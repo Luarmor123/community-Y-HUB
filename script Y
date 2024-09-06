@@ -45,54 +45,5 @@ Section:NewButton("طيران v1", "طيران معروف", function()loadstring
     print("Clicked")
 end)
 local Tab = Window:NewTab("أدوات 🛠")
-local Section = Tab:NewSection("أدوات مفيدة تحتاجها ")
-Section:NewButton("أزالة الاق", "يزيل الاق بنسبة 80", function()-- ANTI LAGG BY MAKE AU0Y
--- I DOMT CARE IF YOU STEAL THAT
-
-
-local x=function(y)
-    return y:IsA("PointLight") or
-           y:IsA("SurfaceLight") or
-           y:IsA("SpotLight") or
-           y:IsA("Smoke") or
-           y:IsA("Fire") or
-           y:IsA("ParticleEmitter") or
-           y:IsA("Beam") or
-           y:IsA("Trail") or
-           y:IsA("Explosion") or
-           y:IsA("Decal") or
-           y:IsA("Texture") or
-           y:IsA("MeshPart") or
-           y:IsA("Terrain") or
-           y:IsA("Script") or
-end
-
-local z=function(a)
-    local b=game:GetService("Players")
-    local c=b.LocalPlayer
-    if c then
-        local d=game:GetService("StarterGui")
-        d:SetCore("SendNotification", {
-            Title = "ANIT LAG",
-            Text = a,
-            Duration = 4
-        })
-    end
-end
-
-local e={}
-for _, f in pairs(game:GetService("Workspace"):GetDescendants()) do
-    if x(f) then
-        table.insert(e, f.Name .. " (" .. f.ClassName .. ")")
-        f:Destroy()
-    end
-end
-
-if #e > 0 then
-    z("Donee Removed: " .. table.concat(e, ", "))
-else
-    z("Bro Error lol")
-end
-    print("Clicked")
-end)
+local Section = Tab:NewSection("قريباً... ")
 
