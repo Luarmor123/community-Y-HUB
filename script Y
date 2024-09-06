@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/Nick-s-Modded-KAVO-Lib/main/Nick'sModdedKavoLib.lua"))()
-local Window = Library.CreateLib("Script Y | 2.0", "BloodTheme")
+local Window = Library.CreateLib("Script Y | 2.1", "BloodTheme")
 local Tab = Window:NewTab("سكربتات بلوكس فروت ")
 local Section = Tab:NewSection("هنا تكدر تحمل سكربتات بلوكس فروت")
 Section:NewButton("يحتاج مفتاح(سكربت القمر)", "ButtonInfo", function()_G.Key = "Your Key" 
