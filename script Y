@@ -51,6 +51,6 @@ Section:NewButton("كشف اللاعبين ESP", "", function()loadstring(game:H
     print("Clicked")
 end)
 local Tab = Window:NewTab("أدوات 🛠")
-local Section = Tab:NewSection("قريباً... ")
+local Section = Tab:NewSection("قريباً..")
 
 
