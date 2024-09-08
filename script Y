@@ -84,7 +84,7 @@ end)
 
 local Tab = Window:NewTab("أدوات 🛠")
 local Section = Tab:NewSection("أدوات تفيدك")
-Section:NewButton("كشف اللاعبين ESP", "", function()loadstring(game:HttpGet(('https://raw.githubusercontent.com/cool83birdcarfly02six/UNIVERSALESPLTX/main/README.md'),true))()
+Section:NewButton("كشف اللاعبين ESP", "اداه كشف اماكن الاعبين", function()loadstring(game:HttpGet(('https://raw.githubusercontent.com/cool83birdcarfly02six/UNIVERSALESPLTX/main/README.md'),true))()
     print("Clicked")
 end)
 
