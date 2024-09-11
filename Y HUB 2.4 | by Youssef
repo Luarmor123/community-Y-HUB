@@ -1,0 +1,179 @@
+-- Booting Library
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+
+-- Functions
+_G.Key = "EOQhjUlTwq2DC9gF"
+_G.KeyInput = "string"
+
+function DestroyGui()
+    OrionLib:Destroy()
+end
+
+function Menu()
+    local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "Y HUB " .. 2.4,
+    SubTitle = "by Youssef TRT",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Aqua",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
+
+--Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
+local Tabs = {
+    Main = Window:AddTab({ Title = "Blox fruit scripts ", Icon = "apple" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
+Tabs.Main:AddButton({
+        Title = "Redz Hub",
+        Description = "by redz9999 ' TOP SCRIPT",
+        Callback = function()
+            Window:Dialog({
+                Title = "Are you sure? ",
+                Content = "In extracting it?",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+                            print("Done✅")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("The decision has been cancelled🔴")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Main:AddButton({
+        Title = "Hoho Hub",
+        Description = "by acsu123 ' TOP SCRIPT = Needs key ! ",
+        Callback = function()
+            Window:Dialog({
+                Title = "Are you sure? ",
+                Content = "In extracting it?",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()_G.HohoVersion = "v3"
+loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+                            print("Done✅")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("The decision has been cancelled🔴")
+                        end
+                    }
+                }
+            })
+        end
+    })
+    
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- InterfaceManager (Allows you to have a interface managment system)
+
+-- Hand the library over to our managers
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+
+-- Ignore keys that are used by ThemeManager.
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings()
+
+-- You can add indexes of elements the save manager should ignore
+SaveManager:SetIgnoreIndexes({})
+
+-- use case for doing it this way:
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+InterfaceManager:SetFolder("FluentScriptHub")
+SaveManager:SetFolder("FluentScriptHub/specific-game")
+
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
+
+
+Window:SelectTab(1)
+
+Fluent:Notify({
+    Title = "Fluent",
+    Content = "The script has been loaded.",
+    Duration = 8
+})
+
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config
+-- which has been marked to be one that auto loads!
+SaveManager:LoadAutoloadConfig()
+end
+
+
+-- Creating Window
+local Window = OrionLib:MakeWindow({Name = "Y HUB KEY | 2.4", HidePremipum = false, IntroEnabled = ture, IntroText = "Y HUB KEY" })
+
+
+-- Creating Tabs
+local tab1 = Window:MakeTab({
+	Name = "KEY",
+	Icon = "key",
+	PremiumOnly = false
+})
+
+local tab2 = Window:MakeTab({
+	Name = "How to get key ! ",
+	Icon = "arrow-up",
+	PremiumOnly = false
+})
+
+
+-- Config Tab1
+local Section1 = tab1:AddSection({
+	Name = "KEY"
+})
+
+tab1:AddTextbox({
+	Name = "Enter the key",
+	Default = "",
+	TextDisappear = false,
+	Callback = function(Value)
+         _G.KeyInput = Value
+	end	  
+})
+
+tab1:AddButton({
+	Name = "Check the key",
+	Callback = function()
+        if _G.KeyInput == _G.Key then
+            OrionLib:MakeNotification({
+	        Name = "Correct key ✅ ! ",
+	        Content = "Script is loading... ",
+	        Image = "",
+	        Time = 3.5
+            })
+        wait(3.5)
+        Menu()
+    end
+	end    
+})
+
+-- Config Tab2
+local Section1 = tab2:AddSection({
+	Name = "You want a key ? : Join my channel on Telegram: qBlJO5Nbkf5lMDUy"
+})
+
+
+
+
+
