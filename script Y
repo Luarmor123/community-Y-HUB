@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NICKISBAD/Nick-s-Modded-KAVO-Lib/main/Nick'sModdedKavoLib.lua"))()
-local Window = Library.CreateLib("Script Y | 2.2 ", "BloodTheme")
+local Window = Library.CreateLib("Script Y | 2.3 ", "BloodTheme")
 local Tab = Window:NewTab("سكربتات بلوكس فروت ")
 local Section = Tab:NewSection("هنا تكدر تحمل سكربتات بلوكس فروت")
 Section:NewButton("يحتاج مفتاح(سكربت القمر)", "ButtonInfo", function()_G.Key = "Your Key" 
@@ -87,5 +87,7 @@ local Section = Tab:NewSection("أدوات تفيدك")
 Section:NewButton("كشف اللاعبين ESP", "اداه كشف اماكن الاعبين", function()loadstring(game:HttpGet(('https://raw.githubusercontent.com/cool83birdcarfly02six/UNIVERSALESPLTX/main/README.md'),true))()
     print("Clicked")
 end)
-
+Section:NewButton("سكربت أدوات سريعة", "من تطويري", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/awesome-pastebins/main/Script%20Quick%20tools%20(Y)"))()
+    print("Clicked")
+end)
 
