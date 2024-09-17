@@ -167,143 +167,111 @@ getgenv().EspSettings = {
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dragon5819/Main/main/esp", "UniversalEsp"))()
     print(bool) -- bool is true or false depending on the state of the toggle
 end)
-OwO:Toggle("Name & Health", false, function(bool)--[[
-	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
-]]
-getgenv().EspSettings = {
-	TeamCheck = false,
-	ToggleKey = "RightAlt",
-	RefreshRate = 10, -- how fast the esp updates (milliseconds)
-	MaximumDistance = 500, -- only renders players within this distance
-	FaceCamera = false, -- Makes esp appear 2D
-	AlignPoints = false, -- Improves 2D effect; only works while FaceCamera is enabled
-	-- AlignPoints: This may cause esp to have abnormal behavior when looking from certain angles
-	MouseVisibility = {
-		Enabled = true, -- makes any drawing objects transparent when they are near your mouse
-		Radius = 60,
-		Transparency = 0.3,
-		Method = "Hover", -- "Radius" or "Hover" | Hover is newest method and is a lot more accurate than Radius
-		HoverRadius = 50,
-		Selected = { -- set any of these to false to ignore them
-			Boxes = true,
-			Tracers = true,
-			Names = true,
-			Skeletons = true,
-			HealthBars = true,
-			HeadDots = true,
-			LookTracers = false 
-		}
-	},
-	Highlights = {
-		Enabled = false,
-		Players = {}, -- put player usernames into this table to 'highlight' them
-		Transparency = 1,
-		Color = Color3.fromRGB(255, 150, 0),
-		AlwaysOnTop = true
-	},
-	NPC = {
-		Color = Color3.fromRGB(150,150,150),
-		Transparency = 1,
-		RainbowColor = false,
-		Overrides = {
-			Boxes = true,
-			Tracers = true,
-			Names = true,
-			Skeletons = true,
-			HealthBars = true,
-			HeadDots = true,
-			LookTracers = true
-		}
-	},
-	Boxes = {
-		Enabled = false,
-		Transparency = 1,
-		Color = Color3.fromRGB(255,255,255),
-		UseTeamColor = true,
-		RainbowColor = false,
-		Outline = true,
-		OutlineColor = Color3.fromRGB(0,0,0),
-		OutlineThickness = 1,
-		Thickness = 1
-	},
-	Tracers = {
-		Enabled = false,
-		Transparency = 1,
-		Color = Color3.fromRGB(255,255,255),
-		UseTeamColor = true,
-		RainbowColor = true,
-		Outline = true,
-		OutlineColor = Color3.fromRGB(0,0,0),
-		OutlineThickness = 1,
-		Origin = "Top", -- "Top" or "Center" or "Bottom" or "Mouse"
-		Thickness = 1
-	},
-	Names = {
-		Enabled = true,
-		Transparency = 1,
-		Color = Color3.fromRGB(255,255,255),
-		UseTeamColor = true,
-		RainbowColor = false,
-		Outline = true,
-		OutlineColor = Color3.fromRGB(0,0,0),
-		Font = Drawing.Fonts.UI, -- UI or System or Plex or Monospace
-		Size = 18,
-		ShowDistance = false,
-		ShowHealth = true,
-		UseDisplayName = false,
-		DistanceDataType = "m", -- what it says after the distance (ex. 100m)
-		HealthDataType = "Percentage" -- "Percentage" or "Value"
-	},
-	Skeletons = {
-		Enabled = false,
-		Transparency = 1,
-		Color = Color3.fromRGB(255,255,255),
-		UseTeamColor = true,
-		RainbowColor = false,
-		Outline = true,
-		OutlineColor = Color3.fromRGB(0,0,0),
-		OutlineThickness = 1,
-		Thickness = 1
-	},
-	HealthBars = {
-		Enabled = true,
-		Transparency = 1,
-		Color = Color3.fromRGB(0,255,0),
-		UseTeamColor = true,
-		RainbowColor = false,
-		Outline = true,
-		OutlineColor = Color3.fromRGB(0,0,0),
-		OutlineThickness = 1,
-		Origin = "None", -- "None" or "Left" or "Right"
-		OutlineBarOnly = true
-	},
-	HeadDots = {
-		Enabled = false,
-		Transparency = 1,
-		Color = Color3.fromRGB(255,255,255),
-		UseTeamColor = true,
-		RainbowColor = false,
-		Outline = true,
-		OutlineColor = Color3.fromRGB(0,0,0),
-		OutlineThickness = 1,
-		Thickness = 1,
-		Filled = false,
-		Scale = 1
-	},
-	LookTracers = {
-		Enabled = false,
-		Transparency = 1,
-		Color = Color3.fromRGB(255,255,255),
-		UseTeamColor = true,
-		RainbowColor = false,
-		Outline = true,
-		OutlineColor = Color3.fromRGB(0,0,0),
-		OutlineThickness = 1,
-		Thickness = 1,
-		Length = 5
-	}
-}
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Dragon5819/Main/main/esp", "UniversalEsp"))()
+OwO:Toggle("BOX", false, function(bool)--// Universal Box ESP (Works on Arsenal and other games)
+
+-- settings
+local settings = {
+   defaultcolor = Color3.fromRGB(255,0,0),
+   teamcheck = false,
+   teamcolor = true
+};
+
+-- services
+local runService = game:GetService("RunService");
+local players = game:GetService("Players");
+
+-- variables
+local localPlayer = players.LocalPlayer;
+local camera = workspace.CurrentCamera;
+
+-- functions
+local newVector2, newColor3, newDrawing = Vector2.new, Color3.new, Drawing.new;
+local tan, rad = math.tan, math.rad;
+local round = function(...) local a = {}; for i,v in next, table.pack(...) do a[i] = math.round(v); end return unpack(a); end;
+local wtvp = function(...) local a, b = camera.WorldToViewportPoint(camera, ...) return newVector2(a.X, a.Y), b, a.Z end;
+
+local espCache = {};
+local function createEsp(player)
+   local drawings = {};
+   
+   drawings.box = newDrawing("Square");
+   drawings.box.Thickness = 1;
+   drawings.box.Filled = false;
+   drawings.box.Color = settings.defaultcolor;
+   drawings.box.Visible = false;
+   drawings.box.ZIndex = 2;
+
+   drawings.boxoutline = newDrawing("Square");
+   drawings.boxoutline.Thickness = 3;
+   drawings.boxoutline.Filled = false;
+   drawings.boxoutline.Color = newColor3();
+   drawings.boxoutline.Visible = false;
+   drawings.boxoutline.ZIndex = 1;
+
+   espCache[player] = drawings;
+end
+
+local function removeEsp(player)
+   if rawget(espCache, player) then
+       for _, drawing in next, espCache[player] do
+           drawing:Remove();
+       end
+       espCache[player] = nil;
+   end
+end
+
+local function updateEsp(player, esp)
+   local character = player and player.Character;
+   if character then
+       local cframe = character:GetModelCFrame();
+       local position, visible, depth = wtvp(cframe.Position);
+       esp.box.Visible = visible;
+       esp.boxoutline.Visible = visible;
+
+       if cframe and visible then
+           local scaleFactor = 1 / (depth * tan(rad(camera.FieldOfView / 2)) * 2) * 1000;
+           local width, height = round(4 * scaleFactor, 5 * scaleFactor);
+           local x, y = round(position.X, position.Y);
+
+           esp.box.Size = newVector2(width, height);
+           esp.box.Position = newVector2(round(x - width / 2, y - height / 2));
+           esp.box.Color = settings.teamcolor and player.TeamColor.Color or settings.defaultcolor;
+
+           esp.boxoutline.Size = esp.box.Size;
+           esp.boxoutline.Position = esp.box.Position;
+       end
+   else
+       esp.box.Visible = false;
+       esp.boxoutline.Visible = false;
+   end
+end
+
+-- main
+for _, player in next, players:GetPlayers() do
+   if player ~= localPlayer then
+       createEsp(player);
+   end
+end
+
+players.PlayerAdded:Connect(function(player)
+   createEsp(player);
+end);
+
+players.PlayerRemoving:Connect(function(player)
+   removeEsp(player);
+end)
+
+runService:BindToRenderStep("esp", Enum.RenderPriority.Camera.Value, function()
+   for player, drawings in next, espCache do
+       if settings.teamcheck and player.Team == localPlayer.Team then
+           continue;
+       end
+
+       if drawings and player ~= localPlayer then
+           updateEsp(player, drawings);
+       end
+   end
+end)
     print(bool) -- bool is true or false depending on the state of the toggle
 end)
 OwO:Label("by Youssef TRT", Color3.fromRGB(255, 2, 2))
