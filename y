@@ -1,1171 +1,1550 @@
--- This GUI made by !Youssef#9773
+if IY_LOADED and not _G.IY_DEBUG == true then
+    -- error("Infinite Yield is already running!", 0)
+    return
+end
 
--- Instances:
+pcall(function() getgenv().IY_LOADED = true end)
 
-local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local TextButton = Instance.new("TextLabel")
-local idk = Instance.new("TextButton")
-local idk1 = Instance.new("TextButton")
-local idk2 = Instance.new("TextButton")
-local idk3 = Instance.new("TextButton")
-local idk4 = Instance.new("TextButton")
-local idk5 = Instance.new("TextButton")
-local idk6 = Instance.new("TextButton")
-local idk7 = Instance.new("TextButton")
-local idk8 = Instance.new("TextButton")
-local idk9 = Instance.new("TextButton")
-local idk12 = Instance.new("TextButton")
-local idk13 = Instance.new("TextButton")
-local idk14 = Instance.new("TextButton")
-local close = Instance.new("TextButton")
+local cloneref = cloneref or function(o) return o end
+COREGUI = cloneref(game:GetService("CoreGui"))
+Players = cloneref(game:GetService("Players"))
 
---Properties:
+if not game:IsLoaded() then
+    local notLoaded = Instance.new("Message")
+    notLoaded.Parent = COREGUI
+    notLoaded.Text = "Infinite Yield is waiting for the game to load"
+    game.Loaded:Wait()
+    notLoaded:Destroy()
+end
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ResetOnSpawn = false
+currentVersion = "6"
 
-Frame.Parent = ScreenGui
-Frame.BackgroundColor3 = Color3.fromRGB(183, 101, 255)
-Frame.Position = UDim2.new(0.369825214, 0, 0.423832893, 0)
-Frame.Size = UDim2.new(0, 350, 0, 250)
-Frame.Active = true
-Frame.Draggable = true
+Holder = Instance.new("Frame")
+Title = Instance.new("TextLabel")
+Dark = Instance.new("Frame")
+Cmdbar = Instance.new("TextBox")
+CMDsF = Instance.new("ScrollingFrame")
+cmdListLayout = Instance.new("UIListLayout")
+SettingsButton = Instance.new("ImageButton")
+ColorsButton = Instance.new("ImageButton")
+Settings = Instance.new("Frame")
+Prefix = Instance.new("TextLabel")
+PrefixBox = Instance.new("TextBox")
+Keybinds = Instance.new("TextLabel")
+StayOpen = Instance.new("TextLabel")
+Button = Instance.new("Frame")
+On = Instance.new("TextButton")
+Positions = Instance.new("TextLabel")
+EventBind = Instance.new("TextLabel")
+Plugins = Instance.new("TextLabel")
+Example = Instance.new("TextButton")
+Notification = Instance.new("Frame")
+Title_2 = Instance.new("TextLabel")
+Text_2 = Instance.new("TextLabel")
+CloseButton = Instance.new("TextButton")
+CloseImage = Instance.new("ImageLabel")
+PinButton = Instance.new("TextButton")
+PinImage = Instance.new("ImageLabel")
+Tooltip = Instance.new("Frame")
+Title_3 = Instance.new("TextLabel")
+Description = Instance.new("TextLabel")
+IntroBackground = Instance.new("Frame")
+Logo = Instance.new("ImageLabel")
+Credits = Instance.new("TextBox")
+KeybindsFrame = Instance.new("Frame")
+Close = Instance.new("TextButton")
+Add = Instance.new("TextButton")
+Delete = Instance.new("TextButton")
+Holder_2 = Instance.new("ScrollingFrame")
+Example_2 = Instance.new("Frame")
+Text_3 = Instance.new("TextLabel")
+Delete_2 = Instance.new("TextButton")
+KeybindEditor = Instance.new("Frame")
+background_2 = Instance.new("Frame")
+Dark_3 = Instance.new("Frame")
+Directions = Instance.new("TextLabel")
+BindTo = Instance.new("TextButton")
+TriggerLabel = Instance.new("TextLabel")
+BindTriggerSelect = Instance.new("TextButton")
+Add_2 = Instance.new("TextButton")
+Toggles = Instance.new("ScrollingFrame")
+ClickTP  = Instance.new("TextLabel")
+Select = Instance.new("TextButton")
+ClickDelete = Instance.new("TextLabel")
+Select_2 = Instance.new("TextButton")
+Cmdbar_2 = Instance.new("TextBox")
+Cmdbar_3 = Instance.new("TextBox")
+CreateToggle = Instance.new("TextLabel")
+Button_2 = Instance.new("Frame")
+On_2 = Instance.new("TextButton")
+shadow_2 = Instance.new("Frame")
+PopupText_2 = Instance.new("TextLabel")
+Exit_2 = Instance.new("TextButton")
+ExitImage_2 = Instance.new("ImageLabel")
+PositionsFrame = Instance.new("Frame")
+Close_3 = Instance.new("TextButton")
+Delete_5 = Instance.new("TextButton")
+Part = Instance.new("TextButton")
+Holder_4 = Instance.new("ScrollingFrame")
+Example_4 = Instance.new("Frame")
+Text_5 = Instance.new("TextLabel")
+Delete_6 = Instance.new("TextButton")
+TP = Instance.new("TextButton")
+AliasesFrame = Instance.new("Frame")
+Close_2 = Instance.new("TextButton")
+Delete_3 = Instance.new("TextButton")
+Holder_3 = Instance.new("ScrollingFrame")
+Example_3 = Instance.new("Frame")
+Text_4 = Instance.new("TextLabel")
+Delete_4 = Instance.new("TextButton")
+Aliases = Instance.new("TextLabel")
+PluginsFrame = Instance.new("Frame")
+Close_4 = Instance.new("TextButton")
+Add_3 = Instance.new("TextButton")
+Holder_5 = Instance.new("ScrollingFrame")
+Example_5 = Instance.new("Frame")
+Text_6 = Instance.new("TextLabel")
+Delete_7 = Instance.new("TextButton")
+PluginEditor = Instance.new("Frame")
+background_3 = Instance.new("Frame")
+Dark_2 = Instance.new("Frame")
+Img = Instance.new("ImageButton")
+AddPlugin = Instance.new("TextButton")
+FileName = Instance.new("TextBox")
+About = Instance.new("TextLabel")
+Directions_2 = Instance.new("TextLabel")
+shadow_3 = Instance.new("Frame")
+PopupText_3 = Instance.new("TextLabel")
+Exit_3 = Instance.new("TextButton")
+ExitImage_3 = Instance.new("ImageLabel")
+AliasHint = Instance.new("TextLabel")
+PluginsHint = Instance.new("TextLabel")
+PositionsHint = Instance.new("TextLabel")
+ToPartFrame = Instance.new("Frame")
+background_4 = Instance.new("Frame")
+ChoosePart = Instance.new("TextButton")
+CopyPath = Instance.new("TextButton")
+Directions_3 = Instance.new("TextLabel")
+Path = Instance.new("TextLabel")
+shadow_4 = Instance.new("Frame")
+PopupText_5 = Instance.new("TextLabel")
+Exit_4 = Instance.new("TextButton")
+ExitImage_5 = Instance.new("ImageLabel")
+logs = Instance.new("Frame")
+shadow = Instance.new("Frame")
+Hide = Instance.new("TextButton")
+ImageLabel = Instance.new("ImageLabel")
+PopupText = Instance.new("TextLabel")
+Exit = Instance.new("TextButton")
+ImageLabel_2 = Instance.new("ImageLabel")
+background = Instance.new("Frame")
+chat = Instance.new("Frame")
+Clear = Instance.new("TextButton")
+SaveChatlogs = Instance.new("TextButton")
+Toggle = Instance.new("TextButton")
+scroll_2 = Instance.new("ScrollingFrame")
+join = Instance.new("Frame")
+Toggle_2 = Instance.new("TextButton")
+Clear_2 = Instance.new("TextButton")
+scroll_3 = Instance.new("ScrollingFrame")
+listlayout = Instance.new("UIListLayout",scroll_3)
+selectChat = Instance.new("TextButton")
+selectJoin = Instance.new("TextButton")
 
+function randomString()
+	local length = math.random(10,20)
+	local array = {}
+	for i = 1, length do
+		array[i] = string.char(math.random(32, 126))
+	end
+	return table.concat(array)
+end
 
-TextButton.Parent = Frame
-TextButton.BackgroundColor3 = Color3.fromRGB(125, 102, 255)
-TextButton.Position = UDim2.new(0.01, 0, 0.00832893, 0)
-TextButton.Size = UDim2.new(0, 303, 0, 35)
-TextButton.Font = Enum.Font.Cartoon
-TextButton.Text = "سكربت أدوات Y"
-TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextButton.TextSize = 40.000
-
-idk.Parent = Frame
-idk.BackgroundColor3 = Color3.fromRGB(125, 102, 255)
-idk.Position = UDim2.new(0.01, 0, 0.2, 0)
-idk.Size = UDim2.new(0, 94, 0, 35)
-idk.Font = Enum.Font.Cartoon
-idk.Text = "طيران"
-idk.TextColor3 = Color3.fromRGB(0, 0, 0)
-idk.TextSize = 20.000
-idk.MouseButton1Down:connect(function()
- game:GetService("StarterGui"):SetCore("SendNotification",{
- Title = "Y FLY";
- Text = "Y FLY";
- Duration = 3.5;
- })
--- Gui to Lua
--- Version: 3.2
--- Instances:
-local main = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
-local up = Instance.new("TextButton")
-local down = Instance.new("TextButton")
-local onof = Instance.new("TextButton")
-local TextLabel = Instance.new("TextLabel")
-local plus = Instance.new("TextButton")
-local speed = Instance.new("TextLabel")
-local mine = Instance.new("TextButton")
---Properties:
-main.Name = "main"
-main.Parent = game.CoreGui
-main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Frame.Parent = main
-Frame.BackgroundColor3 = Color3.fromRGB(163, 255, 137)
-Frame.BorderColor3 = Color3.fromRGB(103, 221, 213)
-Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
-Frame.Size = UDim2.new(0, 190, 0, 57)
-up.Name = "up"
-up.Parent = Frame
-up.BackgroundColor3 = Color3.fromRGB(79, 255, 152)
-up.Size = UDim2.new(0, 44, 0, 28)
-up.Font = Enum.Font.SourceSans
-up.Text = "ارتفاع"
-up.TextColor3 = Color3.fromRGB(0, 0, 0)
-up.TextSize = 14.000
-down.Name = "down"
-down.Parent = Frame
-down.BackgroundColor3 = Color3.fromRGB(215, 255, 121)
-down.Position = UDim2.new(0, 0, 0.491228074, 0)
-down.Size = UDim2.new(0, 44, 0, 28)
-down.Font = Enum.Font.SourceSans
-down.Text = "نزول"
-down.TextColor3 = Color3.fromRGB(0, 0, 0)
-down.TextSize = 14.000
-onof.Name = "onof"
-onof.Parent = Frame
-onof.BackgroundColor3 = Color3.fromRGB(255, 249, 74)
-onof.Position = UDim2.new(0.702823281, 0, 0.491228074, 0)
-onof.Size = UDim2.new(0, 56, 0, 28)
-onof.Font = Enum.Font.SourceSans
-onof.Text = "طيران"
-onof.TextColor3 = Color3.fromRGB(0, 0, 0)
-onof.TextSize = 14.000
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(242, 60, 255)
-TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 100, 0, 28)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "MY Telegram: EOQhjUlTwq2DC9gF"
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
-plus.Name = "plus"
-plus.Parent = Frame
-plus.BackgroundColor3 = Color3.fromRGB(133, 145, 255)
-plus.Position = UDim2.new(0.231578946, 0, 0, 0)
-plus.Size = UDim2.new(0, 45, 0, 28)
-plus.Font = Enum.Font.SourceSans
-plus.Text = "+"
-plus.TextColor3 = Color3.fromRGB(0, 0, 0)
-plus.TextScaled = true
-plus.TextSize = 14.000
-plus.TextWrapped = true
-speed.Name = "speed"
-speed.Parent = Frame
-speed.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
-speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
-speed.Size = UDim2.new(0, 44, 0, 28)
-speed.Font = Enum.Font.SourceSans
-speed.Text = "1"
-speed.TextColor3 = Color3.fromRGB(0, 0, 0)
-speed.TextScaled = true
-speed.TextSize = 14.000
-speed.TextWrapped = true
-mine.Name = "mine"
-mine.Parent = Frame
-mine.BackgroundColor3 = Color3.fromRGB(123, 255, 247)
-mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
-mine.Size = UDim2.new(0, 45, 0, 29)
-mine.Font = Enum.Font.SourceSans
-mine.Text = "-"
-mine.TextColor3 = Color3.fromRGB(0, 0, 0)
-mine.TextScaled = true
-mine.TextSize = 14.000
-mine.TextWrapped = true
-speeds = 1
-local speaker = game:GetService("Players").LocalPlayer
-local chr = game.Players.LocalPlayer.Character
-local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-nowe = false
-Frame.Active = true -- main = gui
-Frame.Draggable = true
-onof.MouseButton1Down:connect(function()
-if nowe == true then
-nowe = false
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
-speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
-else 
-nowe = true
-for i = 1, speeds do
-spawn(function()
-local hb = game:GetService("RunService").Heartbeat
-tpwalking = true
-local chr = game.Players.LocalPlayer.Character
-local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-while tpwalking and hb:Wait() and chr and hum and hum.Parent do
-if hum.MoveDirection.Magnitude > 0 then
-chr:TranslateBy(hum.MoveDirection)
-end
-end
-end)
-end
-game.Players.LocalPlayer.Character.Animate.Disabled = true
-local Char = game.Players.LocalPlayer.Character
-local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
-for i,v in next, Hum:GetPlayingAnimationTracks() do
-v:AdjustSpeed(0)
-end
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
-speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
-speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
-end
-local plr = game.Players.LocalPlayer
-local UpperTorso = plr.Character.LowerTorso
-local flying = true
-local deb = true
-local ctrl = {f = 0, b = 0, l = 0, r = 0}
-local lastctrl = {f = 0, b = 0, l = 0, r = 0}
-local maxspeed = 50
-local speed = 0
-local bg = Instance.new("BodyGyro", UpperTorso)
-bg.P = 9e4
-bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
-bg.cframe = UpperTorso.CFrame
-local bv = Instance.new("BodyVelocity", UpperTorso)
-bv.velocity = Vector3.new(0,0.1,0)
-bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
-if nowe == true then
-plr.Character.Humanoid.PlatformStand = true
-end
-while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
-wait()
-if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
-speed = speed+.5+(speed/maxspeed)
-if speed > maxspeed then
-speed = maxspeed
-end
-elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
-speed = speed-1
-if speed < 0 then
-speed = 0
-end
-end
-if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
-bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
-lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
-elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
-bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+PARENT = nil
+if get_hidden_gui or gethui then
+	local hiddenUI = get_hidden_gui or gethui
+	local Main = Instance.new("ScreenGui")
+	Main.Name = randomString()
+	Main.Parent = hiddenUI()
+	PARENT = Main
+elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
+	local Main = Instance.new("ScreenGui")
+	Main.Name = randomString()
+	syn.protect_gui(Main)
+	Main.Parent = COREGUI
+	PARENT = Main
+elseif COREGUI:FindFirstChild('RobloxGui') then
+	PARENT = COREGUI.RobloxGui
 else
-bv.velocity = Vector3.new(0,0,0)
+	local Main = Instance.new("ScreenGui")
+	Main.Name = randomString()
+	Main.Parent = COREGUI
+	PARENT = Main
 end
-bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
-end
-ctrl = {f = 0, b = 0, l = 0, r = 0}
-lastctrl = {f = 0, b = 0, l = 0, r = 0}
-speed = 0
-bg:Destroy()
-bv:Destroy()
-plr.Character.Humanoid.PlatformStand = false
-game.Players.LocalPlayer.Character.Animate.Disabled = false
-tpwalking = false
 
-end)
-up.MouseButton1Down:connect(function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,2,0)
+shade1 = {}
+shade2 = {}
+shade3 = {}
+text1 = {}
+text2 = {}
+scroll = {}
 
-end)
-down.MouseButton1Down:connect(function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-2,0)
-end)
-game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
-wait(0.7)
-game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
-game.Players.LocalPlayer.Character.Animate.Disabled = false
-end)
-plus.MouseButton1Down:connect(function()
-speeds = speeds + 1
-speed.Text = speeds
-if nowe == true then
+Holder.Name = randomString()
+Holder.Parent = PARENT
+Holder.Active = true
+Holder.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Holder.BorderSizePixel = 0
+Holder.Position = UDim2.new(1, -250, 1, -220)
+Holder.Size = UDim2.new(0, 250, 0, 220)
+Holder.ZIndex = 10
+table.insert(shade2,Holder)
 
-tpwalking = false
-for i = 1, speeds do
-spawn(function()
-local hb = game:GetService("RunService").Heartbeat
-tpwalking = true
-local chr = game.Players.LocalPlayer.Character
-local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-while tpwalking and hb:Wait() and chr and hum and hum.Parent do
-if hum.MoveDirection.Magnitude > 0 then
-chr:TranslateBy(hum.MoveDirection)
-end
-end
-end)
-end
-end
-end)
-mine.MouseButton1Down:connect(function()
-if speeds == 1 then
-speed.Text = 'can not be less than 1'
-wait(1)
-speed.Text = speeds
-else
-speeds = speeds - 1
-speed.Text = speeds
-if nowe == true then
-tpwalking = false
-for i = 1, speeds do
-spawn(function()
-local hb = game:GetService("RunService").Heartbeat
-tpwalking = true
-local chr = game.Players.LocalPlayer.Character
-local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
-while tpwalking and hb:Wait() and chr and hum and hum.Parent do
-if hum.MoveDirection.Magnitude > 0 then
-chr:TranslateBy(hum.MoveDirection)
-end
-end
-end)
-end
-end
-end
-end)
-end)
+Title.Name = "Title"
+Title.Parent = Holder
+Title.Active = true
+Title.BackgroundColor3 = Color3.fromRGB(36,36,37)
+Title.BorderSizePixel = 0
+Title.Size = UDim2.new(0, 250, 0, 20)
+Title.Font = Enum.Font.SourceSans
+Title.TextSize = 18
+Title.Text = "Infinite Yield FE v" .. currentVersion
 
-idk1.Parent = Frame
-idk1.BackgroundColor3 = Color3.fromRGB(125, 102, 255)
-idk1.Position = UDim2.new(0.01, 0, 0.4, 0)
-idk1.Size = UDim2.new(0, 94, 0, 35)
-idk1.Font = Enum.Font.Cartoon
-idk1.Text = "مشيات"
-idk1.TextColor3 = Color3.fromRGB(0, 0, 0)
-idk1.TextSize = 20.000
-idk1.MouseButton1Down:connect(function()
- local AnimationChanger = Instance.new("ScreenGui")
-local Main = Instance.new("Frame")
-local TopBar = Instance.new("Frame")
-local Close = Instance.new("TextButton")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local NormalTab = Instance.new("Frame")
-local A_Astronaut = Instance.new("TextButton")
-local A_Bubbly = Instance.new("TextButton")
-local A_Cartoony = Instance.new("TextButton")
-local A_Elder = Instance.new("TextButton")
-local A_Knight = Instance.new("TextButton")
-local A_Levitation = Instance.new("TextButton")
-local A_Mage = Instance.new("TextButton")
-local A_Ninja = Instance.new("TextButton")
-local A_Pirate = Instance.new("TextButton")
-local A_Robot = Instance.new("TextButton")
-local A_Stylish = Instance.new("TextButton")
-local A_SuperHero = Instance.new("TextButton")
-local A_Toy = Instance.new("TextButton")
-local A_Vampire = Instance.new("TextButton")
-local A_Werewolf = Instance.new("TextButton")
-local A_Zombie = Instance.new("TextButton")
-local Category = Instance.new("TextLabel")
-local SpecialTab = Instance.new("Frame")
-local A_Patrol = Instance.new("TextButton")
-local A_Confident = Instance.new("TextButton")
-local A_Popstar = Instance.new("TextButton")
-local A_Cowboy = Instance.new("TextButton")
-local A_Ghost = Instance.new("TextButton")
-local A_Sneaky = Instance.new("TextButton")
-local A_Princess = Instance.new("TextButton")
-local Category_2 = Instance.new("TextLabel")
-local OtherTab = Instance.new("Frame")
-local Category_3 = Instance.new("TextLabel")
-local A_None = Instance.new("TextButton")
-local A_Anthro = Instance.new("TextButton")
-local Animate = game.Players.LocalPlayer.Character.Animate 
+do
+	local emoji = ({
+		["01 01"] = "🎆",
+		[(function(Year)
+			local A = math.floor(Year/100)
+			local B = math.floor((13+8*A)/25)
+			local C = (15-B+A-math.floor(A/4))%30
+			local D = (4+A-math.floor(A/4))%7
+			local E = (19*(Year%19)+C)%30
+			local F = (2*(Year%4)+4*(Year%7)+6*E+D)%7
+			local G = (22+E+F)
+			if E == 29 and F == 6 then
+				return "04 19"
+			elseif E == 28 and F == 6 then
+				return "04 18"
+			elseif 31 < G then
+				return ("04 %02d"):format(G-31)
+			end
+			return ("03 %02d"):format(G)
+		end)(tonumber(os.date"%Y"))] = "🥚",
+		["10 31"] = "🎃",
+		["12 25"] = "🎄"
+	})[os.date("%m %d")]
+	if emoji then
+		Title.Text = ("%s %s %s"):format(emoji, Title.Text, emoji)
+	end
+end
 
-AnimationChanger.Name = "AnimationChanger"
-AnimationChanger.Parent = game:WaitForChild("CoreGui")
-AnimationChanger.ZIndexBehavior = Enum.ZIndexBehavior.Sibling 
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.ZIndex = 10
+table.insert(shade1,Title)
+table.insert(text1,Title)
 
-Main.Name = "Main"
-Main.Parent = AnimationChanger
-Main.BackgroundColor3 = Color3.new(0.278431, 0.278431, 0.278431)
-Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.421999991, 0, -1, 0)
-Main.Size = UDim2.new(0, 300, 0, 250)
-Main.Active = true
-Main.Draggable = true 
+Dark.Name = "Dark"
+Dark.Parent = Holder
+Dark.Active = true
+Dark.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Dark.BorderSizePixel = 0
+Dark.Position = UDim2.new(0, 0, 0, 45)
+Dark.Size = UDim2.new(0, 250, 0, 175)
+Dark.ZIndex = 10
+table.insert(shade1,Dark)
 
-TopBar.Name = "TopBar"
-TopBar.Parent = Main
-TopBar.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-TopBar.BorderSizePixel = 0
-TopBar.Size = UDim2.new(0, 300, 0, 30) 
+Cmdbar.Name = "Cmdbar"
+Cmdbar.Parent = Holder
+Cmdbar.BackgroundTransparency = 1
+Cmdbar.BorderSizePixel = 0
+Cmdbar.Position = UDim2.new(0, 5, 0, 20)
+Cmdbar.Size = UDim2.new(0, 240, 0, 25)
+Cmdbar.Font = Enum.Font.SourceSans
+Cmdbar.TextSize = 18
+Cmdbar.TextXAlignment = Enum.TextXAlignment.Left
+Cmdbar.TextColor3 = Color3.new(1, 1, 1)
+Cmdbar.Text = ""
+Cmdbar.ZIndex = 10
+Cmdbar.PlaceholderText = "Command Bar"
+
+CMDsF.Name = "CMDs"
+CMDsF.Parent = Holder
+CMDsF.BackgroundTransparency = 1
+CMDsF.BorderSizePixel = 0
+CMDsF.Position = UDim2.new(0, 5, 0, 45)
+CMDsF.Size = UDim2.new(0, 245, 0, 175)
+CMDsF.ScrollBarImageColor3 = Color3.fromRGB(78,78,79)
+CMDsF.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+CMDsF.CanvasSize = UDim2.new(0, 0, 0, 0)
+CMDsF.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+CMDsF.ScrollBarThickness = 8
+CMDsF.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+CMDsF.VerticalScrollBarInset = 'Always'
+CMDsF.ZIndex = 10
+table.insert(scroll,CMDsF)
+
+cmdListLayout.Parent = CMDsF
+
+SettingsButton.Name = "SettingsButton"
+SettingsButton.Parent = Holder
+SettingsButton.BackgroundTransparency = 1
+SettingsButton.Position = UDim2.new(0, 230, 0, 0)
+SettingsButton.Size = UDim2.new(0, 20, 0, 20)
+SettingsButton.Image = "rbxassetid://1204397029"
+SettingsButton.ZIndex = 10
+
+ReferenceButton = Instance.new("ImageButton")
+ReferenceButton.Name = "ReferenceButton"
+ReferenceButton.Parent = Holder
+ReferenceButton.BackgroundTransparency = 1
+ReferenceButton.Position = UDim2.new(0, 212, 0, 2)
+ReferenceButton.Size = UDim2.new(0, 16, 0, 16)
+ReferenceButton.Image = "rbxassetid://3523243755"
+ReferenceButton.ZIndex = 10
+
+Settings.Name = "Settings"
+Settings.Parent = Holder
+Settings.Active = true
+Settings.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Settings.BorderSizePixel = 0
+Settings.Position = UDim2.new(0, 0, 0, 220)
+Settings.Size = UDim2.new(0, 250, 0, 175)
+Settings.ZIndex = 10
+table.insert(shade1,Settings)
+
+SettingsHolder = Instance.new("ScrollingFrame")
+SettingsHolder.Name = "Holder"
+SettingsHolder.Parent = Settings
+SettingsHolder.BackgroundTransparency = 1
+SettingsHolder.BorderSizePixel = 0
+SettingsHolder.Size = UDim2.new(1,0,1,0)
+SettingsHolder.ScrollBarImageColor3 = Color3.fromRGB(78,78,79)
+SettingsHolder.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+SettingsHolder.CanvasSize = UDim2.new(0, 0, 0, 235)
+SettingsHolder.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+SettingsHolder.ScrollBarThickness = 8
+SettingsHolder.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+SettingsHolder.VerticalScrollBarInset = 'Always'
+SettingsHolder.ZIndex = 10
+table.insert(scroll,SettingsHolder)
+
+Prefix.Name = "Prefix"
+Prefix.Parent = SettingsHolder
+Prefix.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Prefix.BorderSizePixel = 0
+Prefix.BackgroundTransparency = 1
+Prefix.Position = UDim2.new(0, 5, 0, 5)
+Prefix.Size = UDim2.new(1, -10, 0, 20)
+Prefix.Font = Enum.Font.SourceSans
+Prefix.TextSize = 14
+Prefix.Text = "Prefix"
+Prefix.TextColor3 = Color3.new(1, 1, 1)
+Prefix.TextXAlignment = Enum.TextXAlignment.Left
+Prefix.ZIndex = 10
+table.insert(shade2,Prefix)
+table.insert(text1,Prefix)
+
+PrefixBox.Name = "PrefixBox"
+PrefixBox.Parent = Prefix
+PrefixBox.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+PrefixBox.BorderSizePixel = 0
+PrefixBox.Position = UDim2.new(1, -20, 0, 0)
+PrefixBox.Size = UDim2.new(0, 20, 0, 20)
+PrefixBox.Font = Enum.Font.SourceSansBold
+PrefixBox.TextSize = 14
+PrefixBox.Text = ''
+PrefixBox.TextColor3 = Color3.new(0, 0, 0)
+PrefixBox.ZIndex = 10
+table.insert(shade3,PrefixBox)
+table.insert(text2,PrefixBox)
+
+function makeSettingsButton(name,iconID,off)
+	local button = Instance.new("TextButton")
+	button.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+	button.BorderSizePixel = 0
+	button.Position = UDim2.new(0,0,0,0)
+	button.Size = UDim2.new(1,0,0,25)
+	button.Text = ""
+	button.ZIndex = 10
+	local icon = Instance.new("ImageLabel")
+	icon.Name = "Icon"
+	icon.Parent = button
+	icon.Position = UDim2.new(0,5,0,5)
+	icon.Size = UDim2.new(0,16,0,16)
+	icon.BackgroundTransparency = 1
+	icon.Image = iconID
+	icon.ZIndex = 10
+	if off then
+		icon.ScaleType = Enum.ScaleType.Crop
+		icon.ImageRectSize = Vector2.new(16,16)
+		icon.ImageRectOffset = Vector2.new(off,0)
+	end
+	local label = Instance.new("TextLabel")
+	label.Name = "ButtonLabel"
+	label.Parent = button
+	label.BackgroundTransparency = 1
+	label.Text = name
+	label.Position = UDim2.new(0,28,0,0)
+	label.Size = UDim2.new(1,-28,1,0)
+	label.Font = Enum.Font.SourceSans
+	label.TextColor3 = Color3.new(1, 1, 1)
+	label.TextSize = 14
+	label.ZIndex = 10
+	label.TextXAlignment = Enum.TextXAlignment.Left
+	table.insert(shade2,button)
+	table.insert(text1,label)
+	return button
+end
+
+ColorsButton = makeSettingsButton("Edit Theme","rbxassetid://4911962991")
+ColorsButton.Position = UDim2.new(0,5,0,55)
+ColorsButton.Size = UDim2.new(1,-10,0,25)
+ColorsButton.Name = "Colors"
+ColorsButton.Parent = SettingsHolder
+
+Keybinds = makeSettingsButton("Edit Keybinds","rbxassetid://129697930")
+Keybinds.Position = UDim2.new(0, 5, 0, 85)
+Keybinds.Size = UDim2.new(1, -10, 0, 25)
+Keybinds.Name = "Keybinds"
+Keybinds.Parent = SettingsHolder
+
+Aliases = makeSettingsButton("Edit Aliases","rbxassetid://5147488658")
+Aliases.Position = UDim2.new(0, 5, 0, 115)
+Aliases.Size = UDim2.new(1, -10, 0, 25)
+Aliases.Name = "Aliases"
+Aliases.Parent = SettingsHolder
+
+StayOpen.Name = "StayOpen"
+StayOpen.Parent = SettingsHolder
+StayOpen.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+StayOpen.BorderSizePixel = 0
+StayOpen.BackgroundTransparency = 1
+StayOpen.Position = UDim2.new(0, 5, 0, 30)
+StayOpen.Size = UDim2.new(1, -10, 0, 20)
+StayOpen.Font = Enum.Font.SourceSans
+StayOpen.TextSize = 14
+StayOpen.Text = "Keep Menu Open"
+StayOpen.TextColor3 = Color3.new(1, 1, 1)
+StayOpen.TextXAlignment = Enum.TextXAlignment.Left
+StayOpen.ZIndex = 10
+table.insert(shade2,StayOpen)
+table.insert(text1,StayOpen)
+
+Button.Name = "Button"
+Button.Parent = StayOpen
+Button.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+Button.BorderSizePixel = 0
+Button.Position = UDim2.new(1, -20, 0, 0)
+Button.Size = UDim2.new(0, 20, 0, 20)
+Button.ZIndex = 10
+table.insert(shade3,Button)
+
+On.Name = "On"
+On.Parent = Button
+On.BackgroundColor3 = Color3.fromRGB(150, 150, 151)
+On.BackgroundTransparency = 1
+On.BorderSizePixel = 0
+On.Position = UDim2.new(0, 2, 0, 2)
+On.Size = UDim2.new(0, 16, 0, 16)
+On.Font = Enum.Font.SourceSans
+On.FontSize = Enum.FontSize.Size14
+On.Text = ""
+On.TextColor3 = Color3.new(0, 0, 0)
+On.ZIndex = 10
+
+Positions = makeSettingsButton("Edit/Goto Waypoints","rbxassetid://5147488592")
+Positions.Position = UDim2.new(0, 5, 0, 145)
+Positions.Size = UDim2.new(1, -10, 0, 25)
+Positions.Name = "Waypoints"
+Positions.Parent = SettingsHolder
+
+EventBind = makeSettingsButton("Edit Event Binds","rbxassetid://5147695474",759)
+EventBind.Position = UDim2.new(0, 5, 0, 205)
+EventBind.Size = UDim2.new(1, -10, 0, 25)
+EventBind.Name = "EventBinds"
+EventBind.Parent = SettingsHolder
+
+Plugins = makeSettingsButton("Manage Plugins","rbxassetid://5147695474",743)
+Plugins.Position = UDim2.new(0, 5, 0, 175)
+Plugins.Size = UDim2.new(1, -10, 0, 25)
+Plugins.Name = "Plugins"
+Plugins.Parent = SettingsHolder
+
+Example.Name = "Example"
+Example.Parent = Holder
+Example.BackgroundTransparency = 1
+Example.BorderSizePixel = 0
+Example.Size = UDim2.new(0, 190, 0, 20)
+Example.Visible = false
+Example.Font = Enum.Font.SourceSans
+Example.TextSize = 18
+Example.Text = "Example"
+Example.TextColor3 = Color3.new(1, 1, 1)
+Example.TextXAlignment = Enum.TextXAlignment.Left
+Example.ZIndex = 10
+table.insert(text1,Example)
+
+Notification.Name = randomString()
+Notification.Parent = PARENT
+Notification.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Notification.BorderSizePixel = 0
+Notification.Position = UDim2.new(1, -500, 1, 20)
+Notification.Size = UDim2.new(0, 250, 0, 100)
+Notification.ZIndex = 10
+table.insert(shade1,Notification)
+
+Title_2.Name = "Title"
+Title_2.Parent = Notification
+Title_2.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Title_2.BorderSizePixel = 0
+Title_2.Size = UDim2.new(0, 250, 0, 20)
+Title_2.Font = Enum.Font.SourceSans
+Title_2.TextSize = 14
+Title_2.Text = "Notification Title"
+Title_2.TextColor3 = Color3.new(1, 1, 1)
+Title_2.ZIndex = 10
+table.insert(shade2,Title_2)
+table.insert(text1,Title_2)
+
+Text_2.Name = "Text"
+Text_2.Parent = Notification
+Text_2.BackgroundTransparency = 1
+Text_2.BorderSizePixel = 0
+Text_2.Position = UDim2.new(0, 5, 0, 25)
+Text_2.Size = UDim2.new(0, 240, 0, 75)
+Text_2.Font = Enum.Font.SourceSans
+Text_2.TextSize = 16
+Text_2.Text = "Notification Text"
+Text_2.TextColor3 = Color3.new(1, 1, 1)
+Text_2.TextWrapped = true
+Text_2.ZIndex = 10
+table.insert(text1,Text_2)
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = Notification
+CloseButton.BackgroundTransparency = 1
+CloseButton.Position = UDim2.new(1, -20, 0, 0)
+CloseButton.Size = UDim2.new(0, 20, 0, 20)
+CloseButton.Text = ""
+CloseButton.ZIndex = 10
+
+CloseImage.Parent = CloseButton
+CloseImage.BackgroundColor3 = Color3.new(1, 1, 1)
+CloseImage.BackgroundTransparency = 1
+CloseImage.Position = UDim2.new(0, 5, 0, 5)
+CloseImage.Size = UDim2.new(0, 10, 0, 10)
+CloseImage.Image = "rbxassetid://5054663650"
+CloseImage.ZIndex = 10
+
+PinButton.Name = "PinButton"
+PinButton.Parent = Notification
+PinButton.BackgroundTransparency = 1
+PinButton.Size = UDim2.new(0, 20, 0, 20)
+PinButton.ZIndex = 10
+PinButton.Text = ""
+
+PinImage.Parent = PinButton
+PinImage.BackgroundColor3 = Color3.new(1, 1, 1)
+PinImage.BackgroundTransparency = 1
+PinImage.Position = UDim2.new(0, 3, 0, 3)
+PinImage.Size = UDim2.new(0, 14, 0, 14)
+PinImage.ZIndex = 10
+PinImage.Image = "rbxassetid://6234691350"
+
+Tooltip.Name = randomString()
+Tooltip.Parent = PARENT
+Tooltip.Active = true
+Tooltip.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+Tooltip.BackgroundTransparency = 0.1
+Tooltip.BorderSizePixel = 0
+Tooltip.Size = UDim2.new(0, 200, 0, 96)
+Tooltip.Visible = false
+Tooltip.ZIndex = 10
+table.insert(shade1,Tooltip)
+
+Title_3.Name = "Title"
+Title_3.Parent = Tooltip
+Title_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Title_3.BackgroundTransparency = 0.1
+Title_3.BorderSizePixel = 0
+Title_3.Size = UDim2.new(0, 200, 0, 20)
+Title_3.Font = Enum.Font.SourceSans
+Title_3.TextSize = 14
+Title_3.Text = ""
+Title_3.TextColor3 = Color3.new(1, 1, 1)
+Title_3.TextTransparency = 0.1
+Title_3.ZIndex = 10
+table.insert(shade2,Title_3)
+table.insert(text1,Title_3)
+
+Description.Name = "Description"
+Description.Parent = Tooltip
+Description.BackgroundTransparency = 1
+Description.BorderSizePixel = 0
+Description.Size = UDim2.new(0,180,0,72)
+Description.Position = UDim2.new(0,10,0,18)
+Description.Font = Enum.Font.SourceSans
+Description.TextSize = 16
+Description.Text = ""
+Description.TextColor3 = Color3.new(1, 1, 1)
+Description.TextTransparency = 0.1
+Description.TextWrapped = true
+Description.ZIndex = 10
+table.insert(text1,Description)
+
+IntroBackground.Name = "IntroBackground"
+IntroBackground.Parent = Holder
+IntroBackground.Active = true
+IntroBackground.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+IntroBackground.BorderSizePixel = 0
+IntroBackground.Position = UDim2.new(0, 0, 0, 45)
+IntroBackground.Size = UDim2.new(0, 250, 0, 175)
+IntroBackground.ZIndex = 10
+
+Logo.Name = "Logo"
+Logo.Parent = Holder
+Logo.BackgroundTransparency = 1
+Logo.BorderSizePixel = 0
+Logo.Position = UDim2.new(0, 125, 0, 127)
+Logo.Size = UDim2.new(0, 10, 0, 10)
+Logo.Image = "rbxassetid://1352543873"
+Logo.ImageTransparency = 0
+Logo.ZIndex = 10
+
+Credits.Name = "Credits"
+Credits.Parent = Holder
+Credits.BackgroundTransparency = 1
+Credits.BorderSizePixel = 0
+Credits.Position = UDim2.new(0, 0, 0.9, 30)
+Credits.Size = UDim2.new(0, 250, 0, 20)
+Credits.Font = Enum.Font.SourceSansLight
+Credits.FontSize = Enum.FontSize.Size18
+Credits.Text = "Edge // Zwolf // Moon // Toon"
+Credits.TextColor3 = Color3.new(1, 1, 1)
+Credits.ZIndex = 10
+
+KeybindsFrame.Name = "KeybindsFrame"
+KeybindsFrame.Parent = Settings
+KeybindsFrame.Active = true
+KeybindsFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+KeybindsFrame.BorderSizePixel = 0
+KeybindsFrame.Position = UDim2.new(0, 0, 0, 175)
+KeybindsFrame.Size = UDim2.new(0, 250, 0, 175)
+KeybindsFrame.ZIndex = 10
+table.insert(shade1,KeybindsFrame)
 
 Close.Name = "Close"
-Close.Parent = TopBar
-Close.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+Close.Parent = KeybindsFrame
+Close.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
 Close.BorderSizePixel = 0
-Close.Position = UDim2.new(0.899999976, 0, 0, 0)
-Close.Size = UDim2.new(0, 30, 0, 30)
-Close.Font = Enum.Font.SciFi
-Close.Text = "x"
-Close.TextColor3 = Color3.new(1, 0, 0.0156863)
-Close.TextSize = 20
-Close.MouseButton1Click:Connect(function()
- wait(0.3)
- Main:TweenPosition(UDim2.new(0.421999991, 0, -1.28400004, 0))
- wait(3)
- AnimationChanger:Destroy()
-end) 
+Close.Position = UDim2.new(0, 205, 0, 150)
+Close.Size = UDim2.new(0, 40, 0, 20)
+Close.Font = Enum.Font.SourceSans
+Close.TextSize = 14
+Close.Text = "Close"
+Close.TextColor3 = Color3.new(1, 1, 1)
+Close.ZIndex = 10
+table.insert(shade2,Close)
+table.insert(text1,Close)
 
-TextLabel.Parent = TopBar
-TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
-TextLabel.BackgroundTransparency = 1
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0, 0, 0.600000024, 0)
-TextLabel.Size = UDim2.new(0, 270, 0, 10)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = " tn_محمد قبل من صنع "
-TextLabel.TextColor3 = Color3.new(1, 1, 1)
-TextLabel.TextSize = 15 
+Add.Name = "Add"
+Add.Parent = KeybindsFrame
+Add.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Add.BorderSizePixel = 0
+Add.Position = UDim2.new(0, 5, 0, 150)
+Add.Size = UDim2.new(0, 40, 0, 20)
+Add.Font = Enum.Font.SourceSans
+Add.TextSize = 14
+Add.Text = "Add"
+Add.TextColor3 = Color3.new(1, 1, 1)
+Add.ZIndex = 10
+table.insert(shade2,Add)
+table.insert(text1,Add)
 
-TextLabel_2.Parent = TopBar
-TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
-TextLabel_2.BackgroundTransparency = 1
-TextLabel_2.BorderSizePixel = 0
-TextLabel_2.Position = UDim2.new(0, 0, -0.0266667679, 0)
-TextLabel_2.Size = UDim2.new(0, 270, 0, 20)
-TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = "Animation Changer"
-TextLabel_2.TextColor3 = Color3.new(1, 1, 1)
-TextLabel_2.TextSize = 20 
+Delete.Name = "Delete"
+Delete.Parent = KeybindsFrame
+Delete.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Delete.BorderSizePixel = 0
+Delete.Position = UDim2.new(0, 50, 0, 150)
+Delete.Size = UDim2.new(0, 40, 0, 20)
+Delete.Font = Enum.Font.SourceSans
+Delete.TextSize = 14
+Delete.Text = "Clear"
+Delete.TextColor3 = Color3.new(1, 1, 1)
+Delete.ZIndex = 10
+table.insert(shade2,Delete)
+table.insert(text1,Delete)
 
-NormalTab.Name = "NormalTab"
-NormalTab.Parent = Main
-NormalTab.BackgroundColor3 = Color3.new(0.278431, 0.278431, 0.278431)
-NormalTab.BackgroundTransparency = 1
-NormalTab.BorderSizePixel = 0
-NormalTab.Position = UDim2.new(0.5, 0, 0.119999997, 0)
-NormalTab.Size = UDim2.new(0, 150, 0, 500) 
+Holder_2.Name = "Holder"
+Holder_2.Parent = KeybindsFrame
+Holder_2.BackgroundTransparency = 1
+Holder_2.BorderSizePixel = 0
+Holder_2.Position = UDim2.new(0, 0, 0, 0)
+Holder_2.Size = UDim2.new(0, 250, 0, 145)
+Holder_2.ScrollBarImageColor3 = Color3.fromRGB(78,78,79)
+Holder_2.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_2.CanvasSize = UDim2.new(0, 0, 0, 0)
+Holder_2.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_2.ScrollBarThickness = 0
+Holder_2.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_2.VerticalScrollBarInset = 'Always'
+Holder_2.ZIndex = 10
 
-A_Astronaut.Name = "A_Astronaut"
-A_Astronaut.Parent = NormalTab
-A_Astronaut.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Astronaut.BorderSizePixel = 0
-A_Astronaut.Position = UDim2.new(0, 0, 0.815764725, 0)
-A_Astronaut.Size = UDim2.new(0, 150, 0, 30)
-A_Astronaut.Font = Enum.Font.SciFi
-A_Astronaut.Text = "Astronaut"
-A_Astronaut.TextColor3 = Color3.new(1, 1, 1)
-A_Astronaut.TextSize = 20
-A_Astronaut.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=891621366"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=891633237"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=891667138"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=891636393"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=891627522"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=891609353"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=891617961"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Example_2.Name = "Example"
+Example_2.Parent = KeybindsFrame
+Example_2.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Example_2.BorderSizePixel = 0
+Example_2.Size = UDim2.new(0, 10, 0, 20)
+Example_2.Visible = false
+Example_2.ZIndex = 10
+table.insert(shade2,Example_2)
 
-A_Bubbly.Name = "A_Bubbly"
-A_Bubbly.Parent = NormalTab
-A_Bubbly.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Bubbly.BorderSizePixel = 0
-A_Bubbly.Position = UDim2.new(0, 0, 0.349019617, 0)
-A_Bubbly.Size = UDim2.new(0, 150, 0, 30)
-A_Bubbly.Font = Enum.Font.SciFi
-A_Bubbly.Text = "Bubbly"
-A_Bubbly.TextColor3 = Color3.new(1, 1, 1)
-A_Bubbly.TextSize = 20
-A_Bubbly.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=910004836"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=910009958"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=910034870"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=910025107"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=910016857"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=910001910"
-Animate.swimidle.SwimIdle.AnimationId = "http://www.roblox.com/asset/?id=910030921"
-Animate.swim.Swim.AnimationId = "http://www.roblox.com/asset/?id=910028158"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Text_3.Name = "Text"
+Text_3.Parent = Example_2
+Text_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Text_3.BorderSizePixel = 0
+Text_3.Position = UDim2.new(0, 10, 0, 0)
+Text_3.Size = UDim2.new(0, 240, 0, 20)
+Text_3.Font = Enum.Font.SourceSans
+Text_3.TextSize = 14
+Text_3.Text = "nom"
+Text_3.TextColor3 = Color3.new(1, 1, 1)
+Text_3.TextXAlignment = Enum.TextXAlignment.Left
+Text_3.ZIndex = 10
+table.insert(shade2,Text_3)
+table.insert(text1,Text_3)
 
-A_Cartoony.Name = "A_Cartoony"
-A_Cartoony.Parent = NormalTab
-A_Cartoony.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Cartoony.BorderSizePixel = 0
-A_Cartoony.Position = UDim2.new(0, 0, 0.407272667, 0)
-A_Cartoony.Size = UDim2.new(0, 150, 0, 30)
-A_Cartoony.Font = Enum.Font.SciFi
-A_Cartoony.Text = "Cartoony"
-A_Cartoony.TextColor3 = Color3.new(1, 1, 1)
-A_Cartoony.TextSize = 20
-A_Cartoony.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=742637544"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=742638445"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=742640026"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=742638842"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=742637942"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=742636889"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=742637151"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Delete_2.Name = "Delete"
+Delete_2.Parent = Text_3
+Delete_2.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+Delete_2.BorderSizePixel = 0
+Delete_2.Position = UDim2.new(0, 200, 0, 0)
+Delete_2.Size = UDim2.new(0, 40, 0, 20)
+Delete_2.Font = Enum.Font.SourceSans
+Delete_2.TextSize = 14
+Delete_2.Text = "Delete"
+Delete_2.TextColor3 = Color3.new(0, 0, 0)
+Delete_2.ZIndex = 10
+table.insert(shade3,Delete_2)
+table.insert(text2,Delete_2)
 
-A_Elder.Name = "A_Elder"
-A_Elder.Parent = NormalTab
-A_Elder.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Elder.BorderSizePixel = 0
-A_Elder.Position = UDim2.new(6.51925802e-09, 0, 0.636310041, 0)
-A_Elder.Size = UDim2.new(0, 150, 0, 30)
-A_Elder.Font = Enum.Font.SciFi
-A_Elder.Text = "Elder"
-A_Elder.TextColor3 = Color3.new(1, 1, 1)
-A_Elder.TextSize = 20
-A_Elder.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=845397899"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=845400520"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=845403856"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=845386501"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=845398858"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=845392038"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=845396048"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+KeybindEditor.Name = randomString()
+KeybindEditor.Parent = PARENT
+KeybindEditor.Active = true
+KeybindEditor.BackgroundTransparency = 1
+KeybindEditor.Position = UDim2.new(0.5, -180, 0, -500)
+KeybindEditor.Size = UDim2.new(0, 360, 0, 20)
+KeybindEditor.ZIndex = 10
 
-A_Knight.Name = "A_Knight"
-A_Knight.Parent = NormalTab
-A_Knight.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Knight.BorderSizePixel = 0
-A_Knight.Position = UDim2.new(0, 0, 0.52352941, 0)
-A_Knight.Size = UDim2.new(0, 150, 0, 30)
-A_Knight.Font = Enum.Font.SciFi
-A_Knight.Text = "Knight"
-A_Knight.TextColor3 = Color3.new(1, 1, 1)
-A_Knight.TextSize = 20
-A_Knight.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=657595757"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=657568135"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=657552124"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=657564596"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=658409194"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=658360781"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=657600338"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+background_2.Name = "background"
+background_2.Parent = KeybindEditor
+background_2.Active = true
+background_2.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+background_2.BorderSizePixel = 0
+background_2.Position = UDim2.new(0, 0, 0, 20)
+background_2.Size = UDim2.new(0, 360, 0, 185)
+background_2.ZIndex = 10
+table.insert(shade1,background_2)
 
-A_Levitation.Name = "A_Levitation"
-A_Levitation.Parent = NormalTab
-A_Levitation.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Levitation.BorderSizePixel = 0
-A_Levitation.Position = UDim2.new(0, 0, 0.115472436, 0)
-A_Levitation.Size = UDim2.new(0, 150, 0, 30)
-A_Levitation.Font = Enum.Font.SciFi
-A_Levitation.Text = "Levitation"
-A_Levitation.TextColor3 = Color3.new(1, 1, 1)
-A_Levitation.TextSize = 20
-A_Levitation.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616010382"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616003713"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Dark_3.Name = "Dark"
+Dark_3.Parent = background_2
+Dark_3.Active = true
+Dark_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Dark_3.BorderSizePixel = 0
+Dark_3.Position = UDim2.new(0, 135, 0, 0)
+Dark_3.Size = UDim2.new(0, 2, 0, 185)
+Dark_3.ZIndex = 10
+table.insert(shade2,Dark_3)
 
-A_Mage.Name = "A_Mage"
-A_Mage.Parent = NormalTab
-A_Mage.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Mage.BorderSizePixel = 0
-A_Mage.Position = UDim2.new(0, 0, 0.696203232, 0)
-A_Mage.Size = UDim2.new(0, 150, 0, 30)
-A_Mage.Font = Enum.Font.SciFi
-A_Mage.Text = "Mage"
-A_Mage.TextColor3 = Color3.new(1, 1, 1)
-A_Mage.TextSize = 20
-A_Mage.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=707742142"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=707855907"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=707897309"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=707861613"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=707853694"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=707826056"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=707829716"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Directions.Name = "Directions"
+Directions.Parent = background_2
+Directions.BackgroundTransparency = 1
+Directions.BorderSizePixel = 0
+Directions.Position = UDim2.new(0, 10, 0, 15)
+Directions.Size = UDim2.new(0, 115, 0, 90)
+Directions.ZIndex = 10
+Directions.Font = Enum.Font.SourceSans
+Directions.Text = "Click the button below and press a key/mouse button. Then select what you want to bind it to."
+Directions.TextColor3 = Color3.fromRGB(255, 255, 255)
+Directions.TextSize = 14.000
+Directions.TextWrapped = true
+Directions.TextYAlignment = Enum.TextYAlignment.Top
+table.insert(text1,Directions)
 
-A_Ninja.Name = "A_Ninja"
-A_Ninja.Parent = NormalTab
-A_Ninja.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Ninja.BorderSizePixel = 0
-A_Ninja.Position = UDim2.new(0, 0, 0.0597896464, 0)
-A_Ninja.Size = UDim2.new(0, 150, 0, 30)
-A_Ninja.Font = Enum.Font.SciFi
-A_Ninja.Text = "Ninja"
-A_Ninja.TextColor3 = Color3.new(1, 1, 1)
-A_Ninja.TextSize = 20
-A_Ninja.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=656117400"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=656118341"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=656121766"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=656118852"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=656117878"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=656114359"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=656115606"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+BindTo.Name = "BindTo"
+BindTo.Parent = background_2
+BindTo.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+BindTo.BorderSizePixel = 0
+BindTo.Position = UDim2.new(0, 10, 0, 95)
+BindTo.Size = UDim2.new(0, 115, 0, 50)
+BindTo.ZIndex = 10
+BindTo.Font = Enum.Font.SourceSans
+BindTo.Text = "Click to bind"
+BindTo.TextColor3 = Color3.fromRGB(255, 255, 255)
+BindTo.TextSize = 16.000
+table.insert(shade2,BindTo)
+table.insert(text1,BindTo)
 
-A_Pirate.Name = "A_Pirate"
-A_Pirate.Parent = NormalTab
-A_Pirate.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Pirate.BorderSizePixel = 0
-A_Pirate.Position = UDim2.new(-0.000333309174, 0, 0.874588311, 0)
-A_Pirate.Size = UDim2.new(0, 150, 0, 30)
-A_Pirate.Font = Enum.Font.SciFi
-A_Pirate.Text = "Pirate"
-A_Pirate.TextColor3 = Color3.new(1, 1, 1)
-A_Pirate.TextSize = 20
-A_Pirate.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=750781874"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=750782770"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=750785693"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=750783738"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=750782230"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=750779899"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=750780242"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+TriggerLabel.Name = "TriggerLabel"
+TriggerLabel.Parent = background_2
+TriggerLabel.BackgroundTransparency = 1
+TriggerLabel.Position = UDim2.new(0, 10, 0, 155)
+TriggerLabel.Size = UDim2.new(0, 45, 0, 20)
+TriggerLabel.ZIndex = 10
+TriggerLabel.Font = Enum.Font.SourceSans
+TriggerLabel.Text = "Trigger:"
+TriggerLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TriggerLabel.TextSize = 14.000
+TriggerLabel.TextXAlignment = Enum.TextXAlignment.Left
+table.insert(text1,TriggerLabel)
 
-A_Robot.Name = "A_Robot"
-A_Robot.Parent = NormalTab
-A_Robot.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Robot.BorderSizePixel = 0
-A_Robot.Position = UDim2.new(0, 0, 0.291479498, 0)
-A_Robot.Size = UDim2.new(0, 150, 0, 30)
-A_Robot.Font = Enum.Font.SciFi
-A_Robot.Text = "Robot"
-A_Robot.TextColor3 = Color3.new(1, 1, 1)
-A_Robot.TextSize = 20
-A_Robot.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616088211"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616089559"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616095330"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616091570"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616090535"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616086039"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616087089"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+BindTriggerSelect.Name = "BindTo"
+BindTriggerSelect.Parent = background_2
+BindTriggerSelect.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+BindTriggerSelect.BorderSizePixel = 0
+BindTriggerSelect.Position = UDim2.new(0, 60, 0, 155)
+BindTriggerSelect.Size = UDim2.new(0, 65, 0, 20)
+BindTriggerSelect.ZIndex = 10
+BindTriggerSelect.Font = Enum.Font.SourceSans
+BindTriggerSelect.Text = "KeyDown"
+BindTriggerSelect.TextColor3 = Color3.fromRGB(255, 255, 255)
+BindTriggerSelect.TextSize = 16.000
+table.insert(shade2,BindTriggerSelect)
+table.insert(text1,BindTriggerSelect)
 
-A_Stylish.Name = "A_Stylish"
-A_Stylish.Parent = NormalTab
-A_Stylish.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Stylish.BorderSizePixel = 0
-A_Stylish.Position = UDim2.new(0, 0, 0.232816339, 0)
-A_Stylish.Size = UDim2.new(0, 150, 0, 30)
-A_Stylish.Font = Enum.Font.SciFi
-A_Stylish.Text = "Stylish"
-A_Stylish.TextColor3 = Color3.new(1, 1, 1)
-A_Stylish.TextSize = 20
-A_Stylish.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616136790"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616138447"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616146177"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616140816"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616139451"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616133594"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616134815"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Add_2.Name = "Add"
+Add_2.Parent = background_2
+Add_2.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Add_2.BorderSizePixel = 0
+Add_2.Position = UDim2.new(0, 310, 0, 35)
+Add_2.Size = UDim2.new(0, 40, 0, 20)
+Add_2.ZIndex = 10
+Add_2.Font = Enum.Font.SourceSans
+Add_2.Text = "Add"
+Add_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Add_2.TextSize = 14.000
+table.insert(shade2,Add_2)
+table.insert(text1,Add_2)
 
-A_SuperHero.Name = "A_SuperHero"
-A_SuperHero.Parent = NormalTab
-A_SuperHero.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_SuperHero.BorderSizePixel = 0
-A_SuperHero.Position = UDim2.new(0, 0, 0.464919746, 0)
-A_SuperHero.Size = UDim2.new(0, 150, 0, 30)
-A_SuperHero.Font = Enum.Font.SciFi
-A_SuperHero.Text = "SuperHero"
-A_SuperHero.TextColor3 = Color3.new(1, 1, 1)
-A_SuperHero.TextSize = 20
-A_SuperHero.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616111295"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616113536"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616122287"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616117076"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616115533"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616104706"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616108001"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Toggles.Name = "Toggles"
+Toggles.Parent = background_2
+Toggles.BackgroundTransparency = 1
+Toggles.BorderSizePixel = 0
+Toggles.Position = UDim2.new(0, 150, 0, 125)
+Toggles.Size = UDim2.new(0, 200, 0, 50)
+Toggles.ZIndex = 10
+Toggles.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Toggles.CanvasSize = UDim2.new(0, 0, 0, 50)
+Toggles.ScrollBarThickness = 8
+Toggles.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Toggles.VerticalScrollBarInset = Enum.ScrollBarInset.Always
+table.insert(scroll,Toggles)
 
-A_Toy.Name = "A_Toy"
-A_Toy.Parent = NormalTab
-A_Toy.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Toy.BorderSizePixel = 0
-A_Toy.Position = UDim2.new(6.51925802e-09, 0, 0.756028414, 0)
-A_Toy.Size = UDim2.new(0, 150, 0, 30)
-A_Toy.Font = Enum.Font.SciFi
-A_Toy.Text = "Toy"
-A_Toy.TextColor3 = Color3.new(1, 1, 1)
-A_Toy.TextSize = 20
-A_Toy.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=782841498"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=782845736"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=782843345"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=782842708"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=782847020"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=782843869"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=782846423"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+ClickTP.Name = "Click TP (Hold Key & Click)"
+ClickTP.Parent = Toggles
+ClickTP.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+ClickTP.BorderSizePixel = 0
+ClickTP.Size = UDim2.new(0, 200, 0, 20)
+ClickTP.ZIndex = 10
+ClickTP.Font = Enum.Font.SourceSans
+ClickTP.Text = "    Click TP (Hold Key & Click)"
+ClickTP.TextColor3 = Color3.fromRGB(255, 255, 255)
+ClickTP.TextSize = 14.000
+ClickTP.TextXAlignment = Enum.TextXAlignment.Left
+table.insert(shade2,ClickTP)
+table.insert(text1,ClickTP)
 
-A_Vampire.Name = "A_Vampire"
-A_Vampire.Parent = NormalTab
-A_Vampire.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Vampire.BorderSizePixel = 0
-A_Vampire.Position = UDim2.new(0, 0, 0.934021354, 0)
-A_Vampire.Size = UDim2.new(0, 150, 0, 30)
-A_Vampire.Font = Enum.Font.SciFi
-A_Vampire.Text = "Vampire"
-A_Vampire.TextColor3 = Color3.new(1, 1, 1)
-A_Vampire.TextSize = 20
-A_Vampire.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083445855"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083450166"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1083473930"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1083462077"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083455352"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083439238"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1083443587"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Select.Name = "Select"
+Select.Parent = ClickTP
+Select.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+Select.BorderSizePixel = 0
+Select.Position = UDim2.new(0, 160, 0, 0)
+Select.Size = UDim2.new(0, 40, 0, 20)
+Select.ZIndex = 10
+Select.Font = Enum.Font.SourceSans
+Select.Text = "Add"
+Select.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select.TextSize = 14.000
+table.insert(shade3,Select)
+table.insert(text2,Select)
 
-A_Werewolf.Name = "A_Werewolf"
-A_Werewolf.Parent = NormalTab
-A_Werewolf.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Werewolf.BorderSizePixel = 0
-A_Werewolf.Position = UDim2.new(-0.000333368778, 0, 0.174509808, 0)
-A_Werewolf.Size = UDim2.new(0, 150, 0, 30)
-A_Werewolf.Font = Enum.Font.SciFi
-A_Werewolf.Text = "Werewolf"
-A_Werewolf.TextColor3 = Color3.new(1, 1, 1)
-A_Werewolf.TextSize = 20
-A_Werewolf.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1083195517"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1083214717"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1083178339"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1083216690"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1083218792"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1083182000"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1083189019"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+ClickDelete.Name = "Click Delete (Hold Key & Click)"
+ClickDelete.Parent = Toggles
+ClickDelete.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+ClickDelete.BorderSizePixel = 0
+ClickDelete.Position = UDim2.new(0, 0, 0, 25)
+ClickDelete.Size = UDim2.new(0, 200, 0, 20)
+ClickDelete.ZIndex = 10
+ClickDelete.Font = Enum.Font.SourceSans
+ClickDelete.Text = "    Click Delete (Hold Key & Click)"
+ClickDelete.TextColor3 = Color3.fromRGB(255, 255, 255)
+ClickDelete.TextSize = 14.000
+ClickDelete.TextXAlignment = Enum.TextXAlignment.Left
+table.insert(shade2,ClickDelete)
+table.insert(text1,ClickDelete)
 
-A_Zombie.Name = "A_Zombie"
-A_Zombie.Parent = NormalTab
-A_Zombie.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Zombie.BorderSizePixel = 0
-A_Zombie.Position = UDim2.new(-1.1920929e-07, 0, 0.582352936, 0)
-A_Zombie.Size = UDim2.new(0, 150, 0, 30)
-A_Zombie.Font = Enum.Font.SciFi
-A_Zombie.Text = "Zombie"
-A_Zombie.TextColor3 = Color3.new(1, 1, 1)
-A_Zombie.TextSize = 20
-A_Zombie.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616158929"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616160636"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616168032"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616163682"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616161997"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=616156119"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616157476"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Select_2.Name = "Select"
+Select_2.Parent = ClickDelete
+Select_2.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+Select_2.BorderSizePixel = 0
+Select_2.Position = UDim2.new(0, 160, 0, 0)
+Select_2.Size = UDim2.new(0, 40, 0, 20)
+Select_2.ZIndex = 10
+Select_2.Font = Enum.Font.SourceSans
+Select_2.Text = "Add"
+Select_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Select_2.TextSize = 14.000
+table.insert(shade3,Select_2)
+table.insert(text2,Select_2)
 
-Category.Name = "Category"
-Category.Parent = NormalTab
-Category.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
-Category.BorderSizePixel = 0
-Category.Size = UDim2.new(0, 150, 0, 30)
-Category.Text = "Normal"
-Category.TextColor3 = Color3.new(0, 0.835294, 1)
-Category.TextSize = 14 
+Cmdbar_2.Name = "Cmdbar_2"
+Cmdbar_2.Parent = background_2
+Cmdbar_2.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Cmdbar_2.BorderSizePixel = 0
+Cmdbar_2.Position = UDim2.new(0, 150, 0, 35)
+Cmdbar_2.Size = UDim2.new(0, 150, 0, 20)
+Cmdbar_2.ZIndex = 10
+Cmdbar_2.Font = Enum.Font.SourceSans
+Cmdbar_2.PlaceholderText = "Command"
+Cmdbar_2.Text = ""
+Cmdbar_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Cmdbar_2.TextSize = 14.000
+Cmdbar_2.TextXAlignment = Enum.TextXAlignment.Left
 
-SpecialTab.Name = "SpecialTab"
-SpecialTab.Parent = Main
-SpecialTab.BackgroundColor3 = Color3.new(0.278431, 0.278431, 0.278431)
-SpecialTab.BackgroundTransparency = 1
-SpecialTab.BorderSizePixel = 0
-SpecialTab.Position = UDim2.new(0, 0, 0.119999997, 0)
-SpecialTab.Size = UDim2.new(0, 150, 0, 230) 
+Cmdbar_3.Name = "Cmdbar_3"
+Cmdbar_3.Parent = background_2
+Cmdbar_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Cmdbar_3.BorderSizePixel = 0
+Cmdbar_3.Position = UDim2.new(0, 150, 0, 60)
+Cmdbar_3.Size = UDim2.new(0, 150, 0, 20)
+Cmdbar_3.ZIndex = 10
+Cmdbar_3.Font = Enum.Font.SourceSans
+Cmdbar_3.PlaceholderText = "Command 2"
+Cmdbar_3.Text = ""
+Cmdbar_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Cmdbar_3.TextSize = 14.000
+Cmdbar_3.TextXAlignment = Enum.TextXAlignment.Left
 
-A_Patrol.Name = "A_Patrol"
-A_Patrol.Parent = SpecialTab
-A_Patrol.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Patrol.BorderSizePixel = 0
-A_Patrol.Position = UDim2.new(0, 0, 0.259960413, 0)
-A_Patrol.Size = UDim2.new(0, 150, 0, 30)
-A_Patrol.Font = Enum.Font.SciFi
-A_Patrol.Text = "Patrol"
-A_Patrol.TextColor3 = Color3.new(1, 1, 1)
-A_Patrol.TextSize = 20
-A_Patrol.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1149612882"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1150842221"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1151231493"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1150967949"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1148811837"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1148811837"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1148863382"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+CreateToggle.Name = "CreateToggle"
+CreateToggle.Parent = background_2
+CreateToggle.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+CreateToggle.BackgroundTransparency = 1
+CreateToggle.BorderSizePixel = 0
+CreateToggle.Position = UDim2.new(0, 152, 0, 10)
+CreateToggle.Size = UDim2.new(0, 198, 0, 20)
+CreateToggle.ZIndex = 10
+CreateToggle.Font = Enum.Font.SourceSans
+CreateToggle.Text = "Create Toggle"
+CreateToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+CreateToggle.TextSize = 14.000
+CreateToggle.TextXAlignment = Enum.TextXAlignment.Left
+table.insert(text1,CreateToggle)
 
-A_Confident.Name = "A_Confident"
-A_Confident.Parent = SpecialTab
-A_Confident.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Confident.BorderSizePixel = 0
-A_Confident.Position = UDim2.new(0, 0, 0.389248967, 0)
-A_Confident.Size = UDim2.new(0, 150, 0, 30)
-A_Confident.Font = Enum.Font.SciFi
-A_Confident.Text = "Confident"
-A_Confident.TextColor3 = Color3.new(1, 1, 1)
-A_Confident.TextSize = 20
-A_Confident.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1069977950"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1069987858"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1070017263"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1070001516"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1069984524"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1069946257"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1069973677"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Button_2.Name = "Button"
+Button_2.Parent = CreateToggle
+Button_2.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+Button_2.BorderSizePixel = 0
+Button_2.Position = UDim2.new(1, -20, 0, 0)
+Button_2.Size = UDim2.new(0, 20, 0, 20)
+Button_2.ZIndex = 10
+table.insert(shade3,Button_2)
 
-A_Popstar.Name = "A_Popstar"
-A_Popstar.Parent = SpecialTab
-A_Popstar.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Popstar.BorderSizePixel = 0
-A_Popstar.Position = UDim2.new(0, 0, 0.130671918, 0)
-A_Popstar.Size = UDim2.new(0, 150, 0, 30)
-A_Popstar.Font = Enum.Font.SciFi
-A_Popstar.Text = "Popstar"
-A_Popstar.TextColor3 = Color3.new(1, 1, 1)
-A_Popstar.TextSize = 20
-A_Popstar.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1212900985"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1150842221"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1212980338"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1212980348"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1212954642"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1213044953"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1212900995"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+On_2.Name = "On"
+On_2.Parent = Button_2
+On_2.BackgroundColor3 = Color3.fromRGB(150, 150, 151)
+On_2.BackgroundTransparency = 1
+On_2.BorderSizePixel = 0
+On_2.Position = UDim2.new(0, 2, 0, 2)
+On_2.Size = UDim2.new(0, 16, 0, 16)
+On_2.ZIndex = 10
+On_2.Font = Enum.Font.SourceSans
+On_2.Text = ""
+On_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+On_2.TextSize = 14.000
 
-A_Cowboy.Name = "A_Cowboy"
-A_Cowboy.Parent = SpecialTab
-A_Cowboy.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Cowboy.BorderSizePixel = 0
-A_Cowboy.Position = UDim2.new(0, 0, 0.772964239, 0)
-A_Cowboy.Size = UDim2.new(0, 150, 0, 30)
-A_Cowboy.Font = Enum.Font.SciFi
-A_Cowboy.Text = "Cowboy"
-A_Cowboy.TextColor3 = Color3.new(1, 1, 1)
-A_Cowboy.TextSize = 20
-A_Cowboy.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1014390418"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1014398616"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1014421541"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1014401683"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1014394726"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1014380606"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1014384571"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+shadow_2.Name = "shadow"
+shadow_2.Parent = KeybindEditor
+shadow_2.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+shadow_2.BorderSizePixel = 0
+shadow_2.Size = UDim2.new(0, 360, 0, 20)
+shadow_2.ZIndex = 10
+table.insert(shade2,shadow_2)
 
-A_Ghost.Name = "A_Ghost"
-A_Ghost.Parent = SpecialTab
-A_Ghost.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Ghost.BorderSizePixel = 0
-A_Ghost.Position = UDim2.new(0, 0, 0.900632322, 0)
-A_Ghost.Size = UDim2.new(0, 150, 0, 30)
-A_Ghost.Font = Enum.Font.SciFi
-A_Ghost.Text = "Ghost"
-A_Ghost.TextColor3 = Color3.new(1, 1, 1)
-A_Ghost.TextSize = 20
-A_Ghost.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=616006778"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=616008087"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=616013216"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=616008936"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=616005863"
-Animate.swimidle.SwimIdle.AnimationId = "http://www.roblox.com/asset/?id=616012453"
-Animate.swim.Swim.AnimationId = "http://www.roblox.com/asset/?id=616011509"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+PopupText_2.Name = "PopupText_2"
+PopupText_2.Parent = shadow_2
+PopupText_2.BackgroundTransparency = 1
+PopupText_2.Size = UDim2.new(1, 0, 0.949999988, 0)
+PopupText_2.ZIndex = 10
+PopupText_2.Font = Enum.Font.SourceSans
+PopupText_2.Text = "Set Keybinds"
+PopupText_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+PopupText_2.TextSize = 14.000
+PopupText_2.TextWrapped = true
+table.insert(text1,PopupText_2)
 
-A_Sneaky.Name = "A_Sneaky"
-A_Sneaky.Parent = SpecialTab
-A_Sneaky.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Sneaky.BorderSizePixel = 0
-A_Sneaky.Position = UDim2.new(0, 0, 0.517628431, 0)
-A_Sneaky.Size = UDim2.new(0, 150, 0, 30)
-A_Sneaky.Font = Enum.Font.SciFi
-A_Sneaky.Text = "Sneaky"
-A_Sneaky.TextColor3 = Color3.new(1, 1, 1)
-A_Sneaky.TextSize = 20
-A_Sneaky.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=1132473842"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=1132477671"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=1132510133"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=1132494274"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=1132489853"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=1132461372"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=1132469004"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Exit_2.Name = "Exit_2"
+Exit_2.Parent = shadow_2
+Exit_2.BackgroundTransparency = 1
+Exit_2.Position = UDim2.new(1, -20, 0, 0)
+Exit_2.Size = UDim2.new(0, 20, 0, 20)
+Exit_2.ZIndex = 10
+Exit_2.Text = ""
 
-A_Princess.Name = "A_Princess"
-A_Princess.Parent = SpecialTab
-A_Princess.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Princess.BorderSizePixel = 0
-A_Princess.Position = UDim2.new(0, 0, 0.645296335, 0)
-A_Princess.Size = UDim2.new(0, 150, 0, 30)
-A_Princess.Font = Enum.Font.SciFi
-A_Princess.Text = "Princess"
-A_Princess.TextColor3 = Color3.new(1, 1, 1)
-A_Princess.TextSize = 20
-A_Princess.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=941003647"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=941013098"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=941028902"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=941015281"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=941008832"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=940996062"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=941000007"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+ExitImage_2.Parent = Exit_2
+ExitImage_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ExitImage_2.BackgroundTransparency = 1
+ExitImage_2.Position = UDim2.new(0, 5, 0, 5)
+ExitImage_2.Size = UDim2.new(0, 10, 0, 10)
+ExitImage_2.ZIndex = 10
+ExitImage_2.Image = "rbxassetid://5054663650"
 
-Category_2.Name = "Category"
-Category_2.Parent = SpecialTab
-Category_2.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
-Category_2.BorderSizePixel = 0
-Category_2.Size = UDim2.new(0, 150, 0, 30)
-Category_2.Text = "Special"
-Category_2.TextColor3 = Color3.new(0, 0.835294, 1)
-Category_2.TextSize = 14 
+PositionsFrame.Name = "PositionsFrame"
+PositionsFrame.Parent = Settings
+PositionsFrame.Active = true
+PositionsFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+PositionsFrame.BorderSizePixel = 0
+PositionsFrame.Size = UDim2.new(0, 250, 0, 175)
+PositionsFrame.Position = UDim2.new(0, 0, 0, 175)
+PositionsFrame.ZIndex = 10
+table.insert(shade1,PositionsFrame)
 
-OtherTab.Name = "OtherTab"
-OtherTab.Parent = Main
-OtherTab.BackgroundColor3 = Color3.new(0.278431, 0.278431, 0.278431)
-OtherTab.BackgroundTransparency = 1
-OtherTab.BorderSizePixel = 0
-OtherTab.Position = UDim2.new(0, 0, 1.06800008, 0)
-OtherTab.Size = UDim2.new(0, 150, 0, 220) 
+Close_3.Name = "Close"
+Close_3.Parent = PositionsFrame
+Close_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Close_3.BorderSizePixel = 0
+Close_3.Position = UDim2.new(0, 205, 0, 150)
+Close_3.Size = UDim2.new(0, 40, 0, 20)
+Close_3.Font = Enum.Font.SourceSans
+Close_3.TextSize = 14
+Close_3.Text = "Close"
+Close_3.TextColor3 = Color3.new(1, 1, 1)
+Close_3.ZIndex = 10
+table.insert(shade2,Close_3)
+table.insert(text1,Close_3)
 
-Category_3.Name = "Category"
-Category_3.Parent = OtherTab
-Category_3.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
-Category_3.BorderSizePixel = 0
-Category_3.Size = UDim2.new(0, 150, 0, 30)
-Category_3.Text = "Other"
-Category_3.TextColor3 = Color3.new(0, 0.835294, 1)
-Category_3.TextSize = 14 
+Delete_5.Name = "Delete"
+Delete_5.Parent = PositionsFrame
+Delete_5.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Delete_5.BorderSizePixel = 0
+Delete_5.Position = UDim2.new(0, 50, 0, 150)
+Delete_5.Size = UDim2.new(0, 40, 0, 20)
+Delete_5.Font = Enum.Font.SourceSans
+Delete_5.TextSize = 14
+Delete_5.Text = "Clear"
+Delete_5.TextColor3 = Color3.new(1, 1, 1)
+Delete_5.ZIndex = 10
+table.insert(shade2,Delete_5)
+table.insert(text1,Delete_5)
 
-A_None.Name = "A_None"
-A_None.Parent = OtherTab
-A_None.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_None.BorderSizePixel = 0
-A_None.Position = UDim2.new(0, 0, 0.134545445, 0)
-A_None.Size = UDim2.new(0, 150, 0, 30)
-A_None.Font = Enum.Font.SciFi
-A_None.Text = "None"
-A_None.TextColor3 = Color3.new(1, 1, 1)
-A_None.TextSize = 20
-A_None.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=0"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=0"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=0"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=0"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=0"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=0"
-Animate.swimidle.SwimIdle.AnimationId = "http://www.roblox.com/asset/?id=0"
-Animate.swim.Swim.AnimationId = "http://www.roblox.com/asset/?id=0"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Part.Name = "PartGoto"
+Part.Parent = PositionsFrame
+Part.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Part.BorderSizePixel = 0
+Part.Position = UDim2.new(0, 5, 0, 150)
+Part.Size = UDim2.new(0, 40, 0, 20)
+Part.Font = Enum.Font.SourceSans
+Part.TextSize = 14
+Part.Text = "Part"
+Part.TextColor3 = Color3.new(1, 1, 1)
+Part.ZIndex = 10
+table.insert(shade2,Part)
+table.insert(text1,Part)
 
-A_Anthro.Name = "A_Anthro"
-A_Anthro.Parent = OtherTab
-A_Anthro.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-A_Anthro.BorderSizePixel = 0
-A_Anthro.Position = UDim2.new(0, 0, 0.269090891, 0)
-A_Anthro.Size = UDim2.new(0, 150, 0, 30)
-A_Anthro.Font = Enum.Font.SciFi
-A_Anthro.Text = "Anthro (Default)"
-A_Anthro.TextColor3 = Color3.new(1, 1, 1)
-A_Anthro.TextSize = 20
-A_Anthro.MouseButton1Click:Connect(function()
-Animate.idle.Animation1.AnimationId = "http://www.roblox.com/asset/?id=2510196951"
-Animate.idle.Animation2.AnimationId = "http://www.roblox.com/asset/?id=2510197257"
-Animate.walk.WalkAnim.AnimationId = "http://www.roblox.com/asset/?id=2510202577"
-Animate.run.RunAnim.AnimationId = "http://www.roblox.com/asset/?id=2510198475"
-Animate.jump.JumpAnim.AnimationId = "http://www.roblox.com/asset/?id=2510197830"
-Animate.climb.ClimbAnim.AnimationId = "http://www.roblox.com/asset/?id=2510192778"
-Animate.fall.FallAnim.AnimationId = "http://www.roblox.com/asset/?id=2510195892"
-game.Players.LocalPlayer.Character.Humanoid.Jump = true
-end) 
+Holder_4.Name = "Holder"
+Holder_4.Parent = PositionsFrame
+Holder_4.BackgroundTransparency = 1
+Holder_4.BorderSizePixel = 0
+Holder_4.Position = UDim2.new(0, 0, 0, 0)
+Holder_4.Selectable = false
+Holder_4.Size = UDim2.new(0, 250, 0, 145)
+Holder_4.ScrollBarImageColor3 = Color3.fromRGB(78,78,79)
+Holder_4.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_4.CanvasSize = UDim2.new(0, 0, 0, 0)
+Holder_4.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_4.ScrollBarThickness = 0
+Holder_4.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_4.VerticalScrollBarInset = 'Always'
+Holder_4.ZIndex = 10
 
-wait(1)
-Main:TweenPosition(UDim2.new(0.421999991, 0, 0.28400004, 0))
+Example_4.Name = "Example"
+Example_4.Parent = PositionsFrame
+Example_4.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Example_4.BorderSizePixel = 0
+Example_4.Size = UDim2.new(0, 10, 0, 20)
+Example_4.Visible = false
+Example_4.Position = UDim2.new(0, 0, 0, -5)
+Example_4.ZIndex = 10
+table.insert(shade2,Example_4)
 
-end)
+Text_5.Name = "Text"
+Text_5.Parent = Example_4
+Text_5.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Text_5.BorderSizePixel = 0
+Text_5.Position = UDim2.new(0, 10, 0, 0)
+Text_5.Size = UDim2.new(0, 240, 0, 20)
+Text_5.Font = Enum.Font.SourceSans
+Text_5.TextSize = 14
+Text_5.Text = "Position"
+Text_5.TextColor3 = Color3.new(1, 1, 1)
+Text_5.TextXAlignment = Enum.TextXAlignment.Left
+Text_5.ZIndex = 10
+table.insert(shade2,Text_5)
+table.insert(text1,Text_5)
 
-idk2.Parent = Frame
-idk2.BackgroundColor3 = Color3.fromRGB(125, 102, 255)
-idk2.Position = UDim2.new(0.34, 0, 0.4, 0)
-idk2.Size = UDim2.new(0, 94, 0, 35)
-idk2.Font = Enum.Font.Cartoon
-idk2.Text = "اختفاء"
-idk2.TextColor3 = Color3.fromRGB(0, 0, 0)
-idk2.TextSize = 20.00
-idk2.MouseButton1Down:connect(function()
- loadstring(game:HttpGet('https://pastebin.com/raw/AYtzGEPb'))()
-end)
+Delete_6.Name = "Delete"
+Delete_6.Parent = Text_5
+Delete_6.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+Delete_6.BorderSizePixel = 0
+Delete_6.Position = UDim2.new(0, 200, 0, 0)
+Delete_6.Size = UDim2.new(0, 40, 0, 20)
+Delete_6.Font = Enum.Font.SourceSans
+Delete_6.TextSize = 14
+Delete_6.Text = "Delete"
+Delete_6.TextColor3 = Color3.new(0, 0, 0)
+Delete_6.ZIndex = 10
+table.insert(shade3,Delete_6)
+table.insert(text2,Delete_6)
 
-idk3.Parent = Frame
-idk3.BackgroundColor3 = Color3.fromRGB(125, 102, 255)
-idk3.Position = UDim2.new(0.34, 0, 0.2, 0)
-idk3.Size = UDim2.new(0, 94, 0, 35)
-idk3.Font = Enum.Font.Cartoon
-idk3.Text = "كشف+ايمبوت"
-idk3.TextColor3 = Color3.fromRGB(0, 0, 0)
-idk3.TextSize = 20.000
-idk3.MouseButton1Down:connect(function()
- -- press v to use aimbot and press q to disable aimbot
-loadstring(game:HttpGet("https://pastebin.com/raw/uw2P2fbY", true))()
+TP.Name = "TP"
+TP.Parent = Text_5
+TP.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+TP.BorderSizePixel = 0
+TP.Position = UDim2.new(0, 155, 0, 0)
+TP.Size = UDim2.new(0, 40, 0, 20)
+TP.Font = Enum.Font.SourceSans
+TP.TextSize = 14
+TP.Text = "Goto"
+TP.TextColor3 = Color3.new(0, 0, 0)
+TP.ZIndex = 10
+table.insert(shade3,TP)
+table.insert(text2,TP)
 
-PLAYER  = game.Players.LocalPlayer
-MOUSE   = PLAYER:GetMouse()
-CC      = game.Workspace.CurrentCamera
+AliasesFrame.Name = "AliasesFrame"
+AliasesFrame.Parent = Settings
+AliasesFrame.Active = true
+AliasesFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+AliasesFrame.BorderSizePixel = 0
+AliasesFrame.Position = UDim2.new(0, 0, 0, 175)
+AliasesFrame.Size = UDim2.new(0, 250, 0, 175)
+AliasesFrame.ZIndex = 10
+table.insert(shade1,AliasesFrame)
 
-ENABLED      = false
-ESP_ENABLED  = false
+Close_2.Name = "Close"
+Close_2.Parent = AliasesFrame
+Close_2.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Close_2.BorderSizePixel = 0
+Close_2.Position = UDim2.new(0, 205, 0, 150)
+Close_2.Size = UDim2.new(0, 40, 0, 20)
+Close_2.Font = Enum.Font.SourceSans
+Close_2.TextSize = 14
+Close_2.Text = "Close"
+Close_2.TextColor3 = Color3.new(1, 1, 1)
+Close_2.ZIndex = 10
+table.insert(shade2,Close_2)
+table.insert(text1,Close_2)
 
-_G.FREE_FOR_ALL = false
+Delete_3.Name = "Delete"
+Delete_3.Parent = AliasesFrame
+Delete_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Delete_3.BorderSizePixel = 0
+Delete_3.Position = UDim2.new(0, 5, 0, 150)
+Delete_3.Size = UDim2.new(0, 40, 0, 20)
+Delete_3.Font = Enum.Font.SourceSans
+Delete_3.TextSize = 14
+Delete_3.Text = "Clear"
+Delete_3.TextColor3 = Color3.new(1, 1, 1)
+Delete_3.ZIndex = 10
+table.insert(shade2,Delete_3)
+table.insert(text1,Delete_3)
 
-_G.BIND        = 118
-_G.ESP_BIND    = 49
-_G.CHANGE_AIM  = 'q'
+Holder_3.Name = "Holder"
+Holder_3.Parent = AliasesFrame
+Holder_3.BackgroundTransparency = 1
+Holder_3.BorderSizePixel = 0
+Holder_3.Position = UDim2.new(0, 0, 0, 0)
+Holder_3.Size = UDim2.new(0, 250, 0, 145)
+Holder_3.ScrollBarImageColor3 = Color3.fromRGB(78,78,79)
+Holder_3.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_3.CanvasSize = UDim2.new(0, 0, 0, 0)
+Holder_3.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_3.ScrollBarThickness = 0
+Holder_3.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_3.VerticalScrollBarInset = 'Always'
+Holder_3.ZIndex = 10
 
-_G.AIM_AT = 'Head'
+Example_3.Name = "Example"
+Example_3.Parent = AliasesFrame
+Example_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Example_3.BorderSizePixel = 0
+Example_3.Size = UDim2.new(0, 10, 0, 20)
+Example_3.Visible = false
+Example_3.ZIndex = 10
+table.insert(shade2,Example_3)
 
-wait(1)
+Text_4.Name = "Text"
+Text_4.Parent = Example_3
+Text_4.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Text_4.BorderSizePixel = 0
+Text_4.Position = UDim2.new(0, 10, 0, 0)
+Text_4.Size = UDim2.new(0, 240, 0, 20)
+Text_4.Font = Enum.Font.SourceSans
+Text_4.TextSize = 14
+Text_4.Text = "honk"
+Text_4.TextColor3 = Color3.new(1, 1, 1)
+Text_4.TextXAlignment = Enum.TextXAlignment.Left
+Text_4.ZIndex = 10
+table.insert(shade2,Text_4)
+table.insert(text1,Text_4)
 
-function GetNearestPlayerToMouse()
-local PLAYERS      = {}
-local PLAYER_HOLD  = {}
-local DISTANCES    = {}
-for i, v in pairs(game.Players:GetPlayers()) do
-if v ~= PLAYER then
-table.insert(PLAYERS, v)
-end
-end
-for i, v in pairs(PLAYERS) do
-if _G.FREE_FOR_ALL == false then
-if v and (v.Character) ~= nil and v.TeamColor ~= PLAYER.TeamColor then
-local AIM = v.Character:FindFirstChild(_G.AIM_AT)
-if AIM ~= nil then
-local DISTANCE                 = (AIM.Position - game.Workspace.CurrentCamera.CoordinateFrame.p).magnitude
-local RAY                      = Ray.new(game.Workspace.CurrentCamera.CoordinateFrame.p, (MOUSE.Hit.p - CC.CoordinateFrame.p).unit * DISTANCE)
-local HIT,POS                  = game.Workspace:FindPartOnRay(RAY, game.Workspace)
-local DIFF                     = math.floor((POS - AIM.Position).magnitude)
-PLAYER_HOLD[v.Name .. i]       = {}
-PLAYER_HOLD[v.Name .. i].dist  = DISTANCE
-PLAYER_HOLD[v.Name .. i].plr   = v
-PLAYER_HOLD[v.Name .. i].diff  = DIFF
-table.insert(DISTANCES, DIFF)
-end
-end
-elseif _G.FREE_FOR_ALL == true then
-local AIM = v.Character:FindFirstChild(_G.AIM_AT)
-if AIM ~= nil then
-local DISTANCE                 = (AIM.Position - game.Workspace.CurrentCamera.CoordinateFrame.p).magnitude
-local RAY                      = Ray.new(game.Workspace.CurrentCamera.CoordinateFrame.p, (MOUSE.Hit.p - CC.CoordinateFrame.p).unit * DISTANCE)
-local HIT,POS                  = game.Workspace:FindPartOnRay(RAY, game.Workspace)
-local DIFF                     = math.floor((POS - AIM.Position).magnitude)
-PLAYER_HOLD[v.Name .. i]       = {}
-PLAYER_HOLD[v.Name .. i].dist  = DISTANCE
-PLAYER_HOLD[v.Name .. i].plr   = v
-PLAYER_HOLD[v.Name .. i].diff  = DIFF
-table.insert(DISTANCES, DIFF)
-end
-end
-end
+Delete_4.Name = "Delete"
+Delete_4.Parent = Text_4
+Delete_4.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+Delete_4.BorderSizePixel = 0
+Delete_4.Position = UDim2.new(0, 200, 0, 0)
+Delete_4.Size = UDim2.new(0, 40, 0, 20)
+Delete_4.Font = Enum.Font.SourceSans
+Delete_4.TextSize = 14
+Delete_4.Text = "Delete"
+Delete_4.TextColor3 = Color3.new(0, 0, 0)
+Delete_4.ZIndex = 10
+table.insert(shade3,Delete_4)
+table.insert(text2,Delete_4)
 
-if unpack(DISTANCES) == nil then
-return false
-end
+PluginsFrame.Name = "PluginsFrame"
+PluginsFrame.Parent = Settings
+PluginsFrame.Active = true
+PluginsFrame.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+PluginsFrame.BorderSizePixel = 0
+PluginsFrame.Position = UDim2.new(0, 0, 0, 175)
+PluginsFrame.Size = UDim2.new(0, 250, 0, 175)
+PluginsFrame.ZIndex = 10
+table.insert(shade1,PluginsFrame)
 
-local L_DISTANCE = math.floor(math.min(unpack(DISTANCES)))
-if L_DISTANCE > 20 then
-return false
-end
+Close_4.Name = "Close"
+Close_4.Parent = PluginsFrame
+Close_4.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Close_4.BorderSizePixel = 0
+Close_4.Position = UDim2.new(0, 205, 0, 150)
+Close_4.Size = UDim2.new(0, 40, 0, 20)
+Close_4.Font = Enum.Font.SourceSans
+Close_4.TextSize = 14
+Close_4.Text = "Close"
+Close_4.TextColor3 = Color3.new(1, 1, 1)
+Close_4.ZIndex = 10
+table.insert(shade2,Close_4)
+table.insert(text1,Close_4)
 
-for i, v in pairs(PLAYER_HOLD) do
-if v.diff == L_DISTANCE then
-return v.plr
-end
-end
-return false
-end
+Add_3.Name = "Add"
+Add_3.Parent = PluginsFrame
+Add_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Add_3.BorderSizePixel = 0
+Add_3.Position = UDim2.new(0, 5, 0, 150)
+Add_3.Size = UDim2.new(0, 40, 0, 20)
+Add_3.Font = Enum.Font.SourceSans
+Add_3.TextSize = 14
+Add_3.Text = "Add"
+Add_3.TextColor3 = Color3.new(1, 1, 1)
+Add_3.ZIndex = 10
+table.insert(shade2,Add_3)
+table.insert(text1,Add_3)
 
-GUI_MAIN                           = Instance.new('ScreenGui', game.CoreGui)
-GUI_TARGET                         = Instance.new('TextLabel', GUI_MAIN)
-GUI_AIM_AT                         = Instance.new('TextLabel', GUI_MAIN)
+Holder_5.Name = "Holder"
+Holder_5.Parent = PluginsFrame
+Holder_5.BackgroundTransparency = 1
+Holder_5.BorderSizePixel = 0
+Holder_5.Position = UDim2.new(0, 0, 0, 0)
+Holder_5.Selectable = false
+Holder_5.Size = UDim2.new(0, 250, 0, 145)
+Holder_5.ScrollBarImageColor3 = Color3.fromRGB(78,78,79)
+Holder_5.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_5.CanvasSize = UDim2.new(0, 0, 0, 0)
+Holder_5.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_5.ScrollBarThickness = 0
+Holder_5.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+Holder_5.VerticalScrollBarInset = 'Always'
+Holder_5.ZIndex = 10
 
-GUI_MAIN.Name                      = 'AIMBOT'
+Example_5.Name = "Example"
+Example_5.Parent = PluginsFrame
+Example_5.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Example_5.BorderSizePixel = 0
+Example_5.Size = UDim2.new(0, 10, 0, 20)
+Example_5.Visible = false
+Example_5.ZIndex = 10
+table.insert(shade2,Example_5)
 
-GUI_TARGET.Size                    = UDim2.new(0,200,0,30)
-GUI_TARGET.BackgroundTransparency  = 0.5
-GUI_TARGET.BackgroundColor         = BrickColor.new('Fossil')
-GUI_TARGET.BorderSizePixel         = 0
-GUI_TARGET.Position                = UDim2.new(0.5,-100,0,0)
-GUI_TARGET.Text                    = 'AIMBOT : OFF'
-GUI_TARGET.TextColor3              = Color3.new(1,1,1)
-GUI_TARGET.TextStrokeTransparency  = 1
-GUI_TARGET.TextWrapped             = true
-GUI_TARGET.FontSize                = 'Size24'
-GUI_TARGET.Font                    = 'SourceSansBold'
+Text_6.Name = "Text"
+Text_6.Parent = Example_5
+Text_6.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Text_6.BorderSizePixel = 0
+Text_6.Position = UDim2.new(0, 10, 0, 0)
+Text_6.Size = UDim2.new(0, 240, 0, 20)
+Text_6.Font = Enum.Font.SourceSans
+Text_6.TextSize = 14
+Text_6.Text = "F4 > Toggle Fly"
+Text_6.TextColor3 = Color3.new(1, 1, 1)
+Text_6.TextXAlignment = Enum.TextXAlignment.Left
+Text_6.ZIndex = 10
+table.insert(shade2,Text_6)
+table.insert(text1,Text_6)
 
-GUI_AIM_AT.Size                    = UDim2.new(0,200,0,20)
-GUI_AIM_AT.BackgroundTransparency  = 0.5
-GUI_AIM_AT.BackgroundColor         = BrickColor.new('Fossil')
-GUI_AIM_AT.BorderSizePixel         = 0
-GUI_AIM_AT.Position                = UDim2.new(0.5,-100,0,30)
-GUI_AIM_AT.Text                    = 'AIMING : HEAD'
-GUI_AIM_AT.TextColor3              = Color3.new(1,1,1)
-GUI_AIM_AT.TextStrokeTransparency  = 1
-GUI_AIM_AT.TextWrapped             = true
-GUI_AIM_AT.FontSize                = 'Size18'
-GUI_AIM_AT.Font                    = 'SourceSansBold'
+Delete_7.Name = "Delete"
+Delete_7.Parent = Text_6
+Delete_7.BackgroundColor3 = Color3.fromRGB(78, 78, 79)
+Delete_7.BorderSizePixel = 0
+Delete_7.Position = UDim2.new(0, 200, 0, 0)
+Delete_7.Size = UDim2.new(0, 40, 0, 20)
+Delete_7.Font = Enum.Font.SourceSans
+Delete_7.TextSize = 14
+Delete_7.Text = "Delete"
+Delete_7.TextColor3 = Color3.new(0, 0, 0)
+Delete_7.ZIndex = 10
+table.insert(shade3,Delete_7)
+table.insert(text2,Delete_7)
 
-local TRACK = false
+PluginEditor.Name = randomString()
+PluginEditor.Parent = PARENT
+PluginEditor.BorderSizePixel = 0
+PluginEditor.Active = true
+PluginEditor.BackgroundTransparency = 1
+PluginEditor.Position = UDim2.new(0.5, -180, 0, -500)
+PluginEditor.Size = UDim2.new(0, 360, 0, 20)
+PluginEditor.ZIndex = 10
 
-function CREATE(BASE, TEAM)
-local ESP_MAIN                   = Instance.new('BillboardGui', PLAYER.PlayerGui)
-local ESP_DOT                    = Instance.new('Frame', ESP_MAIN)
-local ESP_NAME                   = Instance.new('TextLabel', ESP_MAIN)
+background_3.Name = "background"
+background_3.Parent = PluginEditor
+background_3.Active = true
+background_3.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+background_3.BorderSizePixel = 0
+background_3.Position = UDim2.new(0, 0, 0, 20)
+background_3.Size = UDim2.new(0, 360, 0, 160)
+background_3.ZIndex = 10
+table.insert(shade1,background_3)
 
-ESP_MAIN.Name                    = 'ESP'
-ESP_MAIN.Adornee                 = BASE
-ESP_MAIN.AlwaysOnTop             = true
-ESP_MAIN.ExtentsOffset           = Vector3.new(0, 1, 0)
-ESP_MAIN.Size                    = UDim2.new(0, 5, 0, 5)
+Dark_2.Name = "Dark"
+Dark_2.Parent = background_3
+Dark_2.Active = true
+Dark_2.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+Dark_2.BorderSizePixel = 0
+Dark_2.Position = UDim2.new(0, 222, 0, 0)
+Dark_2.Size = UDim2.new(0, 2, 0, 160)
+Dark_2.ZIndex = 10
+table.insert(shade2,Dark_2)
 
-ESP_DOT.Name                     = 'DOT'
-ESP_DOT.BackgroundColor          = BrickColor.new('Bright red')
-ESP_DOT.BackgroundTransparency   = 0.3
-ESP_DOT.BorderSizePixel          = 0
-ESP_DOT.Position                 = UDim2.new(-0.5, 0, -0.5, 0)
-ESP_DOT.Size                     = UDim2.new(2, 0, 2, 0)
-ESP_DOT.Visible                  = true
-ESP_DOT.ZIndex                   = 10
+Img.Name = "Img"
+Img.Parent = background_3
+Img.BackgroundTransparency = 1
+Img.Position = UDim2.new(0, 242, 0, 3)
+Img.Size = UDim2.new(0, 100, 0, 95)
+Img.Image = "rbxassetid://4113050383"
+Img.ZIndex = 10
 
-ESP_NAME.Name                    = 'NAME'
-ESP_NAME.BackgroundColor3        = Color3.new(255, 255, 255)
-ESP_NAME.BackgroundTransparency  = 1
-ESP_NAME.BorderSizePixel         = 0
-ESP_NAME.Position                = UDim2.new(0, 0, 0, -40)
-ESP_NAME.Size                    = UD
+AddPlugin.Name = "AddPlugin"
+AddPlugin.Parent = background_3
+AddPlugin.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+AddPlugin.BorderSizePixel = 0
+AddPlugin.Position = UDim2.new(0, 235, 0, 100)
+AddPlugin.Size = UDim2.new(0, 115, 0, 50)
+AddPlugin.Font = Enum.Font.SourceSans
+AddPlugin.TextSize = 14
+AddPlugin.Text = "Add Plugin"
+AddPlugin.TextColor3 = Color3.new(1, 1, 1)
+AddPlugin.ZIndex = 10
+table.insert(shade2,AddPlugin)
+table.insert(text1,AddPlugin)
+
+FileName.Name = "FileName"
+FileName.Parent = background_3
+FileName.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+FileName.BorderSizePixel = 0
+FileName.Position = UDim2.new(0.028, 0, 0.625, 0)
+FileName.Size = UDim2.new(0, 200, 0, 50)
+FileName.Font = Enum.Font.SourceSans
+FileName.TextSize = 14
+FileName.Text = "Plugin File Name"
+FileName.TextColor3 = Color3.new(1, 1, 1)
+FileName.ZIndex = 10
+table.insert(shade2,FileName)
+table.insert(text1,FileName)
+
+About.Name = "About"
+About.Parent = background_3
+About.BackgroundTransparency = 1
+About.BorderSizePixel = 0
+About.Position = UDim2.new(0, 17, 0, 10)
+About.Size = UDim2.new(0, 187, 0, 49)
+About.Font = Enum.Font.SourceSans
+About.TextSize = 14
+About.Text = "Plugins are .iy files and should be located in the 'workspace' folder of your exploit."
+About.TextColor3 = Color3.fromRGB(255, 255, 255)
+About.TextWrapped = true
+About.TextYAlignment = Enum.TextYAlignment.Top
+About.ZIndex = 10
+table.insert(text1,About)
+
+Directions_2.Name = "Directions"
+Directions_2.Parent = background_3
+Directions_2.BackgroundTransparency = 1
+Directions_2.BorderSizePixel = 0
+Directions_2.Position = UDim2.new(0, 17, 0, 60)
+Directions_2.Size = UDim2.new(0, 187, 0, 49)
+Directions_2.Font = Enum.Font.SourceSans
+Directions_2.TextSize = 14
+Directions_2.Text = "Type the name of the plugin file you want to add below."
+Directions_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Directions_2.TextWrapped = true
+Directions_2.TextYAlignment = Enum.TextYAlignment.Top
+Directions_2.ZIndex = 10
+table.insert(text1,Directions_2)
+
+shadow_3.Name = "shadow"
+shadow_3.Parent = PluginEditor
+shadow_3.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+shadow_3.BorderSizePixel = 0
+shadow_3.Size = UDim2.new(0, 360, 0, 20)
+shadow_3.ZIndex = 10
+table.insert(shade2,shadow_3)
+
+PopupText_3.Name = "PopupText"
+PopupText_3.Parent = shadow_3
+PopupText_3.BackgroundTransparency = 1
+PopupText_3.Size = UDim2.new(1, 0, 0.95, 0)
+PopupText_3.ZIndex = 10
+PopupText_3.Font = Enum.Font.SourceSans
+PopupText_3.TextSize = 14
+PopupText_3.Text = "Add Plugins"
+PopupText_3.TextColor3 = Color3.new(1, 1, 1)
+PopupText_3.TextWrapped = true
+table.insert(text1,PopupText_3)
+
+Exit_3.Name = "Exit"
+Exit_3.Parent = shadow_3
+Exit_3.BackgroundTransparency = 1
+Exit_3.Position = UDim2.new(1, -20, 0, 0)
+Exit_3.Size = UDim2.new(0, 20, 0, 20)
+Exit_3.Text = ""
+Exit_3.ZIndex = 10
+
+ExitImage_3.Parent = Exit_3
+ExitImage_3.BackgroundColor3 = Color3.new(1, 1, 1)
+ExitImage_3.BackgroundTransparency = 1
+ExitImage_3.Position = UDim2.new(0, 5, 0, 5)
+ExitImage_3.Size = UDim2.new(0, 10, 0, 10)
+ExitImage_3.Image = "rbxassetid://5054663650"
+ExitImage_3.ZIndex = 10
+
+AliasHint.Name = "AliasHint"
+AliasHint.Parent = AliasesFrame
+AliasHint.BackgroundTransparency = 1
+AliasHint.BorderSizePixel = 0
+AliasHint.Position = UDim2.new(0, 25, 0, 40)
+AliasHint.Size = UDim2.new(0, 200, 0, 50)
+AliasHint.Font = Enum.Font.SourceSansItalic
+AliasHint.TextSize = 16
+AliasHint.Text = "Add aliases by using the 'addalias' command"
+AliasHint.TextColor3 = Color3.new(1, 1, 1)
+AliasHint.TextStrokeColor3 = Color3.new(1, 1, 1)
+AliasHint.TextWrapped = true
+AliasHint.ZIndex = 10
+table.insert(text1,AliasHint)
+
+PluginsHint.Name = "PluginsHint"
+PluginsHint.Parent = PluginsFrame
+PluginsHint.BackgroundTransparency = 1
+PluginsHint.BorderSizePixel = 0
+PluginsHint.Position = UDim2.new(0, 25, 0, 40)
+PluginsHint.Size = UDim2.new(0, 200, 0, 50)
+PluginsHint.Font = Enum.Font.SourceSansItalic
+PluginsHint.TextSize = 16
+PluginsHint.Text = "Download plugins from the IY Discord (discord.gg/78ZuWSq)"
+PluginsHint.TextColor3 = Color3.new(1, 1, 1)
+PluginsHint.TextStrokeColor3 = Color3.new(1, 1, 1)
+PluginsHint.TextWrapped = true
+PluginsHint.ZIndex = 10
+table.insert(text1,PluginsHint)
+
+PositionsHint.Name = "PositionsHint"
+PositionsHint.Parent = PositionsFrame
+PositionsHint.BackgroundTransparency = 1
+PositionsHint.BorderSizePixel = 0
+PositionsHint.Position = UDim2.new(0, 25, 0, 40)
+PositionsHint.Size = UDim2.new(0, 200, 0, 70)
+PositionsHint.Font = Enum.Font.SourceSansItalic
+PositionsHint.TextSize = 16
+PositionsHint.Text = "Use the 'swp' or 'setwaypoint' command to add a position using your character (NOTE: Part teleports will not save)"
+PositionsHint.TextColor3 = Color3.new(1, 1, 1)
+PositionsHint.TextStrokeColor3 = Color3.new(1, 1, 1)
+PositionsHint.TextWrapped = true
+PositionsHint.ZIndex = 10
+table.insert(text1,PositionsHint)
+
+ToPartFrame.Name = randomString()
+ToPartFrame.Parent = PARENT
+ToPartFrame.Active = true
+ToPartFrame.BackgroundTransparency = 1
+ToPartFrame.Position = UDim2.new(0.5, -180, 0, -500)
+ToPartFrame.Size = UDim2.new(0, 360, 0, 20)
+ToPartFrame.ZIndex = 10
+
+background_4.Name = "background"
+background_4.Parent = ToPartFrame
+background_4.Active = true
+background_4.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+background_4.BorderSizePixel = 0
+background_4.Position = UDim2.new(0, 0, 0, 20)
+background_4.Size = UDim2.new(0, 360, 0, 117)
+background_4.ZIndex = 10
+table.insert(shade1,background_4)
+
+ChoosePart.Name = "ChoosePart"
+ChoosePart.Parent = background_4
+ChoosePart.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+ChoosePart.BorderSizePixel = 0
+ChoosePart.Position = UDim2.new(0, 100, 0, 55)
+ChoosePart.Size = UDim2.new(0, 75, 0, 30)
+ChoosePart.Font = Enum.Font.SourceSans
+ChoosePart.TextSize = 14
+ChoosePart.Text = "Select Part"
+ChoosePart.TextColor3 = Color3.new(1, 1, 1)
+ChoosePart.ZIndex = 10
+table.insert(shade2,ChoosePart)
+table.insert(text1,ChoosePart)
+
+CopyPath.Name = "CopyPath"
+CopyPath.Parent = background_4
+CopyPath.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+CopyPath.BorderSizePixel = 0
+CopyPath.Position = UDim2.new(0, 185, 0, 55)
+CopyPath.Size = UDim2.new(0, 75, 0, 30)
+CopyPath.Font = Enum.Font.SourceSans
+CopyPath.TextSize = 14
+CopyPath.Text = "Copy Path"
+CopyPath.TextColor3 = Color3.new(1, 1, 1)
+CopyPath.ZIndex = 10
+table.insert(shade2,CopyPath)
+table.insert(text1,CopyPath)
+
+Directions_3.Name = "Directions"
+Directions_3.Parent = background_4
+Directions_3.BackgroundTransparency = 1
+Directions_3.BorderSizePixel = 0
+Directions_3.Position = UDim2.new(0, 51, 0, 17)
+Directions_3.Size = UDim2.new(0, 257, 0, 32)
+Directions_3.Font = Enum.Font.SourceSans
+Directions_3.TextSize = 14
+Directions_3.Text = 'Click on a part and then click the "Select Part" button below to set it as a teleport location'
+Directions_3.TextColor3 = Color3.new(1, 1, 1)
+Directions_3.TextWrapped = true
+Directions_3.TextYAlignment = Enum.TextYAlignment.Top
+Directions_3.ZIndex = 10
+table.insert(text1,Directions_3)
+
+Path.Name = "Path"
+Path.Parent = background_4
+Path.BackgroundTransparency = 1
+Path.BorderSizePixel = 0
+Path.Position = UDim2.new(0, 0, 0, 94)
+Path.Size = UDim2.new(0, 360, 0, 16)
+Path.Font = Enum.Font.SourceSansItalic
+Path.TextSize = 14
+Path.Text = ""
+Path.TextColor
