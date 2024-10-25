@@ -1,6 +1,14 @@
--- Created from YHUB
--- this Toggle To shorten the list 
+-- المطور: جني
+-- ما مبري الذمه الي يبوگ جيبهن بتعبك
+-- تيم GYTRT
 
+local library = loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/0x"))()
+
+local w1 = library:Window("طيران سيارة عربي 1.0") -- Text
+
+w1:Button(
+    "اضغط للتشغيل",
+    function()
 --Fly car Script:
 	local FlyCarGui = Instance.new("ScreenGui")
 	local W = Instance.new("TextButton")
@@ -183,26 +191,21 @@ end)
 		BV.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
 		BV.Velocity = game.Workspace.CurrentCamera.CFrame.LookVector * -Speed.Text
 	end)
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "ScreenGui"
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ResetOnSpawn = false
 
-local Toggle = Instance.new("TextButton")
-Toggle.Name = "Toggle"
-Toggle.Parent = ScreenGui
-Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Toggle.Position = UDim2.new(0, 0, 0.354706937, 0)
-Toggle.Size = UDim2.new(0, 120, 0, 38)
-Toggle.Font = Enum.Font.SourceSans
-Toggle.Text = "معدل من جني"
-Toggle.TextColor3 = Color3.fromRGB(128,0,0)
-Toggle.TextSize = 28.000
-Toggle.Draggable = false
-Toggle.MouseButton1Click:connect(function()
-    Library:ToggleUI()
-end)
+        print("Hi")
+    end
+) -- Text, Callback
 
-local Corner = Instance.new("UICorner")
-Corner.Name = "Corner"
-Corner.Parent = Toggle
+
+w1:Button(
+    "حذف هذه الواجهة",
+    function()
+        for i, v in pairs(game.CoreGui:GetChildren()) do
+            if v:FindFirstChild("Top") then
+                v:Destroy()
+            end
+        end
+    end
+) -- Text, Callback
+
+w1:Label("المطور : جني") -- Text
