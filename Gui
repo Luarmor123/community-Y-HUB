@@ -7,7 +7,7 @@ local Configs_HUB = {
   Corner_Radius = UDim.new(0,4),
   Text_Font = Enum.Font.FredokaOne
 }
-ggggggggjhfdgjjjjh
+
 local CoreGui = game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
