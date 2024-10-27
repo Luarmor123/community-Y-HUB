@@ -1523,8 +1523,9 @@ function MakeWindow(Configs)
       Font = Configs_HUB.Text_Font,
       TextWrapped = true
     })
-    return {TextButto, TextLabel}
+    return {TextButton, TextLabel}
   end
+  
   function SetParagraph(Paragraph, NewValue)
     Paragraph[1].Text = NewValue[1]
     Paragraph[2].Text = NewValue[2]
@@ -1556,6 +1557,7 @@ function MakeWindow(Configs)
   function SetSection(Section, NewName)
     Section.Text = NewName
   end
+  
   function AddDiscord(parent, Configs)
     local DiscordLink = Configs[1] or Configs.DiscordLink or "https://discord.gg/"
     local DiscordIcon = Configs[2] or Configs.DiscordIcon or "rbxassetid://"
@@ -1624,4 +1626,3 @@ function MakeWindow(Configs)
   end
   return Menu
 end
-  
