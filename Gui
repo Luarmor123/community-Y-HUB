@@ -248,7 +248,7 @@ function MakeWindow(Configs)
     })
     
     local ConfirmButton = Create("TextButton", KeyMenu, {
-      Text = "Confirm",
+      Text = "أدخال",
       Font = Configs_HUB.Text_Font,
       TextSize = 20,
       TextColor3 = Configs_HUB.Cor_Text,
@@ -259,7 +259,7 @@ function MakeWindow(Configs)
     })Corner(ConfirmButton)
     
     local GetKeyLink = Create("TextButton", KeyMenu, {
-      Text = "Get Key Link",
+      Text = "الحصول على الرابط",
       Font = Configs_HUB.Text_Font,
       TextSize = 20,
       TextColor3 = Configs_HUB.Cor_Text,
