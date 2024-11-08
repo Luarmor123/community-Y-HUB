@@ -228,12 +228,12 @@ function a:Window(w)
         M.Parent = E
         M.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
         M.BorderSizePixel = 0
-        M.Position = UDim2.new(0.0212264154, 0, 0.71676302, 0)
+        M.Position = UDim2.new(0.0112264154, 0, 0.71676302, 0)
         M.Size = UDim2.new(0, 203, 0, 26)
         M.AutoButtonColor = false
         M.Font = Enum.Font.FredokaOne
         M.Text = tostring(L) or ""
-        M.TextColor3 = Color3.fromRGB(255, 255, 255)
+        M.TextColor3 = Color3.fromRGB(139,0,0)
         M.TextSize = 14.000
         return M
     end
