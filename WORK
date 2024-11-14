@@ -206,8 +206,7 @@ function MakeWindow(Configs)
     local KeyMenu = Create("Frame", ScreenGui, {
       Size = UDim2.new(0, 400, 0, 220),
       Position = UDim2.new(0.5, 0, 0.5, 0),
-      BackgroundColor3 = Configs_HUB.Cor_Hub,
-      Stroke = Configs.Stroke.Cor_Hub, 
+      BackgroundColor3 = Configs.Stroke.Cor_Hub,
       AnchorPoint = Vector2.new(0.5, 0.5),
       Active = true,
       Draggable = true
