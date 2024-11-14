@@ -262,7 +262,7 @@ function MakeWindow(Configs)
       Text = "Get Key Link",
       Font = Configs_HUB.Text_Font,
       TextSize = 20,
-      TextColor3 = Configs_HUB.Cor_Text,
+      TextColor3 = Color3.fromRGB(240, 0, 0),
       Size = UDim2.new(0, 150, 0, 40),
       Position = UDim2.new(0, 35, 0, 140),
       BackgroundColor3 = Configs_HUB.Cor_Options
