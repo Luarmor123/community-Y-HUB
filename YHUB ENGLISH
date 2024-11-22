@@ -1,0 +1,2206 @@
+--YHUB MADE BY (جني) 
+--تم تطويره من (جني) 
+--🗿🗿
+
+
+
+wait(0.1)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "YHUB V2.7"; 
+    Text = "Developer : DeX"; -- GYHUB TEAM --
+    Icon = "rbxassetid://88819916320666"})
+Duration = 5;
+
+ 
+wait(0.5)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "YHUB FIX"; 
+    Text = "If you encounter errors, kill yourself ! "; -- GYHUB TEAM --
+    Icon = "rbxassetid://88819916320666"})
+Duration = 15;
+
+
+wait(0.5)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "YHUB"; 
+    Text = "صلِ على محمد وآل محمد"; -- GYHUB TEAM --
+    Icon = "rbxassetid://88819916320666"})
+Duration = 15;
+
+
+local player = game.Players.LocalPlayer
+
+local function copyText()
+    setclipboard("Dex even appears on the Clipboard   💀")
+end
+
+copyText()
+local args = {
+    [1] = "RolePlayName",
+    [2] = "YHUB / 2.7"
+    
+    
+}
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
+local args = {
+    [1] = "RolePlayBio",
+    [2] = "Dev : DeX"
+    
+    
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
+wait(1.0)
+
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/gui%20English")))()
+MakeWindow({
+  Hub = {
+    Title = "YHUB | V2.7 | Brookhaven RP | November Update ",
+    Animation = "YHUB: Dev DeX "
+    
+    
+    
+    -- جاهز تقريباً 
+  },
+  Key = {
+    KeySystem = true,
+    Title = "key",
+    Description = "Enter key",
+    KeyLink = "https://t.me/YHUB_16",
+    Keys = {"B4pzcmJYHuB"},
+    Notifi = {
+      Notifications = true,
+      CorrectKey = "correct √ Script is loading... ",
+      Incorrectkey = "The key is incorrect ×",
+      CopyKeyLink = "Copied to clipboard ✓ "
+    
+    }
+  }
+})
+
+MinimizeButton({
+  Image = "rbxassetid://88819916320666",
+  Size = {35, 35},
+  Color = Color3.fromRGB(0, 0, 0),
+  Corner = true,
+  Stroke = false,
+  StrokeColor = Color3.fromRGB(0,0,255)
+})
+
+
+-- اكتب اي دي الاغنيه
+-- لا تبدل كلمه rbxassetid:// !
+local soundId = "rbxassetid://15689451063"
+
+-- الكود البرمجي
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Parent = game.Workspace -- ضعه في مساحة العمل للتأكد من سماعك
+    sound:Play()
+end
+
+-- اياك ان تحذفه !
+playSound()
+
+
+--TABS: 
+local Main = MakeTab({Name = "Home"})
+local HUB = MakeTab({Name = "Player"})
+local TP = MakeTab({Name = "Teleport"})
+local fling = MakeTab({Name = "Fling"})
+local Skin = MakeTab({Name = "Skin"})
+local ESPV1 = MakeTab({Name = "ESP V1"})
+local ESPV2 = MakeTab({Name = "ESP V2"})
+local Tool = MakeTab({Name = "Tools"})
+local script = MakeTab({Name = "Scripts"})
+--local script = Make....
+
+
+
+-- Paragraph
+-- Button
+-- Toggle
+-- Label
+-- section
+-- etc 
+local Image = AddImageLabel(Main, {
+  Name = "YHUB",
+  Image = "rbxassetid://88819916320666"
+})
+local Label = AddTextLabel(Main, "Developer : DeX")
+SetLabel(Label, "Developer : DeX")
+
+AddButton(Main, {
+  Name = "My YouTube channel ( Click to copy ) ",
+  Callback = function()
+    setclipboard('https://youtube.com/@dex_hax_hacking?si=yWXiW_ohn6lg8qPU')
+  end
+})
+
+
+AddButton(Main, {
+  Name = "My TikTok account ( Click to copy ) ",
+  Callback = function()
+    setclipboard('_7_0ui07')
+  end
+})
+
+-- Create a label to show the number of players
+local playerCountLabel = AddTextLabel(Main, "Players on the server : " .. #game.Players:GetPlayers())
+
+-- Função para atualizar o número de jogadores quando alguém entra ou sai
+local function updatePlayerCount()
+    playerCountLabel.Text = "Players on the server : " .. #game.Players:GetPlayers()
+end
+
+-- Conecta a função ao evento de entrada de novos jogadores
+game.Players.PlayerAdded:Connect(updatePlayerCount)
+
+-- Conecta a função ao evento de saída de jogadores
+game.Players.PlayerRemoving:Connect(updatePlayerCount)
+
+-- Atualiza a contagem de jogadores no início (caso tenha jogadores ao carregar o script)
+updatePlayerCount()
+
+
+local Label = AddTextLabel(Main, " ID : ")
+local function updateTime(label)
+    while true do
+        local currentTime = os.date("%d-%m-%Y") 
+        label.Text = "Date : " .. currentTime
+        wait(1)  -- Atualiza a cada segundo
+    end
+end
+-- Iniciando a atualização da TextLabel
+coroutine.wrap(updateTime)(Label)
+
+-- Criando a TextLabel
+local Label = AddTextLabel(Main, "")
+
+-- Função para atualizar o tempo na TextLabel
+local function updateTime(label)
+    while true do
+        local currentTime = os.date("%H:%M:%S")
+        label.Text = "Time : " .. currentTime
+        wait(1)  -- Atualiza a cada segundo
+    end
+end
+
+-- Iniciando a atualização da TextLabel
+coroutine.wrap(updateTime)(Label)
+
+
+ 
+local section = AddSection(HUB, {"»»»»»{ You can control your player data }««««« "})
+AddButton(HUB, {
+  Name = "Fly V1",
+  Callback = function()
+  -- Gui by YHUB
+-- Version: 1.0
+
+-- Instances:
+
+local main = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local up = Instance.new("TextButton")
+local down = Instance.new("TextButton")
+local onof = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local plus = Instance.new("TextButton")
+local speed = Instance.new("TextLabel")
+local mine = Instance.new("TextButton")
+
+--Properties:
+
+main.Name = "main"
+main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = main
+Frame.BackgroundColor3 = Color3.fromRGB(163, 255, 137)
+Frame.BorderColor3 = Color3.fromRGB(255,255,255)
+Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
+Frame.Size = UDim2.new(0, 190, 0, 57)
+
+up.Name = "up"
+up.Parent = Frame
+up.BackgroundColor3 = Color3.fromRGB(0,0,205)
+up.Size = UDim2.new(0, 44, 0, 28)
+up.Font = Enum.Font.SourceSans
+up.Text = "above"
+up.TextColor3 = Color3.fromRGB(255,0,0)
+up.TextSize = 14.000
+
+down.Name = "down"
+down.Parent = Frame
+down.BackgroundColor3 = Color3.fromRGB(0,0,205)
+down.Position = UDim2.new(0, 0, 0.491228074, 0)
+down.Size = UDim2.new(0, 44, 0, 28)
+down.Font = Enum.Font.SourceSans
+down.Text = "under"
+down.TextColor3 = Color3.fromRGB(255,0,0)
+down.TextSize = 14.000
+
+onof.Name = "onof"
+onof.Parent = Frame
+onof.BackgroundColor3 = Color3.fromRGB(255,255,255)
+onof.Position = UDim2.new(0.702823281, 0, 0.491228074, 0)
+onof.Size = UDim2.new(0, 56, 0, 28)
+onof.Font = Enum.Font.SourceSans
+onof.Text = "off / on"
+onof.TextColor3 = Color3.fromRGB(0, 0, 0)
+onof.TextSize = 13.000
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255,255,255)
+TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 100, 0, 28)
+TextLabel.Font = Enum.Font.Michroma
+TextLabel.Text = "YHUB FLY V1"
+TextLabel.TextColor3 = Color3.fromRGB(0,0,0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 13.000
+TextLabel.TextWrapped = true
+
+plus.Name = "plus"
+plus.Parent = Frame
+plus.BackgroundColor3 = Color3.fromRGB(255,255,255)
+plus.Position = UDim2.new(0.231578946, 0, 0, 0)
+plus.Size = UDim2.new(0, 45, 0, 28)
+plus.Font = Enum.Font.SourceSans
+plus.Text = "+"
+plus.TextColor3 = Color3.fromRGB(0, 0, 0)
+plus.TextScaled = true
+plus.TextSize = 14.000
+plus.TextWrapped = true
+
+speed.Name = "speed"
+speed.Parent = Frame
+speed.BackgroundColor3 = Color3.fromRGB(255,255,255)
+speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
+speed.Size = UDim2.new(0, 44, 0, 28)
+speed.Font = Enum.Font.SourceSans
+speed.Text = "1"
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed.TextScaled = true
+speed.TextSize = 14.000
+speed.TextWrapped = true
+
+mine.Name = "mine"
+mine.Parent = Frame
+mine.BackgroundColor3 = Color3.fromRGB(255,255,255)
+mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
+mine.Size = UDim2.new(0, 45, 0, 29)
+mine.Font = Enum.Font.SourceSans
+mine.Text = "-"
+mine.TextColor3 = Color3.fromRGB(0, 0, 0)
+mine.TextScaled = true
+mine.TextSize = 14.000
+mine.TextWrapped = true
+
+speeds = 1
+
+local speaker = game:GetService("Players").LocalPlayer
+
+local chr = game.Players.LocalPlayer.Character
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+nowe = false
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+    Title = "from YHUB";
+    Text = "by DeX";
+    Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
+Duration = 16;
+
+Frame.Active = true -- main = gui
+Frame.Draggable = true
+
+onof.MouseButton1Down:connect(function()
+
+    if nowe == true then
+        nowe = false
+
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
+        speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+    else 
+        nowe = true
+
+
+
+        for i = 1, speeds do
+            spawn(function()
+
+                local hb = game:GetService("RunService").Heartbeat
+
+
+                tpwalking = true
+                local chr = game.Players.LocalPlayer.Character
+                local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+                while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+                    if hum.MoveDirection.Magnitude > 0 then
+                        chr:TranslateBy(hum.MoveDirection)
+                    end
+                end
+
+            end)
+        end
+        game.Players.LocalPlayer.Character.Animate.Disabled = true
+        local Char = game.Players.LocalPlayer.Character
+        local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+
+        for i,v in next, Hum:GetPlayingAnimationTracks() do
+            v:AdjustSpeed(0)
+        end
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
+        speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
+        speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+    end
+
+
+
+
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+
+
+
+        local plr = game.Players.LocalPlayer
+        local torso = plr.Character.Torso
+        local flying = true
+        local deb = true
+        local ctrl = {f = 0, b = 0, l = 0, r = 0}
+        local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+        local maxspeed = 50
+        local speed = 0
+
+
+        local bg = Instance.new("BodyGyro", torso)
+        bg.P = 9e4
+        bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+        bg.cframe = torso.CFrame
+        local bv = Instance.new("BodyVelocity", torso)
+        bv.velocity = Vector3.new(0,0.1,0)
+        bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+        if nowe == true then
+            plr.Character.Humanoid.PlatformStand = true
+        end
+        while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+            game:GetService("RunService").RenderStepped:Wait()
+
+            if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+                speed = speed+.5+(speed/maxspeed)
+                if speed > maxspeed then
+                    speed = maxspeed
+                end
+            elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+                speed = speed-1
+                if speed < 0 then
+                    speed = 0
+                end
+            end
+            if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+                bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+                lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+            elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+                bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+            else
+                bv.velocity = Vector3.new(0,0,0)
+            end
+            --  game.Players.LocalPlayer.Character.Animate.Disabled = true
+            bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+        end
+        ctrl = {f = 0, b = 0, l = 0, r = 0}
+        lastctrl = {f = 0, b = 0, l = 0, r = 0}
+        speed = 0
+        bg:Destroy()
+        bv:Destroy()
+        plr.Character.Humanoid.PlatformStand = false
+        game.Players.LocalPlayer.Character.Animate.Disabled = false
+        tpwalking = false
+
+
+
+
+    else
+        local plr = game.Players.LocalPlayer
+        local UpperTorso = plr.Character.UpperTorso
+        local flying = true
+        local deb = true
+        local ctrl = {f = 0, b = 0, l = 0, r = 0}
+        local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+        local maxspeed = 50
+        local speed = 0
+
+
+        local bg = Instance.new("BodyGyro", UpperTorso)
+        bg.P = 9e4
+        bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+        bg.cframe = UpperTorso.CFrame
+        local bv = Instance.new("BodyVelocity", UpperTorso)
+        bv.velocity = Vector3.new(0,0.1,0)
+        bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+        if nowe == true then
+            plr.Character.Humanoid.PlatformStand = true
+        end
+        while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+            wait()
+
+            if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+                speed = speed+.5+(speed/maxspeed)
+                if speed > maxspeed then
+                    speed = maxspeed
+                end
+            elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+                speed = speed-1
+                if speed < 0 then
+                    speed = 0
+                end
+            end
+            if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+                bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+                lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+            elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+                bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+            else
+                bv.velocity = Vector3.new(0,0,0)
+            end
+
+            bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+        end
+        ctrl = {f = 0, b = 0, l = 0, r = 0}
+        lastctrl = {f = 0, b = 0, l = 0, r = 0}
+        speed = 0
+        bg:Destroy()
+        bv:Destroy()
+        plr.Character.Humanoid.PlatformStand = false
+        game.Players.LocalPlayer.Character.Animate.Disabled = false
+        tpwalking = false
+
+
+
+    end
+
+
+
+
+
+end)
+
+
+up.MouseButton1Down:connect(function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,2,0)
+
+end)
+
+
+down.MouseButton1Down:connect(function()
+
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-2,0)
+
+end)
+
+
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
+    wait(0.7)
+    game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+    game.Players.LocalPlayer.Character.Animate.Disabled = false
+
+end)
+
+
+plus.MouseButton1Down:connect(function()
+    speeds = speeds + 1
+    speed.Text = speeds
+    if nowe == true then
+
+
+    tpwalking = false
+    for i = 1, speeds do
+        spawn(function()
+
+            local hb = game:GetService("RunService").Heartbeat
+
+
+            tpwalking = true
+            local chr = game.Players.LocalPlayer.Character
+            local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+            while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+                if hum.MoveDirection.Magnitude > 0 then
+                    chr:TranslateBy(hum.MoveDirection)
+                end
+            end
+
+        end)
+        end
+        end
+end)
+mine.MouseButton1Down:connect(function()
+    if speeds == 1 then
+        speed.Text = 'Cant be less than 1'
+        wait(1)
+        speed.Text = speeds
+    else
+    speeds = speeds - 1
+        speed.Text = speeds
+        if nowe == true then
+    tpwalking = false
+    for i = 1, speeds do
+        spawn(function()
+
+            local hb = game:GetService("RunService").Heartbeat
+
+
+            tpwalking = true
+            local chr = game.Players.LocalPlayer.Character
+            local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+            while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+                if hum.MoveDirection.Magnitude > 0 then
+                    chr:TranslateBy(hum.MoveDirection)
+                end
+            end
+
+        end)
+        end
+        end
+        end
+end)
+    
+  end
+})
+
+local Slider = AddSlider(HUB, {
+  Name = "speed",
+  MinValue = 10,
+  MaxValue = 300,
+  Default = 15,
+  Increase = 1,
+  Callback = function(Y)-- 300 (MaxValue) | 0 (MinValue)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Y
+    
+  end
+})
+AddButton(HUB, {
+  Name = "Reset speed",
+  Callback = function()game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 18
+    
+  end
+})
+
+local noclipEnabled = false
+local runService = game:GetService("RunService")
+
+-- Função para definir CanCollide para todas as partes do personagem
+local function setCharacterCanCollide(character, canCollide)
+    for _, part in ipairs(character:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.CanCollide = canCollide
+        end
+    end
+end
+
+-- Função de callback para o botão de alternância de Noclip
+local function onNoclipToggle(value)
+    noclipEnabled = value
+    print("Noclip Enabled:", noclipEnabled)
+    
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+
+    if noclipEnabled then
+        -- Inicia um loop para continuamente definir CanCollide
+        noclipLoop = runService.Stepped:Connect(function()
+            if character then
+                setCharacterCanCollide(character, false)
+            end
+        end)
+    else
+        -- Desativa o loop e restaura CanCollide
+        if noclipLoop then
+            noclipLoop:Disconnect()
+        end
+        if character then
+            setCharacterCanCollide(character, true)
+        end
+    end
+end
+
+-- Adiciona o botão de alternância "Noclip"
+local Toggle = AddToggle(HUB, {
+    Name = "No clip",
+    Default = false,
+    Callback = onNoclipToggle
+})
+
+
+local infiniteJumpEnabled = false
+
+-- Conectar o evento de pulo somente uma vez
+local infiniteJumpConnection
+
+-- Função de callback para o botão de alternância de pulo infinito
+local function onInfiniteJumpToggle(value)
+    infiniteJumpEnabled = value
+    print("Infinite Jump Enabled:", infiniteJumpEnabled)
+    
+    -- Conectar o evento de pulo somente uma vez
+    if not infiniteJumpConnection then
+        infiniteJumpConnection = game:GetService("UserInputService").JumpRequest:Connect(function()
+            if infiniteJumpEnabled then
+                local player = game.Players.LocalPlayer
+                local character = player.Character
+                if character and character:FindFirstChildOfClass("Humanoid") then
+                    character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+                end
+            end
+        end)
+    end
+end
+
+-- Adiciona o botão de alternância "Infinitejump"
+local Toggle = AddToggle(HUB, {
+    Name = "Infinite jumping",
+    Default = false,
+    Callback = onInfiniteJumpToggle
+})
+
+
+
+
+
+local Slider = AddSlider(HUB, {
+  Name = "Jumping power",
+  MinValue = 10,
+  MaxValue = 300,
+  Default = 50,
+  Increase = 1,
+  Callback = function(Y)-- 300 (MaxValue) | 0 (MinValue)
+  game.Players.LocalPlayer.Character.Humanoid.JumpPower = Y
+    
+  end
+})
+
+
+AddButton(HUB, {
+  Name = "Reset jump",
+  Callback = function()game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    
+  end
+})
+
+AddTextBox(HUB, {
+  Name = "Spin v1",
+  Default = "Enter a number",
+  PlaceholderText = "Enter a number",
+  ClearText = true,
+  Callback = function(Value)
+  getgenv().Spinspeed = Value
+
+local Spin = Instance.new'BodyAngularVelocity'
+Spin.Parent = game:GetService'Players'.LocalPlayer.Character:FindFirstChild'HumanoidRootPart'
+Spin.MaxTorque = Vector3.new(0, math.huge, 100)
+wait(0.1)
+Spin.AngularVelocity = Vector3.new(100,Spinspeed,0)
+  end
+})
+
+local section = AddSection(TP, {"»»»»»{ Teleport }««««« "})
+
+
+-- Serviços necessários
+local playerService = game:GetService('Players')
+local runService = game:GetService('RunService')
+local player = playerService.LocalPlayer
+
+-- Variáveis globais
+local selectedPlayer = nil
+local selectedKillAdvancedPlayer = nil
+local couchEquipped = false
+local playerDropdownV13
+
+-- Função para obter a lista de jogadores
+local function getPlayerList()
+    local playerList = {}
+    for _, player in ipairs(playerService:GetPlayers()) do
+        if player ~= playerService.LocalPlayer then
+            table.insert(playerList, player.Name)
+        end
+    end
+    return playerList
+end
+
+-- Função para atualizar o dropdown
+local function updateDropdown(dropdown)
+    UpdateDropdown(dropdown, getPlayerList())
+end
+
+-- Função para encontrar jogador por nome
+local function gplr(String)
+    local strl = String:lower()
+    local Found = {}
+    for _, v in pairs(playerService:GetPlayers()) do
+        if v.Name:lower():sub(1, #strl) == strl then
+            table.insert(Found, v)
+        end
+    end
+    return Found
+end
+-- Função para flingar jogador (V13)
+local function flingPlayer(targetName)
+    local Target = gplr(targetName)
+    if Target[1] then
+        Target = Target[1]
+        
+        local Thrust = Instance.new('BodyThrust', player.Character.HumanoidRootPart)
+        Thrust.Force = Vector3.new(999, 999, 999)
+        Thrust.Name = "FlingForce"
+        repeat
+            player.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+            Thrust.Location = Target.Character.HumanoidRootPart.Position
+            runService.Heartbeat:Wait()
+        until not Target.Character:FindFirstChild("Head")
+    end
+end
+        
+-- Interface para Fling V13
+playerDropdownV13 = AddDropdown(TP, {
+    Name = "Select player",
+    Default = "",
+    Options = getPlayerList(),
+    Callback = function(value)
+        selectedPlayer = value
+        PlayerTP = value
+    end
+})
+AddButton(TP, {
+    Name = "TP to",
+    Callback = function(t)
+        if selectedPlayer then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+        end
+    end
+})
+
+-- Atualiza a lista de jogadores quando os jogadores entram ou saem do jogo
+playerService.PlayerAdded:Connect(function()
+    updateDropdown(playerDropdownV13)
+end)
+
+playerService.PlayerRemoving:Connect(function()
+    updateDropdown(playerDropdownV13)
+end)
+
+-- Atualiza a lista de jogadores ao iniciar o script
+updateDropdown(playerDropdownV13)
+
+
+
+local Toggle = AddToggle(TP, {
+  Name = "Auto TP",
+  Default = false,
+  Callback = function(t)_G.TPPlayer = t
+while _G.TPPlayer do wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerTP].Character.HumanoidRootPart.CFrame
+end
+    
+  end
+})
+
+
+
+local section = AddSection(TP, {"»»»»»{ view }««««« "})
+
+-- Variáveis e funções para a visualização dos jogadores
+local viewEnabled = false
+local selectedViewPlayer = nil
+local characterAddedConnection = nil
+
+local function toggleView(enabled)
+    if enabled then
+        if selectedViewPlayer then
+            local player = selectedViewPlayer
+            if player then
+                game.Workspace.CurrentCamera.CameraSubject = player.Character
+                if characterAddedConnection then
+                    characterAddedConnection:Disconnect()
+                end
+                characterAddedConnection = player.CharacterAdded:Connect(function(character)
+                    game.Workspace.CurrentCamera.CameraSubject = character
+                end)
+                MakeNotifi({
+                    Title = "It was completed.." .. player.Name,
+                    Text = "Watching now" .. player.Name,
+                    Time = 6
+                })
+            else
+                print("Jogador não encontrado.")
+                viewEnabled = false
+            end
+        else
+            print("Nenhum jogador selecionado para a visualização.")
+            viewEnabled = false
+        end
+    else
+        if characterAddedConnection then
+            characterAddedConnection:Disconnect()
+            characterAddedConnection = nil
+        end
+        game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
+    end
+end
+local value = "" -- Variável para armazenar o nome digitado
+
+local function findPlayerByPartialNameOrNickname(partialName)
+    value = partialName -- Atualiza a variável com o nome digitado completo
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player.Name:lower():find(partialName:lower(), 1, true) or (player.DisplayName and player.DisplayName:lower():find(partialName:lower(), 1, true)) then
+            return player
+        end
+    end
+    return nil
+end
+
+-- Adicionando a caixa de texto para entrada do nome ou apelido do jogador
+AddTextBox(TP, {
+    Name = "Enter player user",
+    Default = "",
+    PlaceholderText = "Enter first two letters ",
+    ClearText = true,
+    Callback = function(value)
+if value == "" then
+            MakeNotifi({
+                Title = "incorrect",
+                Text = "The field is empty ! ",
+                Time = 5
+            })
+            if viewEnabled then
+                toggleView(false)
+            end
+            return
+        end
+
+        selectedViewPlayer = findPlayerByPartialNameOrNickname(value)
+        if selectedViewPlayer then
+            print("Jogador encontrado: " .. selectedViewPlayer.Name)
+            if viewEnabled then
+                toggleView(false)
+                toggleView(true)
+            end
+        else
+            MakeNotifi({
+                Title = "incorrect",
+                Text = "The player username is incorrect ",
+                Time = 7
+            })
+            if viewEnabled then
+                toggleView(false)
+            end
+        end
+    end
+})
+-- Adicionando o toggle para ativar/desativar a visualização
+AddToggle(TP, {
+    Name = "View player ",
+    Default = false,
+    Callback = function(enabled)
+        viewEnabled = enabled
+        toggleView(enabled)
+    end
+})
+
+-- Conectando eventos de jogador removido
+game.Players.PlayerRemoving:Connect(function(player)
+    if selectedViewPlayer == player then
+        selectedViewPlayer = nil
+        if viewEnabled then
+            toggleView(false)
+            MakeNotifi({
+                Title = "It was completed",
+                Text = player.Name .. "Watching now : ",
+                Time = 5
+            })
+        end
+    end
+end)
+
+-- Função para manter a câmera no jogador selecionado
+local function maintainView()
+    while wait() do
+        if viewEnabled and selectedViewPlayer then
+            local player = selectedViewPlayer
+            if player and game.Workspace.CurrentCamera.CameraSubject ~= player.Character then
+                game.Workspace.CurrentCamera.CameraSubject = player.Character
+            end
+        end
+    end
+end
+
+
+local section = AddSection(TP, {"»»»»»{ TP Places }«««««"})
+
+
+local function teleportToBrooksDiner()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-26, 4, -23)
+end
+
+AddButton(TP, {
+    Name = "Lobby",
+    Description = "Teleporta para as coordenadas do Brooks Diner",
+    Callback = teleportToBrooksDiner
+})
+
+local function teleportToAirport()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(310, 5, 31)
+end
+
+AddButton(TP, {
+    Name = "Airport",
+    Description = "Teleporta para as coordenadas do Aeroporto",
+    Callback = teleportToAirport
+})
+local function teleportToHospital()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-309, 4, 71)
+end
+
+AddButton(TP, {
+    Name = "Hospital",
+    Description = "Teleporta para as coordenadas do Hospital",
+    Callback = teleportToHospital
+})
+
+AddButton(TP, {
+    Name = "Drone",
+    Callback = function()game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Model.DroneFakeNew.c.CFrame
+     end
+})    
+
+
+
+
+local section = AddSection(Skin, {"»»»»»{ الأجسام }«««««"})
+
+AddButton(Skin, {
+  Name = "body  1 ( boy )",
+  Callback = function()local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 17873152058,
+        [2] = 17873151683,
+        [3] = 17873151726,
+        [4] = 17873151827,
+        [5] = 17873152017,
+        [6] = 1
+    },
+    [3] = "YHub"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+    
+  end
+})
+
+
+
+AddButton(Skin, {
+  Name = "Small body ( Girl & boy )",
+  Callback = function()local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 14579958702,
+        [2] = 14579959062,
+        [3] = 14579959191,
+        [4] = 14579959249,
+        [5] = 14579963667,
+        [6] = 1
+    },
+    [3] = "YHub"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+
+    
+  end
+})
+
+AddButton(Skin, {
+  Name = "body 1 ( Girl )",
+  Callback = function()local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 14785351665,
+        [2] = 14785351711,
+        [3] = 14785351713,
+        [4] = 14785351880,
+        [5] = 14785351756,
+        [6] = 1
+    },
+    [3] = "YHub"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+    
+  end
+})
+
+AddButton(Skin, {
+  Name = "body 2 ( Girl )",
+  Callback = function()
+    local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 14775830263,
+        [2] = 14785351711,
+        [3] = 14785351713,
+        [4] = 14785351880,
+        [5] = 14785351756,
+        [6] = 1
+    },
+    [3] = "YHub"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+  end
+})
+
+
+
+AddButton(Skin, {
+  Name = "body 3 ( Girl )",
+  Callback = function()
+    local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 15539008532,
+        [2] = 15539008875,
+        [3] = 15539008680,
+        [4] = 15539008795,
+        [5] = 15539011945,
+        [6] = 1
+    },
+    [3] = "YHub"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+  end
+})
+
+
+AddButton(Skin, {
+  Name = "Emo body 1 ( Girl )",
+  Callback = function()
+    local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 15599926323,
+        [2] = 15539008875,
+        [3] = 15539008680,
+        [4] = 0,
+        [5] = 0,
+        [6] = 134082579
+    },
+    [3] = "YHub"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+wait(0.1)
+local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 1,
+        [2] = 1,
+        [3] = 1,
+        [4] = 1,
+        [5] = 1,
+        [6] = 3210773801
+    },
+    [3] = "Roblox20"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+wait(0.1)
+  end
+})
+
+
+
+
+AddButton(Skin, {
+  Name = "Emo body 2 ( Girl )",
+  Callback = function()
+    local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 96491916349570,
+        [2] = 86499698,
+        [3] = 86499716,
+        [4] = 1,
+        [5] = 1,
+        [6] = 1
+    },
+    [3] = "YHub"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+  end
+})
+
+
+
+
+local section = AddSection(Skin, {"»»»»»{ Other }«««««"})
+AddButton(Skin, {
+  Name = "Hidden foot  ( Right )",
+  Callback = function()
+    local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 1,
+        [2] = 1,
+        [3] = 1,
+        [4] = 139607718,
+        [5] = 1,
+        [6] = 1
+    },
+    [3] = "Roblox20"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+wait(0.1)
+  end
+})
+
+
+AddButton(Skin, {
+  Name = "Hidden feet ( Left )",
+  Callback = function()
+    local args = {
+    [1] = "CharacterChange",
+    [2] = {
+        [1] = 1,
+        [2] = 1,
+        [3] = 1,
+        [4] = 1,
+        [5] = 139607673,
+        [6] = 1
+    },
+    [3] = "Roblox20"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Avata1rOrigina1l"):FireServer(unpack(args))
+wait(0.1)
+  end
+})
+
+-- Personal information section 
+local section = AddSection(Main, {"»»»»»{ Your information }«««««"})
+
+
+local Label = AddTextLabel(Main, " Name  : " .. player.DisplayName )
+SetLabel(Label, " Name : " .. player.DisplayName )
+
+
+local Label = AddTextLabel(Main, " User  : " .. player.Name )
+SetLabel(Label, " User : " .. player.Name )
+
+
+
+local Label = AddTextLabel(Main, " ID  : " .. player.UserId )
+SetLabel(Label, " ID : " .. player.UserId )
+
+local Label = AddTextLabel(Main,"" .."\nJoined: "..os.date("%Y-%m-%d", os.time()-player.AccountAge * 24 * 3600).."")
+SetLabel(Label, "" .."\nJoined: "..os.date("%Y-%m-%d", os.time()-player.AccountAge * 24 * 3600).."")
+
+local section = AddSection(Main, {"»»»»»{ Map information }«««««"})
+
+local playerService = game:GetService("Players")
+local localPlayer = playerService.LocalPlayer
+local marketplaceService = game:GetService("MarketplaceService")
+local placeId = game.PlaceId
+local productInfo = marketplaceService:GetProductInfo(placeId)
+
+local creatorName = productInfo.Creator.Name
+local gameName = productInfo.Name
+local createdTime = string.sub(productInfo.Created, 1, 10)
+local updatedTime = string.sub(productInfo.Updated, 1, 10)
+
+local Label = AddTextLabel(Main, "Name : " .. gameName )
+SetLabel(Label, "Name : " .. gameName )
+
+local Label = AddTextLabel(Main, "Creator : " .. creatorName )
+SetLabel(Label, "Creator : " .. creatorName )
+
+local Label = AddTextLabel(Main, "CreatedTime : " .. createdTime )
+SetLabel(Label, "CreatedTime : " .. createdTime )
+
+local Label = AddTextLabel(Main, "UpdatedTime : " .. updatedTime )
+SetLabel(Label, "UpdatedTime : " .. updatedTime )
+
+AddButton(Main, {
+  Name = "Place ID ( Click to copy ) : " .. tostring(placeId),
+  Callback = function()setclipboard(tostring(placeId))
+    
+  end
+})
+
+-- It's over 
+
+
+local section = AddSection(ESPV1, {"»»»»»{ ESP V1 }««««« "})
+
+local ESP = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+ESP:Toggle(true)
+ESP.Players = false
+ESP.Tracers = false
+ESP.Boxes = false
+ESP.Names = false
+ESP.TeamColor = false
+ESP.TeamMates = false
+ESP.Highlight = false 
+
+
+
+local Toggle = AddToggle(ESPV1, {
+  Name = "activation",
+  Default = false,
+  Callback = function(Value)
+    ESP.Players = Value
+    ESP.TeamMates = Value
+    ESP.Highlight = Value 
+  end
+})
+
+
+local Toggle = AddToggle(ESPV1, {
+  Name = "Name",
+  Default = false,
+  Callback = function(Value)
+    ESP.Names = Value
+  end
+})
+
+local Toggle = AddToggle(ESPV1, {
+  Name = "Box",
+  Default = false,
+  Callback = function(Value)
+    ESP.Boxes = Value
+  end
+})
+
+local Toggle = AddToggle(ESPV1, {
+  Name = "Line",
+  Default = false,
+  Callback = function(Value)
+   ESP.Tracers = Value
+  end
+})
+
+AddColorPicker(ESPV1, {
+  Name = "Color ESP",
+  Default = Color3.fromRGB(0, 0, 0),
+  Callback = function(Value)
+    ESP.Color = Value
+  end
+})
+
+
+
+
+
+
+
+AddButton(HUB, {
+  Name = "kill my player ",
+  Callback = function()game.Players.LocalPlayer.Character.Head:Remove()for l=1,2 do local t=game.ReplicatedStorage.RemoteEvents.P1layerTriggerEvent54444;for l,m in pairs(game.Players:GetPlayers())do if m.Name~=game.Players.LocalPlayer then t:FireServer("Client2Client","Request: Piggyback!",m)local t=game.ReplicatedStorage.RemoteEvents.P1layerTriggerEvent54444;for l,m in pairs(game.Players:GetPlayers())do if m.Name~=game.Players.LocalPlayer then t:FireServer("BothWantPiggyBackRide",m)end end end end end 
+    
+  end
+})
+
+
+
+
+local Label = AddTextLabel(ESPV2, "soon..")
+SetLabel(Label, "soon..")
+
+
+
+
+
+
+
+
+
+
+local section = AddSection(fling, {"»»»»»{ Fling ( Kill ) }«««««"})
+local Paragraph = AddParagraph(fling, {"Note", "Bring the sofa before operation"})
+SetParagraph(Paragraph, {"Note", "Bring the sofa before operation"})
+
+--[[
+  <string> novo Nome do Parágrafo
+  <string> Nova descrição do Parágrafo
+]]
+-- Serviços necessários
+local playerService = game:GetService('Players')
+local runService = game:GetService('RunService')
+local player = playerService.LocalPlayer
+
+-- Variáveis globais
+local selectedPlayer = nil
+local selectedKillAdvancedPlayer = nil
+local couchEquipped = false
+local playerDropdownV13
+
+-- Função para obter a lista de jogadores
+local function getPlayerList()
+    local playerList = {}
+    for _, player in ipairs(playerService:GetPlayers()) do
+        if player ~= playerService.LocalPlayer then
+            table.insert(playerList, player.Name)
+        end
+    end
+    return playerList
+end
+
+-- Função para atualizar o dropdown
+local function updateDropdown(dropdown)
+    UpdateDropdown(dropdown, getPlayerList())
+end
+
+-- Função para encontrar jogador por nome
+local function gplr(String)
+    local strl = String:lower()
+    local Found = {}
+    for _, v in pairs(playerService:GetPlayers()) do
+        if v.Name:lower():sub(1, #strl) == strl then
+            table.insert(Found, v)
+        end
+    end
+    return Found
+end
+
+-- Função para flingar jogador (V13)
+local function flingPlayer(targetName)
+    local Target = gplr(targetName)
+    if Target[1] then
+        Target = Target[1]
+        
+        local Thrust = Instance.new('BodyThrust', player.Character.HumanoidRootPart)
+        Thrust.Force = Vector3.new(999, 999, 999)
+        Thrust.Name = "FlingForce"
+        repeat
+            player.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+            Thrust.Location = Target.Character.HumanoidRootPart.Position
+            runService.Heartbeat:Wait()
+        until not Target.Character:FindFirstChild("Head")
+    end
+end
+-- Interface para Fling V13
+playerDropdownV13 = AddDropdown(fling, {
+    Name = "Select player",
+    Default = "",
+    Options = getPlayerList(),
+    Callback = function(value)
+        selectedPlayer = value
+    end
+})
+
+local Toggle = AddToggle(fling, {
+  Name = "fling player ",
+  Default = false,
+  Callback = function()
+        if selectedPlayer then
+            flingPlayer(selectedPlayer)
+        end
+    end
+})
+
+
+local playerService = game:GetService('Players')
+local runService = game:GetService('RunService')
+local localPlayer = playerService.LocalPlayer
+
+-- Variáveis globais
+local flingV14Toggle = false
+local currentPlayerIndex = 1
+local flingV14Connection
+local players
+
+-- Função para teleportar para a coordenada específica
+local function teleportToCoordinate()
+    local teleportPosition = Vector3.new(-58, 54, -183) -- Coordenada para onde você deseja teleportar
+    if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+        localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(teleportPosition)
+    end
+end
+
+-- Função para flingar jogadores em sequência
+local function flingPlayersInSequence()
+    if flingV14Toggle then
+        -- Obtém a lista de jogadores uma vez
+        players = playerService:GetPlayers()
+        
+        -- Reseta o índice do jogador atual
+        currentPlayerIndex = 1
+        
+        -- Looping de teleportes em cada jogador
+        flingV14Connection = runService.Heartbeat:Connect(function()
+            -- Ignora o jogador local
+            while players[currentPlayerIndex] == localPlayer do
+                currentPlayerIndex = currentPlayerIndex + 1
+                if currentPlayerIndex > #players then
+                    currentPlayerIndex = 1
+                end
+            end
+            local targetPlayer = players[currentPlayerIndex]
+            if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                if localPlayer.Character and localPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                    localPlayer.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+
+                    -- Verifica se o jogador alvo está sentado
+                    if targetPlayer.Character:FindFirstChild("Humanoid") and targetPlayer.Character.Humanoid.SeatPart then
+                        teleportToCoordinate()
+                        
+                        -- Espera 3 segundos antes de ir para o próximo jogador
+                        wait(5)
+                        currentPlayerIndex = currentPlayerIndex + 1
+                        
+                        if currentPlayerIndex > #players then
+                            currentPlayerIndex = 1
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end
+
+-- Função de callback para o toggle
+local function onFlingV14Toggle(value)
+    flingV14Toggle = value
+    if flingV14Toggle then
+        flingPlayersInSequence()
+    else
+        -- Desconecta as conexões quando o toggle é desativado
+        if flingV14Connection then
+            flingV14Connection:Disconnect()
+            flingV14Connection = nil
+        end
+    end
+end
+
+-- Adiciona o Toggle para ativar/desativar o Fling V14
+AddToggle(fling, {
+    Name = "Fling all",
+    Default = false,
+    Callback = onFlingV14Toggle
+})
+
+
+-- Atualiza a lista de jogadores quando os jogadores entram ou saem do jogo
+playerService.PlayerAdded:Connect(function()
+    updateDropdown(playerDropdownV13)
+end)
+
+playerService.PlayerRemoving:Connect(function()
+    updateDropdown(playerDropdownV13)
+end)
+
+-- Atualiza a lista de jogadores ao iniciar o script
+updateDropdown(playerDropdownV13)
+
+
+AddButton(fling, {
+  Name = "Get a sofa",
+  Callback = function()
+    local args={[1]="PickingTools",[2]="Couch"};game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer(unpack(args))
+  end
+})
+
+
+AddButton(fling, {
+  Name = "fling sofa script",
+  Callback = function()local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
+Notify({
+Description = "Extracted from YHUB";
+Title = "X fling";
+Duration = 10;
+});
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
+    
+  end
+})
+
+
+
+
+local section = AddSection(Tool, {"RTX"})
+SetSection(section, "»»»»»{ RTX ( Time & Quality }«««««")
+
+AddButton(Tool, {
+  Name = "Morning ",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 14
+  end
+})
+
+
+AddButton(Tool, {
+  Name = "Night",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 19
+  end
+})
+
+AddButton(Tool, {
+  Name = "Realistic shader",
+  Callback = function()
+  -- local Vignette = false
+
+
+local Lighting = game:GetService("Lighting")
+local StarterGui = game:GetService("StarterGui")
+local Bloom = Instance.new("BloomEffect")
+local Blur = Instance.new("BlurEffect")
+local ColorCor = Instance.new("ColorCorrectionEffect")
+local SunRays = Instance.new("SunRaysEffect")
+local Sky = Instance.new("Sky")
+local Atm = Instance.new("Atmosphere")
+
+
+for i, v in pairs(Lighting:GetChildren()) do
+    if v then
+        v:Destroy()
+    end
+end
+
+Bloom.Parent = Lighting
+Blur.Parent = Lighting
+ColorCor.Parent = Lighting
+SunRays.Parent = Lighting
+Sky.Parent = Lighting
+Atm.Parent = Lighting
+
+if Vignette == true then
+    local Gui = Instance.new("ScreenGui")
+    Gui.Parent = StarterGui
+    Gui.IgnoreGuiInset = true
+    
+    local ShadowFrame = Instance.new("ImageLabel")
+    ShadowFrame.Parent = Gui
+    ShadowFrame.AnchorPoint = Vector2.new(0.5,1)
+    ShadowFrame.Position = UDim2.new(0.5,0,1,0)
+    ShadowFrame.Size = UDim2.new(1,0,1.05,0)
+    ShadowFrame.BackgroundTransparency = 1
+    ShadowFrame.Image = "rbxassetid://4576475446"
+    ShadowFrame.ImageTransparency = 0.3
+    ShadowFrame.ZIndex = 10
+end
+
+Bloom.Intensity = 0.3
+Bloom.Size = 10
+Bloom.Threshold = 0.8
+
+Blur.Size = 5
+ColorCor.Brightness = 0.1
+ColorCor.Contrast = 0.5
+ColorCor.Saturation = -0.3
+ColorCor.TintColor = Color3.fromRGB(255, 235, 203)
+
+SunRays.Intensity = 0.075
+SunRays.Spread = 0.727
+
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=151165214"
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=151165197"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=151165224"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=151165191"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=151165206"
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=151165227"
+Sky.SunAngularSize = 10
+
+
+Lighting.Ambient = Color3.fromRGB(2,2,2)
+Lighting.Brightness = 2.25
+Lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+Lighting.ColorShift_Top = Color3.fromRGB(0,0,0)
+Lighting.EnvironmentDiffuseScale = 0.2
+Lighting.EnvironmentSpecularScale = 0.2
+Lighting.GlobalShadows = true
+Lighting.OutdoorAmbient = Color3.fromRGB(0,0,0)
+Lighting.ShadowSoftness = 0.2
+Lighting.ClockTime = 17
+Lighting.GeographicLatitude = 45
+Lighting.ExposureCompensation = 0.5
+
+Atm.Density = 0.364
+Atm.Offset = 0.556
+Atm.Color = Color3.fromRGB(199, 175, 166)
+Atm.Decay = Color3.fromRGB(44, 39, 33)
+Atm.Glare = 0.36
+Atm.Haze = 1.72
+
+script:Destroy()
+  end
+})
+
+
+AddButton(Tool, {
+  Name = "Morning & night  (fast) ",
+  Callback = function()local Lighting = game:GetService("Lighting")
+
+local Minutes = 7 * 60
+
+while task.wait() do
+	Lighting:SetMinutesAfterMidnight(Minutes)
+	Minutes = Lighting:GetMinutesAfterMidnight()
+
+	if Minutes > 19 * 60 then
+		Minutes = Minutes + 3
+	elseif Minutes > 7 * 60 then
+		Minutes = Minutes + 1
+	else
+		Minutes = Minutes + 3
+	end
+end
+    
+  end
+})
+
+
+local section = AddSection(Tool, {"»»»»»{ Map }«««««"})
+SetSection(section,"»»»»»{ Map }««««« ")
+
+
+AddButton(Tool, {
+  Name = "Region Server",
+  Callback = function()
+  game:GetService("TeleportService"):Teleport(game.placeId) 
+  end
+})
+
+AddButton(Tool, {
+  Name = "Server Hop",
+  Callback = function()
+  local Player = game.Players.LocalPlayer    
+local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+
+local _place,_id = game.PlaceId, game.JobId
+-- Asc for lowest player count, Desc for highest player count
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=10"
+function ListServers(cursor)
+   local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+   return Http:JSONDecode(Raw)
+end
+
+time_to_wait = 120 --seconds
+
+-- choose a random server and join every 2 minutes
+while wait(time_to_wait) do
+   --freeze player before teleporting to prevent synapse crash?
+   Player.Character.HumanoidRootPart.Anchored = true
+   local Servers = ListServers()
+   local Server = Servers.data[math.random(1,#Servers.data)]
+   TPS:TeleportToPlaceInstance(_place, Server.id, Player)
+end
+  end
+})
+
+
+local section = AddSection(Tool, {"»»»»»{ Command item }«««««"})
+SetSection(section,"»»»»»{ Command item }««««« ")
+
+
+AddButton(Tool, {
+  Name = "Bow",
+  Callback = function()
+  local args = {
+    [1] = "PickingTools",
+    [2] = "Bow"
+}  game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+  end
+})
+
+
+
+AddButton(Tool, {
+  Name = "FlashLight",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "FlashLight"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+
+
+AddButton(Tool, {
+  Name = "Book",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "Book"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+
+
+AddButton(Tool, {
+  Name = "Bomb",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "Bomb"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+AddButton(Tool, {
+  Name = "Phone",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "Iphone"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+AddButton(Tool, {
+  Name = "Money",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "Money"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+AddButton(Tool, {
+  Name = "Paperbag",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "Paperbag"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+
+AddButton(Tool, {
+  Name = "Pistol",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "Glock"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+
+AddButton(Tool, {
+  Name = "Sniper",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "Sniper"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+
+
+AddButton(Tool, {
+  Name = "Cola",
+  Callback = function()local args = {
+    [1] = "PickingTools",
+    [2] = "Coke"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1Too1l"):InvokeServer(unpack(args))
+    
+  end
+})
+
+
+
+
+
+
+
+local section = AddSection(Tool, {"»»»»»{ مساعدات }«««««"})
+SetSection(section, "»»»»»{ مساعدات }«««««")
+
+AddButton(Tool, {
+  Name = "boost Fps",
+  Callback = function()-- Made by RIP#6666
+_G.Settings = {
+    Players = {
+        ["Ignore Me"] = true, -- Ignore your Character
+        ["Ignore Others"] = true -- Ignore other Characters
+    },
+    Meshes = {
+        Destroy = false, -- Destroy Meshes
+        LowDetail = true -- Low detail meshes (NOT SURE IT DOES ANYTHING)
+    },
+    Images = {
+        Invisible = true, -- Invisible Images
+        LowDetail = false, -- Low detail images (NOT SURE IT DOES ANYTHING)
+        Destroy = false, -- Destroy Images
+    },
+    ["No Particles"] = true, -- Disables all ParticleEmitter, Trail, Smoke, Fire and Sparkles
+    ["No Camera Effects"] = true, -- Disables all PostEffect's (Camera/Lighting Effects)
+    ["No Explosions"] = true, -- Makes Explosion's invisible
+    ["No Clothes"] = true, -- Removes Clothing from the game
+    ["Low Water Graphics"] = true, -- Removes Water Quality
+    ["No Shadows"] = true, -- Remove Shadows
+    ["Low Rendering"] = true, -- Lower Rendering
+    ["Low Quality Parts"] = true -- Lower quality parts
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/FPSBooster.lua"))()
+    
+  end
+})
+
+
+
+
+
+local section = AddSection(script, {"»»»»»{ 1 }«««««"})
+SetSection(section,"»»»»»{ 1 }««««« ")
+
+AddButton(script, {
+  Name = "Redz",
+  Callback = function()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/REDzHUB/main/REDzHUB"))()
+    
+  end
+})
+
+AddButton(script, {
+  Name = "Sander x",
+  Callback = function()
+  loadstring(game:HttpGet(('https://raw.githubusercontent.com/kigredns/sanderXNewVersion/main/sanderX')))()
+  end
+})
+
+
+AddButton(script, {
+  Name = "Admin",
+  Callback = function()
+  loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-rochips-universal-18294"))()
+  end
+})
+
+
+local section = AddSection(script, {"»»»»»{ 2 }««««« "})
+SetSection(section,"»»»»»{ 2 }««««« ")
+
+AddButton(script, {
+  Name = "Car Fly",
+  Callback = function()
+  MakeNotifi({
+                    Title = "YHUB" ,
+                    Text = "Extracted √" ,
+                    Time = 6
+                })
+
+local library = loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Gui%20CRFY"))()
+
+local w1 = library:Window("FLY CAR | V1.2 | YHUB") -- Text
+
+w1:Button(
+    "Enable",
+    function()--Fly car Script:
+	local FlyCarGui = Instance.new("ScreenGui")
+	local W = Instance.new("TextButton")
+	local S = Instance.new("TextButton")
+	local A = Instance.new("TextButton")
+	local D = Instance.new("TextButton")
+	local Fly = Instance.new("TextButton")
+	local unfly = Instance.new("TextButton")
+	local StopFly = Instance.new("TextButton")
+	local Speed = Instance.new("TextBox")
+	local Remove = Instance.new("TextButton")
+	local Open = Instance.new("TextButton")
+    local Close = Instance.new("TextButton")
+    
+	--Properties:
+	
+FlyCarGui.Name = "FlyCarGui"
+FlyCarGui.Parent = game.CoreGui
+
+    Speed.Name = "Speed"
+    Speed.Parent = FlyCarGui
+    Speed.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Speed.Position = UDim2.new(0,1,0.2,0)
+    Speed.Size = UDim2.new(0, 25, 0, 25)
+    Speed.Font = Enum.Font.SourceSans
+    Speed.Text = "السرعة"
+    Speed.TextColor3 = Color3.fromRGB(170, 0, 255)
+    Speed.TextScaled = true
+    Speed.TextSize = 14.000
+
+	Remove.Name = "Remove"
+	Remove.Parent = FlyCarGui
+	Remove.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Remove.Position = UDim2.new(0.955, 0, 0, 0)
+	Remove.Size = UDim2.new(0, 35, 0, 35)
+	Remove.Font = Enum.Font.SourceSans
+	Remove.Text = "Delete script "
+	Remove.TextColor3 = Color3.fromRGB(170, 0, 255)
+	Remove.TextScaled = true
+	Remove.TextSize = 14.000
+	Remove.Visible = true
+	 Remove.MouseButton1Down:Connect(function()
+	    game.CoreGui.FlyCarGui:destroy()
+	    game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	    game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChildOfClass("BodyVelocity"):Destroy()
+		game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChildOfClass("BodyGyro"):Destroy()
+	  end)
+
+	Open.Name = "Open"
+	Open.Parent = FlyCarGui
+	Open.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Open.Position = UDim2.new(0, 0, 0.50000000000, 0)
+	Open.Size = UDim2.new(0, 30, 0, 30)
+	Open.Font = Enum.Font.SourceSans
+	Open.Text = "Open"
+	Open.TextColor3 = Color3.fromRGB(170, 0, 255)
+	Open.TextScaled = true
+	Open.TextSize = 13.000
+	Open.Visible = false
+     Open.MouseButton1Down:Connect(function()
+     Open.Visible = false
+     Close.Visible = true
+     Speed.Visible = true
+     unfly.Visible = true
+     StopFly.Visible = true
+     Fly.Visible = true
+     W.Visible = true
+     S.Visible = true
+     Remove.Visible = true
+end)
+
+    Close.Name = "Close"
+    Close.Parent = FlyCarGui
+	Close.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Close.Position = UDim2.new(0, 0, 0.50000000000, 0)
+	Close.Size = UDim2.new(0, 30, 0, 30)
+	Close.Font = Enum.Font.SourceSans
+	Close.Text = "Close"
+	Close.TextColor3 = Color3.fromRGB(170, 0, 255)
+	Close.TextScaled = true
+	Close.TextSize = 13.000
+     Close.MouseButton1Down:Connect(function()
+     Open.Visible = true
+     Close.Visible = false
+     Speed.Visible = false
+     unfly.Visible = false
+     StopFly.Visible = false
+     Fly.Visible = false
+     W.Visible = false
+     S.Visible = false
+     Remove.Visible = true
+end)
+
+	unfly.Name = "unfly"
+	unfly.Parent = FlyCarGui
+	unfly.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	unfly.Position = UDim2.new(0.695689976, 0, 0.181818187, 0)
+	unfly.Size = UDim2.new(0, 50, 0, 40)
+	unfly.Font = Enum.Font.SourceSans
+	unfly.Text = "unfly"
+	unfly.TextColor3 = Color3.fromRGB(170, 0, 255)
+	unfly.TextScaled = true
+	unfly.TextSize = 14.000
+	unfly.TextWrapped = true
+		unfly.MouseButton1Down:Connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChildOfClass("BodyVelocity"):Destroy()
+		game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChildOfClass("BodyGyro"):Destroy()
+	end)
+
+	
+	Fly.Name = "Fly"
+	Fly.Parent = FlyCarGui
+	Fly.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Fly.Position = UDim2.new(0.695689976, 0, 0.0213903747, 0)
+	Fly.Size = UDim2.new(0, 50, 0, 40)
+	Fly.Font = Enum.Font.SourceSans
+	Fly.Text = "Fly"
+	Fly.TextColor3 = Color3.fromRGB(170, 0, 127)
+	Fly.TextScaled = true
+	Fly.TextSize = 14.000
+	Fly.TextWrapped = true
+	Fly.MouseButton1Down:Connect(function()
+		local BV = Instance.new("BodyVelocity",game.Players.LocalPlayer.Character.HumanoidRootPart)
+		local BG = Instance.new("BodyGyro",game.Players.LocalPlayer.Character.HumanoidRootPart)
+		BG.MaxTorque = Vector3.new(math.huge,math.huge,math.huge)
+		BG.D = 5000
+		BG.P = 50000
+		BG.CFrame = game.Workspace.CurrentCamera.CFrame
+		BV.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+	end)
+
+	W.Name = "W"
+	W.Parent = FlyCarGui
+	W.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	W.Position = UDim2.new(0.191668837, 0, 0.583604283, 0)
+	W.Size = UDim2.new(0, 58, 0, 50)
+	W.Font = Enum.Font.SourceSans
+	W.Text = "↑"
+	W.TextColor3 = Color3.fromRGB(226, 226, 226)
+	W.TextScaled = true
+	W.TextSize = 14.000
+	W.TextWrapped = true
+	W.MouseButton1Down:Connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+		game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChildOfClass("BodyVelocity"):Destroy()
+		game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChildOfClass("BodyGyro"):Destroy()
+		wait(.1)
+		local BV = Instance.new("BodyVelocity",game.Players.LocalPlayer.Character.HumanoidRootPart)
+		local BG = Instance.new("BodyGyro",game.Players.LocalPlayer.Character.HumanoidRootPart)
+		BG.MaxTorque = Vector3.new(math.huge,math.huge,math.huge)
+		BG.D = 5000
+		BG.P = 50000
+		BG.CFrame = game.Workspace.CurrentCamera.CFrame
+		BV.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+		BV.Velocity = game.Workspace.CurrentCamera.CFrame.LookVector * Speed.Text
+	end)
+
+
+	S.Name = "S"
+	S.Parent = FlyCarGui
+	S.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	S.Position = UDim2.new(0.191668837, 0, 0.735294104, 0)
+	S.Size = UDim2.new(0, 58, 0, 50)
+	S.Font = Enum.Font.SourceSans
+	S.Text = "↓"
+	S.TextColor3 = Color3.fromRGB(255, 255, 255)
+	S.TextScaled = true
+	S.TextSize = 14.000
+	S.TextWrapped = true
+	S.MouseButton1Down:Connect(function()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+		game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChildOfClass("BodyVelocity"):Destroy()
+		game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChildOfClass("BodyGyro"):Destroy()
+		wait(.1)
+		local BV = Instance.new("BodyVelocity",game.Players.LocalPlayer.Character.HumanoidRootPart)
+		local BG = Instance.new("BodyGyro",game.Players.LocalPlayer.Character.HumanoidRootPart)
+		BG.MaxTorque = Vector3.new(math.huge,math.huge,math.huge)
+		BG.D = 5000
+		BG.P = 50000
+		BG.CFrame = game.Workspace.CurrentCamera.CFrame
+		BV.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+		BV.Velocity = game.Workspace.CurrentCamera.CFrame.LookVector * -Speed.Text
+	end)
+        print("YHUB")
+    end
+) -- Text, Callback
+
+
+
+w1:Button(
+    "Delete UI",
+    function()
+        for i, v in pairs(game.CoreGui:GetChildren()) do
+            if v:FindFirstChild("Top") then
+                v:Destroy()
+            end
+        end
+    end
+) -- Text, Callback
+
+w1:Label("Dev : DeX") -- Text
+
+
+-- YHUB / جني / Dex / Y_Dex
+
+
+
+  end
+})
+
+
+
+
+
+--------------------------------------
+--SHOW FPS
+repeat wait() until game:IsLoaded() wait(2)
+local ScreenGui = Instance.new("ScreenGui")
+local Fps = Instance.new("TextLabel")
+local Ping = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Fps.Name = "Fps"
+Fps.Parent = ScreenGui
+Fps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Fps.BackgroundTransparency = 1.000
+Fps.Position = UDim2.new(0.056138654, 0, 0, 0)
+Fps.Size = UDim2.new(0, 80, 0, 25)
+Fps.Font = Enum.Font.FredokaOne
+Fps.TextColor3 = Color3.fromRGB(255, 255, 255)
+Fps.TextScaled = true
+Fps.TextSize = 10.000
+Fps.TextWrapped = true
+
+
+
+-- Scripts:
+
+local script = Instance.new('LocalScript', Fps)
+local RunService = game:GetService("RunService")
+RunService.RenderStepped:Connect(function(frame) -- This will fire every time a frame is rendered
+script.Parent.Text = ("FPS: "..math.round(1/frame)) 
+end)
+
+
