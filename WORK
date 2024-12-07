@@ -87,7 +87,7 @@ local Menu_Notifi = Create("Frame", ScreenGui, {
   Size = UDim2.new(0, 300, 1, 0),
   Position = UDim2.new(1, 0, 0, 0),
   AnchorPoint = Vector2.new(1, 0),
-  BackgroundTransparency = 1
+  BackgroundTransparency = 5
 })
 
 local Padding = Create("UIPadding", Menu_Notifi, {
@@ -135,7 +135,7 @@ function MakeNotifi(Configs)
     Text = "X",
     Font = Configs_HUB.Text_Font,
     TextSize = 20,
-    BackgroundTransparency = 1,
+    BackgroundTransparency = 5,
     TextColor3 = Color3.fromRGB(200, 200, 200),
     Position = UDim2.new(1, -5, 0, 5),
     AnchorPoint = Vector2.new(1, 0),
@@ -152,7 +152,7 @@ function MakeNotifi(Configs)
     AutomaticSize = "Y",
     Text = text,
     Font = Configs_HUB.Text_Font,
-    BackgroundTransparency = 1,
+    BackgroundTransparency = 5,
     AutomaticSize = Enum.AutomaticSize.Y,
     TextWrapped = true
   })
@@ -165,7 +165,7 @@ function MakeNotifi(Configs)
   })Corner(FrameSize)Create("Frame", Frame2, {
     Size = UDim2.new(0, 0, 0, 5),
     Position = UDim2.new(0, 0, 1, 5),
-    BackgroundTransparency = 1
+    BackgroundTransparency = 5
   })
   
   task.spawn(function()
@@ -232,7 +232,7 @@ function MakeWindow(Configs)
       TextScaled = true,
       TextColor3 = Configs_HUB.Cor_Text,
       TextXAlignment = "Left",
-      BackgroundTransparency = 1
+      BackgroundTransparency = 5
     })
     
     local Description = Create("TextLabel", KeyMenu, {
@@ -245,7 +245,7 @@ function MakeWindow(Configs)
       TextXAlignment = "Left",
       AutomaticSize = "Y",
       TextYAlignment = "Top",
-      BackgroundTransparency = 1
+      BackgroundTransparency = 5
     })
     
     local ConfirmButton = Create("TextButton", KeyMenu, {
