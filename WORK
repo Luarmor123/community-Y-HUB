@@ -165,7 +165,7 @@ function MakeNotifi(Configs)
   })Corner(FrameSize)Create("Frame", Frame2, {
     Size = UDim2.new(0, 0, 0, 5),
     Position = UDim2.new(0, 0, 1, 5),
-    BackgroundTransparency = 5
+    BackgroundTransparency = 50
   })
   
   task.spawn(function()
@@ -221,7 +221,7 @@ function MakeWindow(Configs)
       Font = Enum.Font.FredokaOne,
       TextScaled = true,
       TextColor3 = Color3.fromRGB(240, 0, 0),
-      BackgroundTransparency = 5,
+      BackgroundTransparency = 50,
     })Corner(CloseButton)
     
     local Title = Create("TextLabel", KeyMenu, {
