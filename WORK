@@ -121,9 +121,9 @@ function MakeNotifi(Configs)
   })Corner(Frame2)
   
   local TextLabel = Create("TextLabel", Frame2, {
-    Size = UDim2.new(1, 0, 0, 25),
+    Size = UDim2.new(2, 0, 0, 25),
     Font = Configs_HUB.Text_Font,
-    BackgroundTransparency = 1,
+    BackgroundTransparency = 0,
     Text = Title,
     TextSize = 20,
     Position = UDim2.new(0, 20, 0, 5),
@@ -135,7 +135,7 @@ function MakeNotifi(Configs)
     Text = "X",
     Font = Configs_HUB.Text_Font,
     TextSize = 20,
-    BackgroundTransparency = 5,
+    BackgroundTransparency = 0,
     TextColor3 = Color3.fromRGB(200, 200, 200),
     Position = UDim2.new(1, -5, 0, 5),
     AnchorPoint = Vector2.new(1, 0),
@@ -165,7 +165,7 @@ function MakeNotifi(Configs)
   })Corner(FrameSize)Create("Frame", Frame2, {
     Size = UDim2.new(0, 0, 0, 5),
     Position = UDim2.new(0, 0, 1, 5),
-    BackgroundTransparency = 50
+    BackgroundTransparency = 0
   })
   
   task.spawn(function()
