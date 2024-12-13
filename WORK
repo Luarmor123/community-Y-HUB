@@ -1,4 +1,3 @@
-
 local Configs_HUB = {
   Cor_Hub = Color3.fromRGB(15, 15, 15),
   Cor_Options = Color3.fromRGB(15, 15, 15),
@@ -87,7 +86,7 @@ local Menu_Notifi = Create("Frame", ScreenGui, {
   Size = UDim2.new(0, 300, 1, 0),
   Position = UDim2.new(1, 0, 0, 0),
   AnchorPoint = Vector2.new(1, 0),
-  BackgroundTransparency = 0.5
+  BackgroundTransparency = 1
 })
 
 local Padding = Create("UIPadding", Menu_Notifi, {
@@ -108,7 +107,7 @@ function MakeNotifi(Configs)
   
   local Frame1 = Create("Frame", Menu_Notifi, {
     Size = UDim2.new(2, 0, 0, 0),
-    BackgroundTransparency = 0.5,
+    BackgroundTransparency = 1,
     AutomaticSize = "Y",
     Name = "Title"
   })
@@ -121,9 +120,9 @@ function MakeNotifi(Configs)
   })Corner(Frame2)
   
   local TextLabel = Create("TextLabel", Frame2, {
-    Size = UDim2.new(2, 0, 0, 25),
+    Size = UDim2.new(1, 0, 0, 25),
     Font = Configs_HUB.Text_Font,
-    BackgroundTransparency = 0.5,
+    BackgroundTransparency = 1,
     Text = Title,
     TextSize = 20,
     Position = UDim2.new(0, 20, 0, 5),
@@ -135,7 +134,7 @@ function MakeNotifi(Configs)
     Text = "X",
     Font = Configs_HUB.Text_Font,
     TextSize = 20,
-    BackgroundTransparency = 0.5,
+    BackgroundTransparency = 1,
     TextColor3 = Color3.fromRGB(200, 200, 200),
     Position = UDim2.new(1, -5, 0, 5),
     AnchorPoint = Vector2.new(1, 0),
@@ -152,7 +151,7 @@ function MakeNotifi(Configs)
     AutomaticSize = "Y",
     Text = text,
     Font = Configs_HUB.Text_Font,
-    BackgroundTransparency = 0.5,
+    BackgroundTransparency = 1,
     AutomaticSize = Enum.AutomaticSize.Y,
     TextWrapped = true
   })
@@ -165,7 +164,7 @@ function MakeNotifi(Configs)
   })Corner(FrameSize)Create("Frame", Frame2, {
     Size = UDim2.new(0, 0, 0, 5),
     Position = UDim2.new(0, 0, 1, 5),
-    BackgroundTransparency = 0.5
+    BackgroundTransparency = 1
   })
   
   task.spawn(function()
@@ -221,7 +220,7 @@ function MakeWindow(Configs)
       Font = Enum.Font.FredokaOne,
       TextScaled = true,
       TextColor3 = Color3.fromRGB(240, 0, 0),
-      BackgroundTransparency = 0.5,
+      BackgroundTransparency = 1,
     })Corner(CloseButton)
     
     local Title = Create("TextLabel", KeyMenu, {
@@ -232,7 +231,7 @@ function MakeWindow(Configs)
       TextScaled = true,
       TextColor3 = Configs_HUB.Cor_Text,
       TextXAlignment = "Left",
-      BackgroundTransparency = 0.5
+      BackgroundTransparency = 1
     })
     
     local Description = Create("TextLabel", KeyMenu, {
@@ -245,11 +244,11 @@ function MakeWindow(Configs)
       TextXAlignment = "Left",
       AutomaticSize = "Y",
       TextYAlignment = "Top",
-      BackgroundTransparency = 0.5
+      BackgroundTransparency = 1
     })
     
     local ConfirmButton = Create("TextButton", KeyMenu, {
-      Text = "أدخال",
+      Text = "Confirm",
       Font = Configs_HUB.Text_Font,
       TextSize = 20,
       TextColor3 = Configs_HUB.Cor_Text,
@@ -260,7 +259,7 @@ function MakeWindow(Configs)
     })Corner(ConfirmButton)
     
     local GetKeyLink = Create("TextButton", KeyMenu, {
-      Text = "الحصول على الرابط",
+      Text = "Get the link",
       Font = Configs_HUB.Text_Font,
       TextSize = 20,
       TextColor3 = Configs_HUB.Cor_Text,
@@ -273,7 +272,7 @@ function MakeWindow(Configs)
       Size = UDim2.new(1, -70, 0, 40),
       Position = UDim2.new(0, 35, 0, 90),
       BackgroundColor3 = Configs_HUB.Cor_Options,
-      PlaceholderText = "اكتبه هناا",
+      PlaceholderText = "Put key here",
       Text = "",
       TextColor3 = Configs_HUB.Cor_Text,
       Font = Configs_HUB.Text_Font,
@@ -334,7 +333,7 @@ function MakeWindow(Configs)
   })Corner(Menu)
   
   local TopBar = Create("Frame", Menu, {
-    BackgroundTransparency = 0.5,
+    BackgroundTransparency = 1,
     Size = UDim2.new(1, 0, 0, 25),
     Visible = false
   })
@@ -343,7 +342,7 @@ function MakeWindow(Configs)
     Size = UDim2.new(0, 40, 1, -5),
     Position = UDim2.new(1, -10, 0, 2.5),
     AnchorPoint = Vector2.new(1, 0),
-    BackgroundTransparency = 0.5
+    BackgroundTransparency = 1
   })
   
   local Title = Create("TextLabel", TopBar, {
@@ -354,7 +353,7 @@ function MakeWindow(Configs)
     TextXAlignment = "Left",
     Text = title,
     TextSize = 20,
-    BackgroundTransparency = 0.5
+    BackgroundTransparency = 1
   })
   
   local Minimize_BTN = Create("TextButton", ButtonsFrame, {
@@ -414,7 +413,7 @@ function MakeWindow(Configs)
     
     local Mensage = Create("TextLabel", CloseMenu, {
       Size = UDim2.new(0.8, 0, 0.25, 0),
-      Text = "هل انت متأكد انك تريد اغلاقه ؟",
+      Text = "Are you sure you want to close it ?",
       Position = UDim2.new(0.1, 0, 0.2),
       TextColor3 = Configs_HUB.Cor_Text,
       Font = Configs_HUB.Text_Font,
@@ -426,7 +425,7 @@ function MakeWindow(Configs)
       Size = UDim2.new(0.35, 0, 0.3, 0),
       Position = UDim2.new(0.1, 0, 0.5, 0),
       BackgroundColor3 = Configs_HUB.Cor_Hub,
-      Text = "اغلاق السكربت",
+      Text = "Yes , Delete script",
       Font = Configs_HUB.Text_Font,
       TextColor3 = Color3.fromRGB(240, 0, 0),
       TextSize = 20
@@ -437,7 +436,7 @@ function MakeWindow(Configs)
       Position = UDim2.new(0.9, 0, 0.5, 0),
       AnchorPoint = Vector2.new(1, 0),
       BackgroundColor3 = Configs_HUB.Cor_Hub,
-      Text = "الغاء",
+      Text = "Close",
       Font = Configs_HUB.Text_Font,
       TextColor3 = Color3.fromRGB(0, 240, 0),
       TextSize = 20
