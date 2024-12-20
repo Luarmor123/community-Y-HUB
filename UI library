@@ -15,7 +15,7 @@ local OrionLib = {
 	Themes = {
 		Default = {
 			Main = Color3.fromRGB(0, 0, 0),
-			Second = Color3.fromRGB(32, 32, 32),
+			Second = Color3.fromRGB(0, 0, 0),
 			Stroke = Color3.fromRGB(0,191,255),
 			Divider = Color3.fromRGB(60, 60, 60),
 			Text = Color3.fromRGB(0,191,255),
@@ -108,7 +108,7 @@ local function AddDraggingFunctionality(DragPoint, Main)
 
 				Input.Changed:Connect(function()
 					if Input.UserInputState == Enum.UserInputState.End then
-						Dragging = true
+						Dragging = false
 					end
 				end)
 			end
