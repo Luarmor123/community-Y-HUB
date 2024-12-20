@@ -1,0 +1,5520 @@
+--Loader
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Icon = Instance.new("ImageLabel")
+local Line = Instance.new("Frame")
+local Chose = Instance.new("TextLabel")
+local Arabic = Instance.new("TextButton")
+local English = Instance.new("TextButton")
+local TG = Instance.new("TextButton")
+-- ui
+local UICornerFrame = Instance.new("UICorner")
+local UICornerIcon = Instance.new("UICorner")
+local UICornerArabic = Instance.new("UICorner")
+local UICornerEnglish = Instance.new("UICorner")
+local UICornerTG = Instance.new("UICorner")
+
+--Properties
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame.Parent = ScreenGui
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.5, 0, 1.5, 0) -- Start position off-screen
+Frame.Size = UDim2.new(0, 300, 0, 200)
+Frame.ClipsDescendants = true
+Frame.Active = true
+Frame.Draggable = true
+
+UICornerFrame.CornerRadius = UDim.new(0, 8)
+UICornerFrame.Parent = Frame
+
+Title.Parent = Frame
+Title.AnchorPoint = Vector2.new(0.5, 0)
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(0.5, 0, 0, 0)
+Title.Size = UDim2.new(0, 320, 0, 40)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "اللغة / Language"
+Title.TextColor3 = Color3.fromRGB(0, 255, 255)
+Title.TextSize = 30
+
+UICornerIcon.CornerRadius = UDim.new(0, 5)
+UICornerIcon.Parent = Icon
+
+Line.Parent = Title
+Line.BackgroundColor3 = Color3.fromRGB(224, 224, 224)
+Line.Size = UDim2.new(1, 0, 0, 5)
+Line.Position = UDim2.new(0, 0, 1.1, 0)
+
+Arabic.Parent = Frame
+Arabic.AnchorPoint = Vector2.new(0.5, 0)
+Arabic.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Arabic.Position = UDim2.new(0.3, 0, 0, 95)
+Arabic.Size = UDim2.new(0, 100, 0, 35)
+Arabic.Font = Enum.Font.SourceSans
+Arabic.Text = "العربية"
+Arabic.TextColor3 = Color3.fromRGB(255, 255, 255)
+Arabic.TextSize = 25
+
+UICornerArabic.CornerRadius = UDim.new(0, 8)
+UICornerArabic.Parent = Arabic
+
+English.Parent = Frame
+English.AnchorPoint = Vector2.new(0.5, 0)
+English.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+English.Position = UDim2.new(0.7, 0, 0, 95)
+English.Size = UDim2.new(0, 100, 0, 35)
+English.Font = Enum.Font.SourceSans
+English.Text = "English"
+English.TextColor3 = Color3.fromRGB(255, 255, 255)
+English.TextSize = 23
+
+UICornerEnglish.CornerRadius = UDim.new(0, 8)
+UICornerEnglish.Parent = English
+
+
+
+TG.Parent = Frame
+TG.AnchorPoint = Vector2.new(0.5, 0)
+TG.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+TG.Position = UDim2.new(0.5, 0, 0, 150)
+TG.Size = UDim2.new(0, 50, 0, 40)
+TG.Font = Enum.Font.SourceSans
+TG.Text = "Delete UI"
+TG.TextColor3 = Color3.fromRGB(255, 255 , 255)
+TG.TextSize = 14
+
+UICornerTG.CornerRadius = UDim.new(0, 8)
+UICornerTG.Parent = TG
+
+
+
+--Animation
+local tweenService = game:GetService("TweenService")
+local curve = Enum.EasingStyle.Sine
+local direction = Enum.EasingDirection.Out
+
+local frameIn = {
+  Position = UDim2.new(0.5, 0, 0.5, 0), -- Target position
+}
+
+local frameOut = {
+  Position = UDim2.new(0.5, 0, 1.5, 0),
+}
+
+-- Function to animate the entrance
+function animateIn()
+  local frameTween = tweenService:Create(Frame, TweenInfo.new(2, curve, direction), frameIn)
+  frameTween:Play()
+end
+
+function animateOut()
+  local frameTween = tweenService:Create(Frame, TweenInfo.new(2, curve, direction), frameOut)
+  frameTween:Play()
+  frameTween.Completed:Connect(function()
+    ScreenGui:Destroy()
+  end)
+end
+
+-- Start the entrance animation
+animateIn()
+
+Arabic.MouseButton1Click:Connect(function()
+  animateOut()
+  local YHUB = "YHUB Community"
+-- Scripts :
+local Brookhaven = "YHUB Brookhaven V3.0"
+local Carfly = "YHUB CAR FLY V1.3"
+local Fling = "YHUB Fling"
+local Bloxfruit = "YHUB Bloxfruit ( Stopped )"
+local AimBot = "YHUB AIMBOT"
+local MM2 = "YHUB MM2 ( beta )"
+local Swordwars = "Soon!"
+local Fisch = "Soon!"
+-- local ..
+
+
+
+-- version Script 
+local version = 6
+
+local player = game.Players.LocalPlayer
+local playerService = game:GetService("Players")
+local localPlayer = playerService.LocalPlayer
+local marketplaceService = game:GetService("MarketplaceService")
+local placeId = game.PlaceId
+local productInfo = marketplaceService:GetProductInfo(placeId)
+
+local creatorName = productInfo.Creator.Name
+local gameName = productInfo.Name
+local createdTime = string.sub(productInfo.Created, 1, 10)
+local updatedTime = string.sub(productInfo.Updated, 1, 10)
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/UI%20library')))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "YHUB Community | اسم الماب : ".. gameName,
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest",
+    IntroEnabled = true,
+    IntroText = "YHUB Community",
+    IntroIcon = "rbxassetid://2005276185",
+    Icon = "rbxassetid://4483345998",
+    CloseCallback = function()
+        OrionLib:MakeNotification({
+            Name = "YHUB",
+            Content = "تم الاغلاق ✓",
+            Image = "rbxassetid://88819916320666",
+            Time = 5
+        })
+    end
+})
+
+
+
+
+
+
+OrionLib:MakeNotification({
+    Name = "YHUB",
+    Content = "ارحب في YHUB Community ",
+    Image = "rbxassetid://88819916320666",
+    Time = 5
+})
+
+local uis = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICornerFrame = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
+local UICornerTextButton = Instance.new("UICorner")
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 1
+Frame.Position = UDim2.new(1, -120, 0, 30)
+Frame.Size = UDim2.new(0, 40, 0, 40)
+Frame.ClipsDescendants = true
+Frame.Active = true
+Frame.Draggable = true
+
+UICornerFrame.CornerRadius = UDim.new(0, 8)
+UICornerFrame.Parent = Frame
+
+local imageLabel = Instance.new("ImageLabel")
+imageLabel.Parent = Frame
+imageLabel.Size = UDim2.new(1, 0, 1, 0)
+imageLabel.Position = UDim2.new(0, 0, 0, 0)
+imageLabel.Image = "rbxassetid://88819916320666"
+imageLabel.BackgroundTransparency = 1
+
+TextButton.Parent = imageLabel
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Size = UDim2.new(1, 0, 1, 0)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = ""
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 27
+TextButton.ClipsDescendants = true
+TextButton.Active = true
+
+
+UICornerTextButton.CornerRadius = UDim.new(0, 8)
+UICornerTextButton.Parent = TextButton
+
+local function createTextShadow(button)
+    local shadowOffset = 2
+    local shadowLabel = Instance.new("TextLabel", Frame)
+    shadowLabel.Size = button.Size
+    shadowLabel.Position = button.Position + UDim2.new(0, shadowOffset, 0, shadowOffset)
+    shadowLabel.Text = button.Text
+    shadowLabel.TextScaled = button.TextScaled
+    shadowLabel.Font = button.Font
+    shadowLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    shadowLabel.BackgroundTransparency = 1
+    shadowLabel.TextSize = button.TextSize
+    shadowLabel.TextTransparency = 0.5
+end
+
+createTextShadow(TextButton)
+local glowStroke = Instance.new("UIStroke", Frame)
+glowStroke.Thickness = 3
+glowStroke.Transparency = 0.8
+glowStroke.Color = Color3.fromRGB(0,191,255)
+
+local gradient = Instance.new("UIGradient", glowStroke)
+gradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 20, 147)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 105, 180))
+}
+gradient.Rotation = 45
+
+local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+local tweenShowFrame = TweenService:Create(Frame, tweenInfo, {Position = UDim2.new(0.5, 0, 0.3, 0)})
+
+local function createGlowEffect(stroke)
+    local glowTweenInfo = TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true)
+    local tween = TweenService:Create(stroke, glowTweenInfo, {Transparency = 0.1, Thickness = 5})
+    tween:Play()
+end
+createGlowEffect(glowStroke)
+
+function findOrion(parent)
+    for _, child in ipairs(parent:GetChildren()) do
+        if child.Name == "Orion" then
+            return child
+        end
+        local found = findOrion(child)
+        if found then
+            return found
+        end
+    end
+    return nil
+end
+
+local Orion = findOrion(game.CoreGui)
+
+TextButton.MouseButton1Click:Connect(function()
+    if Orion then
+        if Orion.Enabled then
+            Orion.Enabled = false
+        else
+            Orion.Enabled = true
+        end
+    end
+end)
+
+
+
+-- tabs :
+
+
+local Home = Window:MakeTab({
+	Name = "البداية",
+	Icon = "rbxassetid://10723407389",
+	PremiumOnly = false
+})
+
+
+local Main = Window:MakeTab({
+	Name = "الرئيسية",
+	Icon = "rbxassetid://2005276185",
+	PremiumOnly = false
+})
+
+local Info = Window:MakeTab({
+	Name = "معلومات",
+	Icon = "rbxassetid://7733752630",
+	PremiumOnly = false
+})
+-------------------------------------------------------
+-- Info :
+local Section = Info:AddSection({
+	Name = "معلومات"
+})
+
+Info:AddLabel("This script Collects official YHUB scripts !")
+Info:AddLabel("All scripts and this was also developed by DeX ( جني )")
+Info:AddLabel("Thank you for using .")
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+-- Main :
+local Section = Main:AddSection({
+	Name = "ماب البيوت"
+})
+
+Main:AddButton({
+	Name = "YHUB V3.1 ( عربي )",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB%20Brookhaven"))()
+      		print("button pressed")
+  	end    
+})
+
+Main:AddButton({
+	Name = "YHUB V3.1 ( انقلش )",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB%20ENGLISH"))()
+      		print("button pressed")
+  	end    
+})
+
+
+Main:AddButton({
+	Name = "طيران سيارة V1.3",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Car-fly-YHUB"))()
+      		print("button pressed")
+  	end    
+})
+
+local Section = Main:AddSection({
+	Name = "MM2"
+})
+Main:AddButton({
+	Name = "YHUB ( تجريبي )",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB-MM2"))()
+
+      		print("")
+  	end    
+})
+
+local Section = Main:AddSection({
+	Name = "بلوكس فروت"
+})
+Main:AddButton({
+	Name = "YHUB v5 ( متوقف )",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB%20Bloxfruitv5.txt"))()
+      		print("")
+  	end    
+})
+
+local Section = Main:AddSection({
+	Name = "اخرى"
+})
+
+Main:AddButton({
+	Name = "YHUB ايم بوت",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB-AimBot"))()
+      		print("")
+  	end    
+})
+
+
+Main:AddButton({
+	Name = "YHUB فلنق",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Fling-GUI"))()
+      		print("")
+  	end    
+})
+local Section = Main:AddSection({
+	Name = "ماب السيوف 2.0"
+})
+
+
+Main:AddButton({
+	Name = "YHUB ماب السيوف ( عربي ) ",
+	Callback = function()
+	wait(0.1)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "YHUB V1.3"; 
+    Text = "المطور : جني"; -- GYHUB TEAM --
+    Icon = "rbxassetid://88819916320666"})
+Duration = 5;
+
+
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local MarketplaceService = game:GetService("MarketplaceService")
+local GroupService = game:GetService("GroupService")
+local LocalizationService = game:GetService("LocalizationService")
+ 
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Gui")))()
+MakeWindow({
+  Hub = {
+    Title = "YHUB | V1.3 | Sword War Maps ",
+    Animation = "YHUB : المطور جني"
+    
+    
+  },
+  Key = {
+    KeySystem = false,
+    Title = " المفتاح",
+    Description = "أكتب مفتاحك",
+    KeyLink = "https://t.me/YHUB_16",
+    Keys = {"YHUB1234"},
+    Notifi = {
+      Notifications = true,
+      CorrectKey = "صحيح ✓ جار تحميل السكربت... ",
+      Incorrectkey = "المفتاح خطأ ×",
+      CopyKeyLink = "تم النسخ الى الحافظة ✓ "
+    
+    }
+  }
+})
+
+
+
+
+
+
+MinimizeButton({
+  Image = "rbxassetid://88819916320666",
+  Size = {40, 40},
+  Color = Color3.fromRGB(0, 0, 0),
+  Corner = true,
+  Stroke = false,
+  StrokeColor = Color3.fromRGB(0,0,255)
+})
+
+local soundId = "rbxassetid://15689451063"
+
+-- الكود البرمجي
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Parent = game.Workspace -- ضعه في مساحة العمل للتأكد من سماعك
+    sound:Play()
+end
+
+-- اياك ان تحذفه !
+playSound()
+-- Tabs :
+local Home = MakeTab({Name = "البداية"})
+local Main = MakeTab({Name = "الرئيسية"})
+local Settings = MakeTab({Name = "الاعدادات"})
+
+
+
+
+local Image = AddImageLabel(Home, {
+  Name = "YHUB • V1.3",
+  Image = "rbxassetid://88819916320666"
+})
+
+local Label = AddTextLabel(Home, "ارحب : " .. player.DisplayName )
+SetLabel(Label, "ارحب : " .. player.DisplayName)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function getExecutorName()
+    if identifyexecutor then
+        return identifyexecutor()
+    else
+        return "Unknown Executor"
+    end
+end
+
+local playerName = LocalPlayer.Name
+local executorName = getExecutorName()
+local Label = AddTextLabel(Home, "الهاك حقك : " .. executorName)
+SetLabel(Label, "الهاك حقك : " .. executorName)
+
+AddButton(Home, {
+  Name = "قناتي تيليجرام( اضغط للنسخ )",
+  Callback = function()
+    setclipboard('https://t.me/YHUB_16')
+  end
+})
+
+local section = AddSection(Home, {"»»»»»{ معلومات الماب }««««« "})
+
+local playerService = game:GetService("Players")
+local localPlayer = playerService.LocalPlayer
+local marketplaceService = game:GetService("MarketplaceService")
+local placeId = game.PlaceId
+local productInfo = marketplaceService:GetProductInfo(placeId)
+
+local creatorName = productInfo.Creator.Name
+local gameName = productInfo.Name
+local createdTime = string.sub(productInfo.Created, 1, 10)
+local updatedTime = string.sub(productInfo.Updated, 1, 10)
+
+local Label = AddTextLabel(Home, "Name : " ..  gameName)
+SetLabel(Label, "Name : " .. gameName)
+
+local Label = AddTextLabel(Home, "Creator : " .. creatorName)
+SetLabel(Label, "Creator : " .. creatorName)
+
+local Label = AddTextLabel(Home, "Created Time : " .. createdTime)
+SetLabel(Label, "Created Time : " .. createdTime)
+
+local Label = AddTextLabel(Home, "UpdatedTime : " .. updatedTime )
+SetLabel(Label, "UpdatedTime : " .. updatedTime )
+
+AddButton(Home, {
+  Name = "Place ID ( Click to copy ) : " .. tostring(placeId),
+  Callback = function()setclipboard(tostring(placeId))
+    
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ الرئيسية }««««« "})
+AddButton(Main, {
+  Name = "ريتش",
+  Callback = function()
+  MakeNotifi({
+                    Title = "YHUB" ,
+                    Text = "تم التفعيل √" ,
+                    Time = 6
+                })
+
+  local connections = getgenv().configs and getgenv().configs.connection
+if connections then
+    local Disable = configs.Disable
+    for i,v in connections do
+        v:Disconnect() 
+    end
+    Disable:Fire()
+    Disable:Destroy()
+    table.clear(configs)
+end
+
+local Disable = Instance.new("BindableEvent")
+getgenv().configs = {
+    connections = {},
+    Disable = Disable,
+    Size = Vector3.new(10,10,10),
+    DeathCheck = true
+}
+
+local Players = cloneref(game:GetService("Players"))
+local RunService = cloneref(game:GetService("RunService"))
+local lp = Players.LocalPlayer
+local Run = true
+local Ignorelist = OverlapParams.new()
+Ignorelist.FilterType = Enum.RaycastFilterType.Include
+
+local function getchar(plr)
+    local plr = plr or lp
+    return plr.Character
+end
+
+local function gethumanoid(plr: Player | Character)
+    local char = plr:IsA("Model") and plr or getchar(plr)
+
+    if char then
+        return char:FindFirstChildWhichIsA("Humanoid")
+    end
+end
+
+local function IsAlive(Humanoid)
+    return Humanoid and Humanoid.Health > 0
+end
+
+local function GetTouchInterest(Tool)
+    return Tool and Tool:FindFirstChildWhichIsA("TouchTransmitter",true)
+end
+
+local function GetCharacters(LocalPlayerChar)
+    local Characters = {}
+    for i,v in Players:GetPlayers() do
+        table.insert(Characters,getchar(v))
+    end
+    table.remove(Characters,table.find(Characters,LocalPlayerChar))
+    return Characters
+end
+
+local function Attack(Tool,TouchPart,ToTouch)
+    if Tool:IsDescendantOf(workspace) then
+        Tool:Activate()
+        firetouchinterest(TouchPart,ToTouch,1)
+        firetouchinterest(TouchPart,ToTouch,0)
+    end
+end
+
+table.insert(getgenv().configs.connections,Disable.Event:Connect(function()
+    Run = false
+end))
+
+while Run do
+    local char = getchar()
+    if IsAlive(gethumanoid(char)) then
+        local Tool = char and char:FindFirstChildWhichIsA("Tool")
+        local TouchInterest = Tool and GetTouchInterest(Tool)
+
+        if TouchInterest then
+            local TouchPart = TouchInterest.Parent
+            local Characters = GetCharacters(char)
+            Ignorelist.FilterDescendantsInstances = Characters
+            local InstancesInBox = workspace:GetPartBoundsInBox(TouchPart.CFrame,TouchPart.Size + getgenv().configs.Size,Ignorelist)
+
+            for i,v in InstancesInBox do
+                local Character = v:FindFirstAncestorWhichIsA("Model")
+
+                if table.find(Characters,Character) then
+                    if getgenv().configs.DeathCheck then                    
+                        if IsAlive(gethumanoid(Character)) then
+                            Attack(Tool,TouchPart,v)
+                        end
+                    else
+                        Attack(Tool,TouchPart,v)
+                    end
+                end
+            end
+        end
+    end
+    RunService.Heartbeat:Wait()
+end
+  
+  end
+})
+
+
+AddButton(Main, {
+  Name = "ريتش v2",
+  Callback = function()
+  getgenv().Range = 10
+  local players = game:GetService("Players")
+local player = players.LocalPlayer
+local camera = workspace.CurrentCamera
+
+local function getPartsInViewport(maxDistance)
+	local partsInViewport = {}
+	for _, part in ipairs(workspace:GetDescendants()) do
+		if part:IsA("BasePart") then
+			local distance = player:DistanceFromCharacter(part.Position)
+			if distance <= maxDistance then
+				local _, isVisible = camera:WorldToViewportPoint(part.Position)
+				if isVisible then
+					table.insert(partsInViewport, part)
+				end
+			end
+		end
+	end
+	return partsInViewport
+end
+
+
+
+while true do 
+    wait()
+local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+local parts = getPartsInViewport(Range)
+
+if tool and tool:FindFirstChild("Handle") then
+for _, part in ipairs(parts) do
+if part and part.Parent and part.Parent ~= game.Players.localPlayer.Character and part.Parent:FindFirstChildWhichIsA("Humanoid") and part.Parent:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                        tool:Activate()
+                        firetouchinterest(tool.Handle,part,0)
+                        firetouchinterest(tool.Handle,part,1)
+end
+end
+end
+end
+
+  end
+})
+
+
+
+AddTextBox(Main, {
+  Name = "Set range ( kill aura v2 only )",
+  Default = "put range",
+  PlaceholderText = "",
+  ClearText = true,
+  Callback = function(Y)
+  getgenv().Range = Y
+      
+
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ الايم }««««« "})
+
+AddButton(Main, {
+  Name = "بولت تراك",
+  Callback = function()
+  getgenv().TargetTeamName = "Blue"  -- Initial target team
+getgenv().cooldown = 0  -- Cooldown in seconds between shots
+getgenv().bulletSpeed = 90.5  -- Speed of the bullet in studs/second
+getgenv().minPredictionDistance = 0  -- Minimum distance for prediction in studs
+getgenv().maxPredictionDistance = 15  -- Maximum distance for prediction in studs
+getgenv().lastShotTime = 0  -- Variable to track the last time a shot was fired
+
+-- You want to steal?.. 😔.
+-- ...
+
+
+-- Wait for 2 seconds
+wait(1)
+
+-- Function to animate notification
+local function animateNotification(notification)
+    local endPos = UDim2.new(0.5, -100, 0.4, -50) -- Adjusted position
+    
+    local tweenInfo = TweenInfo.new(
+        1, -- Duration
+        Enum.EasingStyle.Elastic, -- Easing style
+        Enum.EasingDirection.Out, -- Easing direction
+        0, -- Repeat count (0 means play once)
+        false, -- Reverses after finishing
+        0 -- Delay
+    )
+    
+    local tween = game:GetService("TweenService"):Create(notification, tweenInfo, {Position = endPos})
+    
+    tween:Play()
+    
+    wait(2) -- Adjust the duration the notification is displayed
+    
+    tween:Destroy()
+end
+
+-- Create a function to display a notification
+local function displayNotification(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "Notification"
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = notification
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, -100, 0.55, -50) -- Adjusted position
+    textLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    textLabel.Text = message
+    textLabel.TextSize = 20
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    -- Animate notification
+    animateNotification(textLabel)
+
+    -- Fade out and destroy the notification after the animation finishes
+    wait(1)
+    for transparency = 0, 1, 0.1 do
+        textLabel.BackgroundTransparency = transparency
+        wait(0.1)
+    end
+    notification:Destroy()
+end
+
+-- Display the first notification
+displayNotification("المطور جني")
+
+-- Display the second notification
+wait(0.1)
+displayNotification("بولت تراك")
+
+-- Execute the main script
+local player = game.Players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RemoteEvent = ReplicatedStorage.Events.Remote.ShotTarget
+local SoundService = game:GetService("SoundService")
+
+local targetTeamName = "Red"  -- Initial target team
+local cooldown = 0  -- Cooldown in seconds between shots
+local bulletSpeed = 49.5  -- Speed of the bullet in studs/second
+local minPredictionDistance = 0  -- Minimum distance for prediction in studs
+local maxPredictionDistance = 10  -- Maximum distance for prediction in studs
+local lastShotTime = 0  -- Variable to track the last time a shot was fired
+
+-- Function to animate notification
+local function animateNotification(notification)
+    local endPos = UDim2.new(0.5, -100, 0.4, -50) -- Adjusted position
+    
+    local tweenInfo = TweenInfo.new(
+        1, -- Duration
+        Enum.EasingStyle.Elastic, -- Easing style
+        Enum.EasingDirection.Out, -- Easing direction
+        0, -- Repeat count (0 means play once)
+        false, -- Reverses after finishing
+        0 -- Delay
+    )
+    
+    local tween = game:GetService("TweenService"):Create(notification, tweenInfo, {Position = endPos})
+    
+    tween:Play()
+    
+    wait(2) -- Adjust the duration the notification is displayed
+    
+    tween:Destroy()
+end
+
+-- Function to display a notification
+local function displayNotification(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "Notification"
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = notification
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, -100, 0.55, -50) -- Adjusted position
+    textLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.Text = message
+    textLabel.TextSize = 20
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    -- Animate notification
+    animateNotification(textLabel)
+
+    -- Fade out and destroy the notification after the animation finishes
+    wait(2)
+    for transparency = 0, 1, 0.1 do
+        textLabel.BackgroundTransparency = transparency
+        wait(0.1)
+    end
+    notification:Destroy()
+end
+
+-- Function to play a sound
+local function playSound(soundId, delay)
+    delay = delay or 0
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://" .. soundId
+    sound.Parent = SoundService
+    sound:Play()
+    wait(delay)
+    sound:Destroy()
+end
+
+-- Play sound with delay
+spawn(function()
+    playSound(2865227271, 0.5)
+    wait(0.5)
+    playSound(1676318332)
+end)
+
+local function findClosestPlayer()
+    local players = game.Players:GetPlayers()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    
+    -- Get the equipped tool
+    local tool = player.Character:FindFirstChildOfClass("Tool")
+    
+    if tool then
+        local toolHandle = tool:FindFirstChild("Handle")
+        if toolHandle then
+            -- Use the position of the tool handle as the shooter's position
+            local shooterPosition = toolHandle.Position
+            
+            for _, plyr in ipairs(players) do
+                if plyr ~= player and plyr.Team and plyr.Team.Name == targetTeamName and plyr.Character and plyr.Character:FindFirstChild("Humanoid") and plyr.Character.Humanoid.Health > 0 then
+                    local targetPosition = plyr.Character.HumanoidRootPart.Position
+                    
+                    -- Calculate horizontal distance
+                    local horizontalDistance = (targetPosition - shooterPosition).magnitude
+                    
+                    -- Calculate vertical distance
+                    local heightDifference = math.abs(targetPosition.Y - shooterPosition.Y)
+                    
+                    -- Calculate total distance considering both horizontal and vertical distances
+                    local totalDistance = (horizontalDistance^1 + heightDifference^2)^0.5
+                    
+                    if totalDistance < shortestDistance then
+                        closestPlayer = plyr
+                        shortestDistance = totalDistance
+                    end
+                end
+            end
+        else
+            print("Tool does not have a handle.")
+        end
+    else
+        print("No tool equipped.")
+    end
+    
+    return closestPlayer, shortestDistance
+end
+
+local function predictPosition(targetPosition, targetVelocity)
+    local shooterPosition = player.Character.HumanoidRootPart.Position
+    local distanceToTarget = (targetPosition - shooterPosition).magnitude
+    
+    -- Adjust prediction based on distance
+    local predictionDistance = math.clamp(distanceToTarget, minPredictionDistance, maxPredictionDistance)
+    local timeToImpact = predictionDistance / bulletSpeed
+    
+    -- Predict the future position of the target based on their current position and velocity
+    return targetPosition + targetVelocity * timeToImpact
+end
+
+local function fireRemoteEvent(targetPlayer)
+    if targetPlayer then
+        local currentTime = os.time()
+        if currentTime - lastShotTime >= cooldown then
+            local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
+            local targetVelocity = targetPlayer.Character.HumanoidRootPart.Velocity
+            
+            local predictedPosition = predictPosition(targetPosition, targetVelocity)
+            
+            local args = {
+                [1] = predictedPosition,
+                [2] = "Sniper"
+            }
+            RemoteEvent:FireServer(unpack(args))
+            
+            -- Activate the equipped tool
+            local tool = player.Character:FindFirstChildOfClass("Tool")
+            if tool then
+                tool:Activate()
+            end
+            
+            lastShotTime = currentTime
+        end
+    else
+        print("No valid players found on the specified team nearby.")
+    end
+end
+
+local function toggleTargetTeam()
+    if targetTeamName == "Red" then
+        targetTeamName = "Blue"
+    else
+        targetTeamName = "Red"
+    end
+    displayNotification("الان يتم الاطلاق على  " .. targetTeamName .. " تيم .")
+end
+
+-- Create a ScreenGui to hold the buttons
+local gui = Instance.new("ScreenGui")
+gui.Parent = game:GetService("CoreGui")
+
+-- Create a TextButton for toggling between red and blue teams
+local teamToggleButton = Instance.new("TextButton")
+teamToggleButton.Parent = gui
+teamToggleButton.Position = UDim2.new(0.7, 0, 0.1, 0)
+teamToggleButton.Size = UDim2.new(0, 100, 0, 50)
+teamToggleButton.Text = "نوع التيم"
+teamToggleButton.MouseButton1Click:Connect(toggleTargetTeam)
+
+-- Create a TextButton to target the closest player
+local targetButton = Instance.new("TextButton")
+targetButton.Parent = gui
+targetButton.Position = UDim2.new(0.7, 0, 0.25, 0)
+targetButton.Size = UDim2.new(0, 100, 0, 50)
+BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+targetButton.Text = "اطلاق"
+targetButton.MouseButton1Click:Connect(function()
+    fireRemoteEvent(findClosestPlayer())
+end)
+
+
+
+
+
+  end
+})
+
+
+
+AddButton(Main, {
+  Name = "ايم بوت",
+  Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB-AimBot"))()
+  
+  end
+})
+
+
+
+pcall(function()
+    getgenv().Crosshair.Functions:Exit()
+end)
+
+--// Environment
+
+getgenv().Crosshair = {}
+local Environment = getgenv().Crosshair
+
+--// Services
+
+local StarterGui = game:GetService("StarterGui")
+local RunService = game:GetService("RunService")
+local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
+local Camera = game:GetService("Workspace").CurrentCamera
+
+--// Variables
+
+local Title = "Exunys Developer"
+local FileNames = {"Crosshair", "Configuration.json", "Crosshair.json"}
+local AxisX, AxisY = nil, nil
+local AxisConnection, CrosshairConnection = nil
+
+--// Script Settings
+
+Environment.Settings = {
+    SendNotifications = false,  -- Set to false to disable notifications
+    SaveSettings = true,
+    ReloadOnTeleport = true,
+    Enabled = true,
+    ToMouse = true
+}
+
+--// Crosshair Settings
+
+Environment.CrosshairSettings = {
+    Size = 12,
+    Thickness = 1,
+    Color = "255, 0, 0",  -- Default color in RGB format
+    Transparency = 1,
+    GapSize = 5,
+    CenterDot = false,
+    CenterDotColor = "255, 0, 0",  -- Default center dot color
+    CenterDotSize = 1,
+    CenterDotTransparency = 1,
+    CenterDotFilled = true,
+}
+
+Environment.Construction = {
+    LeftLine = Drawing.new("Line"),
+    RightLine = Drawing.new("Line"),
+    TopLine = Drawing.new("Line"),
+    BottomLine = Drawing.new("Line"),
+    CenterDot = Drawing.new("Circle")
+}
+
+--// Core Functions
+
+local function Encode(Table)
+    if Table and type(Table) == "table" then
+        return HttpService:JSONEncode(Table)
+    end
+end
+
+local function Decode(String)
+    if String and type(String) == "string" then
+        return HttpService:JSONDecode(String)
+    end
+end
+
+local function SendNotification(TitleArg, DescriptionArg, DurationArg)
+    -- Notifications are disabled, so this function does nothing
+end
+
+local function GetColor(Color)
+    local R, G, B = string.match(Color, "(%d+),%s*(%d+),%s*(%d+)")
+    return Color3.fromRGB(tonumber(R), tonumber(G), tonumber(B))
+end
+
+local function Load()
+    AxisConnection, CrosshairConnection = RunService.RenderStepped:Connect(function()
+        if Environment.Settings.ToMouse then
+            AxisX, AxisY = UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y
+        else
+            AxisX, AxisY = Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2
+        end
+    end), RunService.RenderStepped:Connect(function()
+
+        --// Left Line
+        Environment.Construction.LeftLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.LeftLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.LeftLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.LeftLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.LeftLine.From = Vector2.new(AxisX + Environment.CrosshairSettings.GapSize, AxisY)
+        Environment.Construction.LeftLine.To = Vector2.new(AxisX + Environment.CrosshairSettings.Size, AxisY)
+
+        --// Right Line
+        Environment.Construction.RightLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.RightLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.RightLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.RightLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.RightLine.From = Vector2.new(AxisX - Environment.CrosshairSettings.GapSize, AxisY)
+        Environment.Construction.RightLine.To = Vector2.new(AxisX - Environment.CrosshairSettings.Size, AxisY)
+
+        --// Top Line
+        Environment.Construction.TopLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.TopLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.TopLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.TopLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.TopLine.From = Vector2.new(AxisX, AxisY + Environment.CrosshairSettings.GapSize)
+        Environment.Construction.TopLine.To = Vector2.new(AxisX, AxisY + Environment.CrosshairSettings.Size)
+
+        --// Bottom Line
+        Environment.Construction.BottomLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.BottomLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.BottomLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.BottomLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.BottomLine.From = Vector2.new(AxisX, AxisY - Environment.CrosshairSettings.GapSize)
+        Environment.Construction.BottomLine.To = Vector2.new(AxisX, AxisY - Environment.CrosshairSettings.Size)
+
+        --// Center Dot
+        Environment.Construction.CenterDot.Visible = Environment.Settings.Enabled and Environment.CrosshairSettings.CenterDot
+        Environment.Construction.CenterDot.Color = GetColor(Environment.CrosshairSettings.CenterDotColor)
+        Environment.Construction.CenterDot.Radius = Environment.CrosshairSettings.CenterDotSize
+        Environment.Construction.CenterDot.Transparency = Environment.CrosshairSettings.CenterDotTransparency
+        Environment.Construction.CenterDot.Filled = Environment.CrosshairSettings.CenterDotFilled
+        Environment.Construction.CenterDot.Position = Vector2.new(AxisX, AxisY)
+    end)
+end
+
+--// Functions
+
+local function SaveSettings()
+    if isfile(Title.."/"..FileNames[1].."/"..FileNames[2]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[2], Encode(Environment.Settings))
+    end
+
+    if isfile(Title.."/"..FileNames[1].."/"..FileNames[3]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[3], Encode(Environment.CrosshairSettings))
+    end
+end
+
+if Environment.Settings.SaveSettings then
+    if not isfolder(Title) then
+        makefolder(Title)
+    end
+
+    if not isfolder(Title.."/"..FileNames[1]) then
+        makefolder(Title.."/"..FileNames[1])
+    end
+
+    if not isfile(Title.."/"..FileNames[1].."/"..FileNames[2]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[2], Encode(Environment.Settings))
+    else
+        Environment.Settings = Decode(readfile(Title.."/"..FileNames[1].."/"..FileNames[2]))
+    end
+
+    if not isfile(Title.."/"..FileNames[1].."/"..FileNames[3]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[3], Encode(Environment.CrosshairSettings))
+    else
+        Environment.CrosshairSettings = Decode(readfile(Title.."/"..FileNames[1].."/"..FileNames[3]))
+    end
+
+    coroutine.wrap(function()
+        while wait(10) do
+            SaveSettings()
+        end
+    end)()
+else
+    if isfolder(Title) then
+        delfolder(Title)
+    end
+end
+
+--// Reload On Teleport
+
+if Environment.Settings.ReloadOnTeleport then
+    if syn and syn.queue_on_teleport then
+        syn.queue_on_teleport(game:HttpGet("https://pastebin.com/raw/4L7an7MY"))
+    else
+        -- No notification sent since they are disabled
+    end
+end
+
+--// Script Functions
+
+Environment.Functions = {}
+
+function Environment.Functions:Exit()
+    table.foreach(Environment.Construction, function(_, Value)
+        Value:Remove()
+    end)
+
+    AxisConnection:Disconnect()
+    CrosshairConnection:Disconnect()
+
+    getgenv().Crosshair = nil
+end
+
+function Environment.Functions:Restart()
+    table.foreach(Environment.Construction, function(_, Value)
+        Value:Remove()
+    end)
+
+    AxisConnection:Disconnect()
+    CrosshairConnection:Disconnect()
+
+    Load()
+end
+
+function Environment.Functions:ResetSettings()
+    Environment.Settings = {
+        SendNotifications = false,
+        SaveSettings = true,
+        ReloadOnTeleport = true,
+        Enabled = true,
+        ToMouse = true
+    }
+
+    Environment.CrosshairSettings = {
+        Size = 12,
+        Thickness = 1,
+        Color = "255, 0, 0",  -- Default color in RGB format
+        Transparency = 1,
+        GapSize = 5,
+        CenterDot = false,
+        CenterDotColor = "255, 0, 0",
+        CenterDotSize = 1,
+        CenterDotTransparency = 1,
+        CenterDotFilled = true,
+    }
+
+    SaveSettings()
+end
+
+function Environment.Functions:SetMouseIcon(Value)
+    if Value == nil then Value = true end
+
+    UserInputService.MouseIconEnabled = Value
+end
+
+function Environment.Functions:GetDocumentation()
+    setclipboard("https://github.com/Exunys/Crosshair-V2")
+    -- No notification sent since they are disabled
+end
+
+--// API Check
+
+if not Drawing or not writefile or not makefolder then
+    -- No notification sent since they are disabled
+    return
+end
+AddToggle(Main, {
+  Name = "مؤشر",
+  Callback = function(Value)
+  Environment.Settings.Enabled = Value 
+  end
+})
+
+AddColorPicker(Main, {
+  Name = "لون المؤشر",
+  Default = Color3.fromRGB(255, 0, 0),
+  Callback = function(Value)
+    local r, g, b = Value.R * 255, Value.G * 255, Value.B * 255
+        Environment.CrosshairSettings.Color = string.format("%d, %d, %d", r, g, b)
+        Environment.CrosshairSettings.CenterDotColor = string.format("%d, %d, %d", r, g, b)  -- Change center dot color too
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ الكشف }««««« "})
+
+local ESP = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+ESP:Toggle(true)
+ESP.Players = false
+ESP.Tracers = false
+ESP.Boxes = false
+ESP.Names = false
+ESP.TeamColor = false
+ESP.TeamMates = false
+ESP.Highlight = false 
+
+
+
+local Toggle = AddToggle(Main, {
+  Name = "تفعيل",
+  Default = false,
+  Callback = function(Value)
+    ESP.Players = Value
+    ESP.TeamMates = Value
+    ESP.Highlight = Value 
+  end
+})
+
+
+local Toggle = AddToggle(Main, {
+  Name = "الاسم",
+  Default = false,
+  Callback = function(Value)
+    ESP.Names = Value
+  end
+})
+
+local Toggle = AddToggle(Main, {
+  Name = "بوكس",
+  Default = false,
+  Callback = function(Value)
+    ESP.Boxes = Value
+  end
+})
+
+local Toggle = AddToggle(Main, {
+  Name = "خط",
+  Default = false,
+  Callback = function(Value)
+   ESP.Tracers = Value
+  end
+})
+
+AddColorPicker(Main, {
+  Name = "لون الكشف",
+  Default = Color3.fromRGB(0, 0, 0),
+  Callback = function(Value)
+    ESP.Color = Value
+  end
+})
+
+local section = AddSection(Settings, {"»»»»»{ مساعدات }««««« "})
+
+AddButton(Settings, {
+  Name = "تسريع الفريمات",
+  Callback = function(Value)local decalsyeeted = true 
+        local g = game
+        local w = g.Workspace
+        local l = g.Lighting
+        local t = w.Terrain
+        
+        if Value then -- Activate FPS booster only if toggle is enabled
+            -- Set hidden properties for lighting and terrain
+            sethiddenproperty(l, "Technology", 2)
+            sethiddenproperty(t, "Decoration", false)
+            t.WaterWaveSize = 0
+            t.WaterWaveSpeed = 0
+            t.WaterReflectance = 0
+            t.WaterTransparency = 0
+            l.GlobalShadows = 0
+            l.FogEnd = 9e9
+            l.Brightness = 0
+            settings().Rendering.QualityLevel = "Level01"
+
+            -- Optimize workspace parts
+            for _, v in pairs(w:GetDescendants()) do
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") and decalsyeeted then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh") and decalsyeeted then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") and decalsyeeted then
+                    v.Graphic = 0
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+                    v[v.ClassName.."Template"] = 0
+                end
+            end
+
+            -- Disable visual effects
+            for _, e in pairs(l:GetChildren()) do
+                if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                    e.Enabled = false
+                end
+            end
+
+            -- Handle newly added descendants
+            w.DescendantAdded:Connect(function(v)
+                wait() -- Prevent errors
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") and decalsyeeted then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh") and decalsyeeted then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") and decalsyeeted then
+                    v.Graphic = 0
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+                    v[v.ClassName.."Template"] = 0
+                end
+            end)
+        else
+            -- Reset changes when toggle is disabled (optional)
+            -- You may want to implement resetting logic here
+        end
+        
+  
+  end
+})
+local section = AddSection(Settings, {"RTX"})
+SetSection(section, "»»»»»{ RTX ( الوقت & الجودة ) }«««««")
+
+AddButton(Settings, {
+  Name = "الصباح",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 14
+  end
+})
+
+
+AddButton(Settings, {
+  Name = "الليل",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 19
+  end
+})
+
+AddButton(Settings, {
+  Name = "شادر واقعي",
+  Callback = function()
+  -- local Vignette = false
+
+
+local Lighting = game:GetService("Lighting")
+local StarterGui = game:GetService("StarterGui")
+local Bloom = Instance.new("BloomEffect")
+local Blur = Instance.new("BlurEffect")
+local ColorCor = Instance.new("ColorCorrectionEffect")
+local SunRays = Instance.new("SunRaysEffect")
+local Sky = Instance.new("Sky")
+local Atm = Instance.new("Atmosphere")
+
+
+for i, v in pairs(Lighting:GetChildren()) do
+    if v then
+        v:Destroy()
+    end
+end
+
+Bloom.Parent = Lighting
+Blur.Parent = Lighting
+ColorCor.Parent = Lighting
+SunRays.Parent = Lighting
+Sky.Parent = Lighting
+Atm.Parent = Lighting
+
+if Vignette == true then
+    local Gui = Instance.new("ScreenGui")
+    Gui.Parent = StarterGui
+    Gui.IgnoreGuiInset = true
+    
+    local ShadowFrame = Instance.new("ImageLabel")
+    ShadowFrame.Parent = Gui
+    ShadowFrame.AnchorPoint = Vector2.new(0.5,1)
+    ShadowFrame.Position = UDim2.new(0.5,0,1,0)
+    ShadowFrame.Size = UDim2.new(1,0,1.05,0)
+    ShadowFrame.BackgroundTransparency = 1
+    ShadowFrame.Image = "rbxassetid://4576475446"
+    ShadowFrame.ImageTransparency = 0.3
+    ShadowFrame.ZIndex = 10
+end
+
+Bloom.Intensity = 0.3
+Bloom.Size = 10
+Bloom.Threshold = 0.8
+
+Blur.Size = 5
+ColorCor.Brightness = 0.1
+ColorCor.Contrast = 0.5
+ColorCor.Saturation = -0.3
+ColorCor.TintColor = Color3.fromRGB(255, 235, 203)
+
+SunRays.Intensity = 0.075
+SunRays.Spread = 0.727
+
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=151165214"
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=151165197"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=151165224"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=151165191"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=151165206"
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=151165227"
+Sky.SunAngularSize = 10
+
+
+Lighting.Ambient = Color3.fromRGB(2,2,2)
+Lighting.Brightness = 2.25
+Lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+Lighting.ColorShift_Top = Color3.fromRGB(0,0,0)
+Lighting.EnvironmentDiffuseScale = 0.2
+Lighting.EnvironmentSpecularScale = 0.2
+Lighting.GlobalShadows = true
+Lighting.OutdoorAmbient = Color3.fromRGB(0,0,0)
+Lighting.ShadowSoftness = 0.2
+Lighting.ClockTime = 17
+Lighting.GeographicLatitude = 45
+Lighting.ExposureCompensation = 0.5
+
+Atm.Density = 0.364
+Atm.Offset = 0.556
+Atm.Color = Color3.fromRGB(199, 175, 166)
+Atm.Decay = Color3.fromRGB(44, 39, 33)
+Atm.Glare = 0.36
+Atm.Haze = 1.72
+
+script:Destroy()
+  end
+})
+
+
+AddButton(Settings, {
+  Name = "الصباح & الليل ( مسرع ) ",
+  Callback = function()local Lighting = game:GetService("Lighting")
+
+local Minutes = 7 * 60
+
+while task.wait() do
+	Lighting:SetMinutesAfterMidnight(Minutes)
+	Minutes = Lighting:GetMinutesAfterMidnight()
+
+	if Minutes > 19 * 60 then
+		Minutes = Minutes + 3
+	elseif Minutes > 7 * 60 then
+		Minutes = Minutes + 1
+	else
+		Minutes = Minutes + 3
+	end
+end
+    
+  end
+})
+local section = AddSection(Settings, {"»»»»»{ السيرفر }«««««"})
+SetSection(section, "»»»»»{ السيرفر }«««««")
+
+AddButton(Settings, {
+  Name = "اعادة دخول السيرفر",
+  Callback = function()
+  game:GetService("TeleportService"):Teleport(game.placeId) 
+  end
+})
+
+
+
+
+
+
+Load()
+      		print("")
+  	end    
+})
+
+
+Main:AddButton({
+	Name = "YHUB حرب السيوف ( انقلش )",
+	Callback = function()
+wait(0.1)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "YHUB V1.3"; 
+    Text = "By : DeX"; -- GYHUB TEAM --
+    Icon = "rbxassetid://88819916320666"})
+Duration = 5;
+
+
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local MarketplaceService = game:GetService("MarketplaceService")
+local GroupService = game:GetService("GroupService")
+local LocalizationService = game:GetService("LocalizationService")
+ 
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Gui")))()
+MakeWindow({
+  Hub = {
+    Title = "YHUB | V1.3 | Sword War Maps ",
+    Animation = "YHUB : by DeX "
+    
+    
+  },
+  Key = {
+    KeySystem = false,
+    Title = " المفتاح",
+    Description = "أكتب مفتاحك",
+    KeyLink = "https://t.me/YHUB_16",
+    Keys = {"YHUB1234"},
+    Notifi = {
+      Notifications = true,
+      CorrectKey = "صحيح ✓ جار تحميل السكربت... ",
+      Incorrectkey = "المفتاح خطأ ×",
+      CopyKeyLink = "تم النسخ الى الحافظة ✓ "
+    
+    }
+  }
+})
+
+
+
+
+
+
+MinimizeButton({
+  Image = "rbxassetid://88819916320666",
+  Size = {40, 40},
+  Color = Color3.fromRGB(0, 0, 0),
+  Corner = true,
+  Stroke = false,
+  StrokeColor = Color3.fromRGB(0,0,255)
+})
+
+local soundId = "rbxassetid://15689451063"
+
+-- الكود البرمجي
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Parent = game.Workspace -- ضعه في مساحة العمل للتأكد من سماعك
+    sound:Play()
+end
+
+-- اياك ان تحذفه !
+playSound()
+-- Tabs :
+local Home = MakeTab({Name = "Home"})
+local Main = MakeTab({Name = "Main"})
+local Settings = MakeTab({Name = "Settings"})
+
+
+
+
+local Image = AddImageLabel(Home, {
+  Name = "YHUB • V1.3",
+  Image = "rbxassetid://88819916320666"
+})
+
+local Label = AddTextLabel(Home, "Welcome : " .. player.DisplayName )
+SetLabel(Label, "Welcome : " .. player.DisplayName)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function getExecutorName()
+    if identifyexecutor then
+        return identifyexecutor()
+    else
+        return "Unknown Executor"
+    end
+end
+
+local playerName = LocalPlayer.Name
+local executorName = getExecutorName()
+local Label = AddTextLabel(Home, "Executor : " .. executorName)
+SetLabel(Label, "Executor : " .. executorName)
+
+AddButton(Home, {
+  Name = "Join the Telegram community ( Click to copy )",
+  Callback = function()
+    setclipboard('https://t.me/YHUB_16')
+  end
+})
+
+local section = AddSection(Home, {"»»»»»{ Map info }««««« "})
+
+local playerService = game:GetService("Players")
+local localPlayer = playerService.LocalPlayer
+local marketplaceService = game:GetService("MarketplaceService")
+local placeId = game.PlaceId
+local productInfo = marketplaceService:GetProductInfo(placeId)
+
+local creatorName = productInfo.Creator.Name
+local gameName = productInfo.Name
+local createdTime = string.sub(productInfo.Created, 1, 10)
+local updatedTime = string.sub(productInfo.Updated, 1, 10)
+
+local Label = AddTextLabel(Home, "Name : " ..  gameName)
+SetLabel(Label, "Name : " .. gameName)
+
+local Label = AddTextLabel(Home, "Creator : " .. creatorName)
+SetLabel(Label, "Creator : " .. creatorName)
+
+local Label = AddTextLabel(Home, "Created Time : " .. createdTime)
+SetLabel(Label, "Created Time : " .. createdTime)
+
+local Label = AddTextLabel(Home, "UpdatedTime : " .. updatedTime )
+SetLabel(Label, "UpdatedTime : " .. updatedTime )
+
+AddButton(Home, {
+  Name = "Place ID ( Click to copy ) : " .. tostring(placeId),
+  Callback = function()setclipboard(tostring(placeId))
+    
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ MAIN }««««« "})
+AddButton(Main, {
+  Name = "kill aura",
+  Callback = function()
+  MakeNotifi({
+                    Title = "YHUB" ,
+                    Text = "Activated √" ,
+                    Time = 6
+                })
+
+  local connections = getgenv().configs and getgenv().configs.connection
+if connections then
+    local Disable = configs.Disable
+    for i,v in connections do
+        v:Disconnect() 
+    end
+    Disable:Fire()
+    Disable:Destroy()
+    table.clear(configs)
+end
+
+local Disable = Instance.new("BindableEvent")
+getgenv().configs = {
+    connections = {},
+    Disable = Disable,
+    Size = Vector3.new(10,10,10),
+    DeathCheck = true
+}
+
+local Players = cloneref(game:GetService("Players"))
+local RunService = cloneref(game:GetService("RunService"))
+local lp = Players.LocalPlayer
+local Run = true
+local Ignorelist = OverlapParams.new()
+Ignorelist.FilterType = Enum.RaycastFilterType.Include
+
+local function getchar(plr)
+    local plr = plr or lp
+    return plr.Character
+end
+
+local function gethumanoid(plr: Player | Character)
+    local char = plr:IsA("Model") and plr or getchar(plr)
+
+    if char then
+        return char:FindFirstChildWhichIsA("Humanoid")
+    end
+end
+
+local function IsAlive(Humanoid)
+    return Humanoid and Humanoid.Health > 0
+end
+
+local function GetTouchInterest(Tool)
+    return Tool and Tool:FindFirstChildWhichIsA("TouchTransmitter",true)
+end
+
+local function GetCharacters(LocalPlayerChar)
+    local Characters = {}
+    for i,v in Players:GetPlayers() do
+        table.insert(Characters,getchar(v))
+    end
+    table.remove(Characters,table.find(Characters,LocalPlayerChar))
+    return Characters
+end
+
+local function Attack(Tool,TouchPart,ToTouch)
+    if Tool:IsDescendantOf(workspace) then
+        Tool:Activate()
+        firetouchinterest(TouchPart,ToTouch,1)
+        firetouchinterest(TouchPart,ToTouch,0)
+    end
+end
+
+table.insert(getgenv().configs.connections,Disable.Event:Connect(function()
+    Run = false
+end))
+
+while Run do
+    local char = getchar()
+    if IsAlive(gethumanoid(char)) then
+        local Tool = char and char:FindFirstChildWhichIsA("Tool")
+        local TouchInterest = Tool and GetTouchInterest(Tool)
+
+        if TouchInterest then
+            local TouchPart = TouchInterest.Parent
+            local Characters = GetCharacters(char)
+            Ignorelist.FilterDescendantsInstances = Characters
+            local InstancesInBox = workspace:GetPartBoundsInBox(TouchPart.CFrame,TouchPart.Size + getgenv().configs.Size,Ignorelist)
+
+            for i,v in InstancesInBox do
+                local Character = v:FindFirstAncestorWhichIsA("Model")
+
+                if table.find(Characters,Character) then
+                    if getgenv().configs.DeathCheck then                    
+                        if IsAlive(gethumanoid(Character)) then
+                            Attack(Tool,TouchPart,v)
+                        end
+                    else
+                        Attack(Tool,TouchPart,v)
+                    end
+                end
+            end
+        end
+    end
+    RunService.Heartbeat:Wait()
+end
+  
+  end
+})
+
+
+AddButton(Main, {
+  Name = "Kill aura v2",
+  Callback = function()local players = game:GetService("Players")
+local player = players.LocalPlayer
+local camera = workspace.CurrentCamera
+
+local function getPartsInViewport(maxDistance)
+	local partsInViewport = {}
+	for _, part in ipairs(workspace:GetDescendants()) do
+		if part:IsA("BasePart") then
+			local distance = player:DistanceFromCharacter(part.Position)
+			if distance <= maxDistance then
+				local _, isVisible = camera:WorldToViewportPoint(part.Position)
+				if isVisible then
+					table.insert(partsInViewport, part)
+				end
+			end
+		end
+	end
+	return partsInViewport
+end
+
+
+
+while true do 
+    wait()
+local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+local parts = getPartsInViewport(Range)
+
+if tool and tool:FindFirstChild("Handle") then
+for _, part in ipairs(parts) do
+if part and part.Parent and part.Parent ~= game.Players.localPlayer.Character and part.Parent:FindFirstChildWhichIsA("Humanoid") and part.Parent:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                        tool:Activate()
+                        firetouchinterest(tool.Handle,part,0)
+                        firetouchinterest(tool.Handle,part,1)
+end
+end
+end
+end
+
+  end
+})
+
+
+
+AddTextBox(Main, {
+  Name = "Set range ( kill aura v2 only )",
+  Default = "put range",
+  PlaceholderText = "",
+  ClearText = true,
+  Callback = function(Y)
+  getgenv().Range = Y
+      
+
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ AIM }««««« "})
+
+AddButton(Main, {
+  Name = "SILENT AIM",
+  Callback = function()
+  getgenv().TargetTeamName = "Blue"  -- Initial target team
+getgenv().cooldown = 0  -- Cooldown in seconds between shots
+getgenv().bulletSpeed = 90.5  -- Speed of the bullet in studs/second
+getgenv().minPredictionDistance = 0  -- Minimum distance for prediction in studs
+getgenv().maxPredictionDistance = 15  -- Maximum distance for prediction in studs
+getgenv().lastShotTime = 0  -- Variable to track the last time a shot was fired
+
+-- You want to steal?.. 😔.
+-- ...
+
+
+-- Wait for 2 seconds
+wait(1)
+
+-- Function to animate notification
+local function animateNotification(notification)
+    local endPos = UDim2.new(0.5, -100, 0.4, -50) -- Adjusted position
+    
+    local tweenInfo = TweenInfo.new(
+        1, -- Duration
+        Enum.EasingStyle.Elastic, -- Easing style
+        Enum.EasingDirection.Out, -- Easing direction
+        0, -- Repeat count (0 means play once)
+        false, -- Reverses after finishing
+        0 -- Delay
+    )
+    
+    local tween = game:GetService("TweenService"):Create(notification, tweenInfo, {Position = endPos})
+    
+    tween:Play()
+    
+    wait(2) -- Adjust the duration the notification is displayed
+    
+    tween:Destroy()
+end
+
+-- Create a function to display a notification
+local function displayNotification(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "Notification"
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = notification
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, -100, 0.55, -50) -- Adjusted position
+    textLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    textLabel.Text = message
+    textLabel.TextSize = 20
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    -- Animate notification
+    animateNotification(textLabel)
+
+    -- Fade out and destroy the notification after the animation finishes
+    wait(2)
+    for transparency = 0, 1, 0.1 do
+        textLabel.BackgroundTransparency = transparency
+        wait(0.1)
+    end
+    notification:Destroy()
+end
+
+-- Display the first notification
+displayNotification("from YHUB")
+
+-- Display the second notification
+wait(0.1)
+displayNotification("SILENT AIM")
+
+-- Execute the main script
+local player = game.Players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RemoteEvent = ReplicatedStorage.Events.Remote.ShotTarget
+local SoundService = game:GetService("SoundService")
+
+local targetTeamName = "Red"  -- Initial target team
+local cooldown = 0  -- Cooldown in seconds between shots
+local bulletSpeed = 49.5  -- Speed of the bullet in studs/second
+local minPredictionDistance = 0  -- Minimum distance for prediction in studs
+local maxPredictionDistance = 10  -- Maximum distance for prediction in studs
+local lastShotTime = 0  -- Variable to track the last time a shot was fired
+
+-- Function to animate notification
+local function animateNotification(notification)
+    local endPos = UDim2.new(0.5, -100, 0.4, -50) -- Adjusted position
+    
+    local tweenInfo = TweenInfo.new(
+        1, -- Duration
+        Enum.EasingStyle.Elastic, -- Easing style
+        Enum.EasingDirection.Out, -- Easing direction
+        0, -- Repeat count (0 means play once)
+        false, -- Reverses after finishing
+        0 -- Delay
+    )
+    
+    local tween = game:GetService("TweenService"):Create(notification, tweenInfo, {Position = endPos})
+    
+    tween:Play()
+    
+    wait(2) -- Adjust the duration the notification is displayed
+    
+    tween:Destroy()
+end
+
+-- Function to display a notification
+local function displayNotification(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "Notification"
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = notification
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, -100, 0.55, -50) -- Adjusted position
+    textLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.Text = message
+    textLabel.TextSize = 20
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    -- Animate notification
+    animateNotification(textLabel)
+
+    -- Fade out and destroy the notification after the animation finishes
+    wait(2)
+    for transparency = 0, 1, 0.1 do
+        textLabel.BackgroundTransparency = transparency
+        wait(0.1)
+    end
+    notification:Destroy()
+end
+
+-- Function to play a sound
+local function playSound(soundId, delay)
+    delay = delay or 0
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://" .. soundId
+    sound.Parent = SoundService
+    sound:Play()
+    wait(delay)
+    sound:Destroy()
+end
+
+-- Play sound with delay
+spawn(function()
+    playSound(2865227271, 0.5)
+    wait(0.5)
+    playSound(1676318332)
+end)
+
+local function findClosestPlayer()
+    local players = game.Players:GetPlayers()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    
+    -- Get the equipped tool
+    local tool = player.Character:FindFirstChildOfClass("Tool")
+    
+    if tool then
+        local toolHandle = tool:FindFirstChild("Handle")
+        if toolHandle then
+            -- Use the position of the tool handle as the shooter's position
+            local shooterPosition = toolHandle.Position
+            
+            for _, plyr in ipairs(players) do
+                if plyr ~= player and plyr.Team and plyr.Team.Name == targetTeamName and plyr.Character and plyr.Character:FindFirstChild("Humanoid") and plyr.Character.Humanoid.Health > 0 then
+                    local targetPosition = plyr.Character.HumanoidRootPart.Position
+                    
+                    -- Calculate horizontal distance
+                    local horizontalDistance = (targetPosition - shooterPosition).magnitude
+                    
+                    -- Calculate vertical distance
+                    local heightDifference = math.abs(targetPosition.Y - shooterPosition.Y)
+                    
+                    -- Calculate total distance considering both horizontal and vertical distances
+                    local totalDistance = (horizontalDistance^1 + heightDifference^2)^0.5
+                    
+                    if totalDistance < shortestDistance then
+                        closestPlayer = plyr
+                        shortestDistance = totalDistance
+                    end
+                end
+            end
+        else
+            print("Tool does not have a handle.")
+        end
+    else
+        print("No tool equipped.")
+    end
+    
+    return closestPlayer, shortestDistance
+end
+
+local function predictPosition(targetPosition, targetVelocity)
+    local shooterPosition = player.Character.HumanoidRootPart.Position
+    local distanceToTarget = (targetPosition - shooterPosition).magnitude
+    
+    -- Adjust prediction based on distance
+    local predictionDistance = math.clamp(distanceToTarget, minPredictionDistance, maxPredictionDistance)
+    local timeToImpact = predictionDistance / bulletSpeed
+    
+    -- Predict the future position of the target based on their current position and velocity
+    return targetPosition + targetVelocity * timeToImpact
+end
+
+local function fireRemoteEvent(targetPlayer)
+    if targetPlayer then
+        local currentTime = os.time()
+        if currentTime - lastShotTime >= cooldown then
+            local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
+            local targetVelocity = targetPlayer.Character.HumanoidRootPart.Velocity
+            
+            local predictedPosition = predictPosition(targetPosition, targetVelocity)
+            
+            local args = {
+                [1] = predictedPosition,
+                [2] = "Sniper"
+            }
+            RemoteEvent:FireServer(unpack(args))
+            
+            -- Activate the equipped tool
+            local tool = player.Character:FindFirstChildOfClass("Tool")
+            if tool then
+                tool:Activate()
+            end
+            
+            lastShotTime = currentTime
+        end
+    else
+        print("No valid players found on the specified team nearby.")
+    end
+end
+
+local function toggleTargetTeam()
+    if targetTeamName == "Red" then
+        targetTeamName = "Blue"
+    else
+        targetTeamName = "Red"
+    end
+    displayNotification("Now targeting " .. targetTeamName .. " team.")
+end
+
+-- Create a ScreenGui to hold the buttons
+local gui = Instance.new("ScreenGui")
+gui.Parent = game:GetService("CoreGui")
+
+-- Create a TextButton for toggling between red and blue teams
+local teamToggleButton = Instance.new("TextButton")
+teamToggleButton.Parent = gui
+teamToggleButton.Position = UDim2.new(0.7, 0, 0.1, 0)
+teamToggleButton.Size = UDim2.new(0, 100, 0, 50)
+teamToggleButton.Text = "Target Team"
+teamToggleButton.MouseButton1Click:Connect(toggleTargetTeam)
+
+-- Create a TextButton to target the closest player
+local targetButton = Instance.new("TextButton")
+targetButton.Parent = gui
+targetButton.Position = UDim2.new(0.7, 0, 0.25, 0)
+targetButton.Size = UDim2.new(0, 100, 0, 50)
+BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+targetButton.Text = "Shoot"
+targetButton.MouseButton1Click:Connect(function()
+    fireRemoteEvent(findClosestPlayer())
+end)
+
+
+
+
+
+  end
+})
+
+
+
+AddButton(Main, {
+  Name = "AimBot",
+  Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB-AimBot"))()
+  
+  end
+})
+
+
+
+pcall(function()
+    getgenv().Crosshair.Functions:Exit()
+end)
+
+--// Environment
+
+getgenv().Crosshair = {}
+local Environment = getgenv().Crosshair
+
+--// Services
+
+local StarterGui = game:GetService("StarterGui")
+local RunService = game:GetService("RunService")
+local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
+local Camera = game:GetService("Workspace").CurrentCamera
+
+--// Variables
+
+local Title = "Exunys Developer"
+local FileNames = {"Crosshair", "Configuration.json", "Crosshair.json"}
+local AxisX, AxisY = nil, nil
+local AxisConnection, CrosshairConnection = nil
+
+--// Script Settings
+
+Environment.Settings = {
+    SendNotifications = false,  -- Set to false to disable notifications
+    SaveSettings = true,
+    ReloadOnTeleport = true,
+    Enabled = true,
+    ToMouse = true
+}
+
+--// Crosshair Settings
+
+Environment.CrosshairSettings = {
+    Size = 12,
+    Thickness = 1,
+    Color = "255, 0, 0",  -- Default color in RGB format
+    Transparency = 1,
+    GapSize = 5,
+    CenterDot = false,
+    CenterDotColor = "255, 0, 0",  -- Default center dot color
+    CenterDotSize = 1,
+    CenterDotTransparency = 1,
+    CenterDotFilled = true,
+}
+
+Environment.Construction = {
+    LeftLine = Drawing.new("Line"),
+    RightLine = Drawing.new("Line"),
+    TopLine = Drawing.new("Line"),
+    BottomLine = Drawing.new("Line"),
+    CenterDot = Drawing.new("Circle")
+}
+
+--// Core Functions
+
+local function Encode(Table)
+    if Table and type(Table) == "table" then
+        return HttpService:JSONEncode(Table)
+    end
+end
+
+local function Decode(String)
+    if String and type(String) == "string" then
+        return HttpService:JSONDecode(String)
+    end
+end
+
+local function SendNotification(TitleArg, DescriptionArg, DurationArg)
+    -- Notifications are disabled, so this function does nothing
+end
+
+local function GetColor(Color)
+    local R, G, B = string.match(Color, "(%d+),%s*(%d+),%s*(%d+)")
+    return Color3.fromRGB(tonumber(R), tonumber(G), tonumber(B))
+end
+
+local function Load()
+    AxisConnection, CrosshairConnection = RunService.RenderStepped:Connect(function()
+        if Environment.Settings.ToMouse then
+            AxisX, AxisY = UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y
+        else
+            AxisX, AxisY = Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2
+        end
+    end), RunService.RenderStepped:Connect(function()
+
+        --// Left Line
+        Environment.Construction.LeftLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.LeftLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.LeftLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.LeftLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.LeftLine.From = Vector2.new(AxisX + Environment.CrosshairSettings.GapSize, AxisY)
+        Environment.Construction.LeftLine.To = Vector2.new(AxisX + Environment.CrosshairSettings.Size, AxisY)
+
+        --// Right Line
+        Environment.Construction.RightLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.RightLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.RightLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.RightLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.RightLine.From = Vector2.new(AxisX - Environment.CrosshairSettings.GapSize, AxisY)
+        Environment.Construction.RightLine.To = Vector2.new(AxisX - Environment.CrosshairSettings.Size, AxisY)
+
+        --// Top Line
+        Environment.Construction.TopLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.TopLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.TopLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.TopLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.TopLine.From = Vector2.new(AxisX, AxisY + Environment.CrosshairSettings.GapSize)
+        Environment.Construction.TopLine.To = Vector2.new(AxisX, AxisY + Environment.CrosshairSettings.Size)
+
+        --// Bottom Line
+        Environment.Construction.BottomLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.BottomLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.BottomLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.BottomLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.BottomLine.From = Vector2.new(AxisX, AxisY - Environment.CrosshairSettings.GapSize)
+        Environment.Construction.BottomLine.To = Vector2.new(AxisX, AxisY - Environment.CrosshairSettings.Size)
+
+        --// Center Dot
+        Environment.Construction.CenterDot.Visible = Environment.Settings.Enabled and Environment.CrosshairSettings.CenterDot
+        Environment.Construction.CenterDot.Color = GetColor(Environment.CrosshairSettings.CenterDotColor)
+        Environment.Construction.CenterDot.Radius = Environment.CrosshairSettings.CenterDotSize
+        Environment.Construction.CenterDot.Transparency = Environment.CrosshairSettings.CenterDotTransparency
+        Environment.Construction.CenterDot.Filled = Environment.CrosshairSettings.CenterDotFilled
+        Environment.Construction.CenterDot.Position = Vector2.new(AxisX, AxisY)
+    end)
+end
+
+--// Functions
+
+local function SaveSettings()
+    if isfile(Title.."/"..FileNames[1].."/"..FileNames[2]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[2], Encode(Environment.Settings))
+    end
+
+    if isfile(Title.."/"..FileNames[1].."/"..FileNames[3]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[3], Encode(Environment.CrosshairSettings))
+    end
+end
+
+if Environment.Settings.SaveSettings then
+    if not isfolder(Title) then
+        makefolder(Title)
+    end
+
+    if not isfolder(Title.."/"..FileNames[1]) then
+        makefolder(Title.."/"..FileNames[1])
+    end
+
+    if not isfile(Title.."/"..FileNames[1].."/"..FileNames[2]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[2], Encode(Environment.Settings))
+    else
+        Environment.Settings = Decode(readfile(Title.."/"..FileNames[1].."/"..FileNames[2]))
+    end
+
+    if not isfile(Title.."/"..FileNames[1].."/"..FileNames[3]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[3], Encode(Environment.CrosshairSettings))
+    else
+        Environment.CrosshairSettings = Decode(readfile(Title.."/"..FileNames[1].."/"..FileNames[3]))
+    end
+
+    coroutine.wrap(function()
+        while wait(10) do
+            SaveSettings()
+        end
+    end)()
+else
+    if isfolder(Title) then
+        delfolder(Title)
+    end
+end
+
+--// Reload On Teleport
+
+if Environment.Settings.ReloadOnTeleport then
+    if syn and syn.queue_on_teleport then
+        syn.queue_on_teleport(game:HttpGet("https://pastebin.com/raw/4L7an7MY"))
+    else
+        -- No notification sent since they are disabled
+    end
+end
+
+--// Script Functions
+
+Environment.Functions = {}
+
+function Environment.Functions:Exit()
+    table.foreach(Environment.Construction, function(_, Value)
+        Value:Remove()
+    end)
+
+    AxisConnection:Disconnect()
+    CrosshairConnection:Disconnect()
+
+    getgenv().Crosshair = nil
+end
+
+function Environment.Functions:Restart()
+    table.foreach(Environment.Construction, function(_, Value)
+        Value:Remove()
+    end)
+
+    AxisConnection:Disconnect()
+    CrosshairConnection:Disconnect()
+
+    Load()
+end
+
+function Environment.Functions:ResetSettings()
+    Environment.Settings = {
+        SendNotifications = false,
+        SaveSettings = true,
+        ReloadOnTeleport = true,
+        Enabled = true,
+        ToMouse = true
+    }
+
+    Environment.CrosshairSettings = {
+        Size = 12,
+        Thickness = 1,
+        Color = "255, 0, 0",  -- Default color in RGB format
+        Transparency = 1,
+        GapSize = 5,
+        CenterDot = false,
+        CenterDotColor = "255, 0, 0",
+        CenterDotSize = 1,
+        CenterDotTransparency = 1,
+        CenterDotFilled = true,
+    }
+
+    SaveSettings()
+end
+
+function Environment.Functions:SetMouseIcon(Value)
+    if Value == nil then Value = true end
+
+    UserInputService.MouseIconEnabled = Value
+end
+
+function Environment.Functions:GetDocumentation()
+    setclipboard("https://github.com/Exunys/Crosshair-V2")
+    -- No notification sent since they are disabled
+end
+
+--// API Check
+
+if not Drawing or not writefile or not makefolder then
+    -- No notification sent since they are disabled
+    return
+end
+AddToggle(Main, {
+  Name = "Crosshair",
+  Callback = function(Value)
+  Environment.Settings.Enabled = Value 
+  end
+})
+
+AddColorPicker(Main, {
+  Name = "Crosshair color",
+  Default = Color3.fromRGB(255, 0, 0),
+  Callback = function(Value)
+    local r, g, b = Value.R * 255, Value.G * 255, Value.B * 255
+        Environment.CrosshairSettings.Color = string.format("%d, %d, %d", r, g, b)
+        Environment.CrosshairSettings.CenterDotColor = string.format("%d, %d, %d", r, g, b)  -- Change center dot color too
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ ESP }««««« "})
+
+local ESP = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+ESP:Toggle(true)
+ESP.Players = false
+ESP.Tracers = false
+ESP.Boxes = false
+ESP.Names = false
+ESP.TeamColor = false
+ESP.TeamMates = false
+ESP.Highlight = false 
+
+
+
+local Toggle = AddToggle(Main, {
+  Name = "Enable",
+  Default = false,
+  Callback = function(Value)
+    ESP.Players = Value
+    ESP.TeamMates = Value
+    ESP.Highlight = Value 
+  end
+})
+
+
+local Toggle = AddToggle(Main, {
+  Name = "Name",
+  Default = false,
+  Callback = function(Value)
+    ESP.Names = Value
+  end
+})
+
+local Toggle = AddToggle(Main, {
+  Name = "Box",
+  Default = false,
+  Callback = function(Value)
+    ESP.Boxes = Value
+  end
+})
+
+local Toggle = AddToggle(Main, {
+  Name = "Line",
+  Default = false,
+  Callback = function(Value)
+   ESP.Tracers = Value
+  end
+})
+
+AddColorPicker(Main, {
+  Name = "ESP Color",
+  Default = Color3.fromRGB(0, 0, 0),
+  Callback = function(Value)
+    ESP.Color = Value
+  end
+})
+
+local section = AddSection(Settings, {"»»»»»{ Aid }««««« "})
+
+AddButton(Settings, {
+  Name = "Boost FPS",
+  Callback = function(Value)local decalsyeeted = true 
+        local g = game
+        local w = g.Workspace
+        local l = g.Lighting
+        local t = w.Terrain
+        
+        if Value then -- Activate FPS booster only if toggle is enabled
+            -- Set hidden properties for lighting and terrain
+            sethiddenproperty(l, "Technology", 2)
+            sethiddenproperty(t, "Decoration", false)
+            t.WaterWaveSize = 0
+            t.WaterWaveSpeed = 0
+            t.WaterReflectance = 0
+            t.WaterTransparency = 0
+            l.GlobalShadows = 0
+            l.FogEnd = 9e9
+            l.Brightness = 0
+            settings().Rendering.QualityLevel = "Level01"
+
+            -- Optimize workspace parts
+            for _, v in pairs(w:GetDescendants()) do
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") and decalsyeeted then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh") and decalsyeeted then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") and decalsyeeted then
+                    v.Graphic = 0
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+                    v[v.ClassName.."Template"] = 0
+                end
+            end
+
+            -- Disable visual effects
+            for _, e in pairs(l:GetChildren()) do
+                if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                    e.Enabled = false
+                end
+            end
+
+            -- Handle newly added descendants
+            w.DescendantAdded:Connect(function(v)
+                wait() -- Prevent errors
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") and decalsyeeted then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh") and decalsyeeted then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") and decalsyeeted then
+                    v.Graphic = 0
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+                    v[v.ClassName.."Template"] = 0
+                end
+            end)
+        else
+            -- Reset changes when toggle is disabled (optional)
+            -- You may want to implement resetting logic here
+        end
+        
+  
+  end
+})
+local section = AddSection(Settings, {"RTX"})
+SetSection(section, "»»»»»{ RTX ( Time & Quality ) }«««««")
+
+AddButton(Settings, {
+  Name = "Morning",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 14
+  end
+})
+
+
+AddButton(Settings, {
+  Name = "Night",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 19
+  end
+})
+
+AddButton(Settings, {
+  Name = "Realistic shader",
+  Callback = function()
+  -- local Vignette = false
+
+
+local Lighting = game:GetService("Lighting")
+local StarterGui = game:GetService("StarterGui")
+local Bloom = Instance.new("BloomEffect")
+local Blur = Instance.new("BlurEffect")
+local ColorCor = Instance.new("ColorCorrectionEffect")
+local SunRays = Instance.new("SunRaysEffect")
+local Sky = Instance.new("Sky")
+local Atm = Instance.new("Atmosphere")
+
+
+for i, v in pairs(Lighting:GetChildren()) do
+    if v then
+        v:Destroy()
+    end
+end
+
+Bloom.Parent = Lighting
+Blur.Parent = Lighting
+ColorCor.Parent = Lighting
+SunRays.Parent = Lighting
+Sky.Parent = Lighting
+Atm.Parent = Lighting
+
+if Vignette == true then
+    local Gui = Instance.new("ScreenGui")
+    Gui.Parent = StarterGui
+    Gui.IgnoreGuiInset = true
+    
+    local ShadowFrame = Instance.new("ImageLabel")
+    ShadowFrame.Parent = Gui
+    ShadowFrame.AnchorPoint = Vector2.new(0.5,1)
+    ShadowFrame.Position = UDim2.new(0.5,0,1,0)
+    ShadowFrame.Size = UDim2.new(1,0,1.05,0)
+    ShadowFrame.BackgroundTransparency = 1
+    ShadowFrame.Image = "rbxassetid://4576475446"
+    ShadowFrame.ImageTransparency = 0.3
+    ShadowFrame.ZIndex = 10
+end
+
+Bloom.Intensity = 0.3
+Bloom.Size = 10
+Bloom.Threshold = 0.8
+
+Blur.Size = 5
+ColorCor.Brightness = 0.1
+ColorCor.Contrast = 0.5
+ColorCor.Saturation = -0.3
+ColorCor.TintColor = Color3.fromRGB(255, 235, 203)
+
+SunRays.Intensity = 0.075
+SunRays.Spread = 0.727
+
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=151165214"
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=151165197"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=151165224"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=151165191"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=151165206"
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=151165227"
+Sky.SunAngularSize = 10
+
+
+Lighting.Ambient = Color3.fromRGB(2,2,2)
+Lighting.Brightness = 2.25
+Lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+Lighting.ColorShift_Top = Color3.fromRGB(0,0,0)
+Lighting.EnvironmentDiffuseScale = 0.2
+Lighting.EnvironmentSpecularScale = 0.2
+Lighting.GlobalShadows = true
+Lighting.OutdoorAmbient = Color3.fromRGB(0,0,0)
+Lighting.ShadowSoftness = 0.2
+Lighting.ClockTime = 17
+Lighting.GeographicLatitude = 45
+Lighting.ExposureCompensation = 0.5
+
+Atm.Density = 0.364
+Atm.Offset = 0.556
+Atm.Color = Color3.fromRGB(199, 175, 166)
+Atm.Decay = Color3.fromRGB(44, 39, 33)
+Atm.Glare = 0.36
+Atm.Haze = 1.72
+
+script:Destroy()
+  end
+})
+
+
+AddButton(Settings, {
+  Name = "morning & night (fast) ",
+  Callback = function()local Lighting = game:GetService("Lighting")
+
+local Minutes = 7 * 60
+
+while task.wait() do
+	Lighting:SetMinutesAfterMidnight(Minutes)
+	Minutes = Lighting:GetMinutesAfterMidnight()
+
+	if Minutes > 19 * 60 then
+		Minutes = Minutes + 3
+	elseif Minutes > 7 * 60 then
+		Minutes = Minutes + 1
+	else
+		Minutes = Minutes + 3
+	end
+end
+    
+  end
+})
+local section = AddSection(Settings, {"»»»»»{ Server }«««««"})
+SetSection(section, "»»»»»{ Server }«««««")
+
+AddButton(Settings, {
+  Name = "Region Server",
+  Callback = function()
+  game:GetService("TeleportService"):Teleport(game.placeId) 
+  end
+})
+
+
+
+
+
+
+Load()
+      		print("")
+  	end    
+})
+
+
+
+
+
+
+local Section = Main:AddSection({
+	Name = "نظام المفتاح"
+})
+Main:AddButton({
+	Name = "YHUB Key : YFDQMASrE ( Click to copy )",
+	Callback = function()
+	setclipboard('YFDQMASrE')
+      		print("")
+  	end    
+})
+
+-------------------------------------------------------
+-- home :
+
+Home:AddLabel("ارحب : " .. game.Players.LocalPlayer.DisplayName)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function getExecutorName()
+    if identifyexecutor then
+        return identifyexecutor()
+    else
+        return "Unknown Executor"
+    end
+end
+
+local playerName = LocalPlayer.Name
+local executorName = getExecutorName()
+
+Home:AddLabel("الهاك حقك : " ..executorName)
+
+local Section = Home:AddSection({
+	Name = "-------------------------------------------------------"
+})
+
+Home:AddButton({
+	Name = "قناتي تيليجرام ( اضغط للنسخ )",
+	Callback = function()
+	setclipboard('https://t.me/YHUB_16')
+      		print("button pressed")
+  	end    
+})
+
+
+end)
+
+English.MouseButton1Click:Connect(function()
+  animateOut()
+local YHUB = "YHUB Community"
+-- Scripts :
+local Brookhaven = "YHUB Brookhaven V3.0"
+local Carfly = "YHUB CAR FLY V1.3"
+local Fling = "YHUB Fling"
+local Bloxfruit = "YHUB Bloxfruit ( Stopped )"
+local AimBot = "YHUB AIMBOT"
+local MM2 = "YHUB MM2 ( beta )"
+local Swordwars = "Soon!"
+local Fisch = "Soon!"
+-- local ..
+
+
+
+-- version Script 
+local version = 6
+
+local player = game.Players.LocalPlayer
+local playerService = game:GetService("Players")
+local localPlayer = playerService.LocalPlayer
+local marketplaceService = game:GetService("MarketplaceService")
+local placeId = game.PlaceId
+local productInfo = marketplaceService:GetProductInfo(placeId)
+
+local creatorName = productInfo.Creator.Name
+local gameName = productInfo.Name
+local createdTime = string.sub(productInfo.Created, 1, 10)
+local updatedTime = string.sub(productInfo.Updated, 1, 10)
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/UI%20library')))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "YHUB Community | Map Name : ".. gameName,
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest",
+    IntroEnabled = true,
+    IntroText = "YHUB Community",
+    IntroIcon = "rbxassetid://2005276185",
+    Icon = "rbxassetid://4483345998",
+    CloseCallback = function()
+        OrionLib:MakeNotification({
+            Name = "YHUB",
+            Content = "Closed ✓",
+            Image = "rbxassetid://88819916320666",
+            Time = 5
+        })
+    end
+})
+
+
+
+
+
+
+OrionLib:MakeNotification({
+    Name = "YHUB",
+    Content = "Welcome to YHUB Community ",
+    Image = "rbxassetid://88819916320666",
+    Time = 5
+})
+
+local uis = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICornerFrame = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
+local UICornerTextButton = Instance.new("UICorner")
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 1
+Frame.Position = UDim2.new(1, -120, 0, 30)
+Frame.Size = UDim2.new(0, 40, 0, 40)
+Frame.ClipsDescendants = true
+Frame.Active = true
+Frame.Draggable = true
+
+UICornerFrame.CornerRadius = UDim.new(0, 8)
+UICornerFrame.Parent = Frame
+
+local imageLabel = Instance.new("ImageLabel")
+imageLabel.Parent = Frame
+imageLabel.Size = UDim2.new(1, 0, 1, 0)
+imageLabel.Position = UDim2.new(0, 0, 0, 0)
+imageLabel.Image = "rbxassetid://88819916320666"
+imageLabel.BackgroundTransparency = 1
+
+TextButton.Parent = imageLabel
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Size = UDim2.new(1, 0, 1, 0)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = ""
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 27
+TextButton.ClipsDescendants = true
+TextButton.Active = true
+
+
+UICornerTextButton.CornerRadius = UDim.new(0, 8)
+UICornerTextButton.Parent = TextButton
+
+local function createTextShadow(button)
+    local shadowOffset = 2
+    local shadowLabel = Instance.new("TextLabel", Frame)
+    shadowLabel.Size = button.Size
+    shadowLabel.Position = button.Position + UDim2.new(0, shadowOffset, 0, shadowOffset)
+    shadowLabel.Text = button.Text
+    shadowLabel.TextScaled = button.TextScaled
+    shadowLabel.Font = button.Font
+    shadowLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+    shadowLabel.BackgroundTransparency = 1
+    shadowLabel.TextSize = button.TextSize
+    shadowLabel.TextTransparency = 0.5
+end
+
+createTextShadow(TextButton)
+local glowStroke = Instance.new("UIStroke", Frame)
+glowStroke.Thickness = 3
+glowStroke.Transparency = 0.8
+glowStroke.Color = Color3.fromRGB(0,191,255)
+
+local gradient = Instance.new("UIGradient", glowStroke)
+gradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 20, 147)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 105, 180))
+}
+gradient.Rotation = 45
+
+local tweenInfo = TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+local tweenShowFrame = TweenService:Create(Frame, tweenInfo, {Position = UDim2.new(0.5, 0, 0.3, 0)})
+
+local function createGlowEffect(stroke)
+    local glowTweenInfo = TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true)
+    local tween = TweenService:Create(stroke, glowTweenInfo, {Transparency = 0.1, Thickness = 5})
+    tween:Play()
+end
+createGlowEffect(glowStroke)
+
+function findOrion(parent)
+    for _, child in ipairs(parent:GetChildren()) do
+        if child.Name == "Orion" then
+            return child
+        end
+        local found = findOrion(child)
+        if found then
+            return found
+        end
+    end
+    return nil
+end
+
+local Orion = findOrion(game.CoreGui)
+
+TextButton.MouseButton1Click:Connect(function()
+    if Orion then
+        if Orion.Enabled then
+            Orion.Enabled = false
+        else
+            Orion.Enabled = true
+        end
+    end
+end)
+
+
+
+-- tabs :
+
+
+local Home = Window:MakeTab({
+	Name = "Home",
+	Icon = "rbxassetid://10723407389",
+	PremiumOnly = false
+})
+
+
+local Main = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://2005276185",
+	PremiumOnly = false
+})
+
+local Info = Window:MakeTab({
+	Name = "Info",
+	Icon = "rbxassetid://7733752630",
+	PremiumOnly = false
+})
+-------------------------------------------------------
+-- Info :
+local Section = Info:AddSection({
+	Name = "Information"
+})
+
+Info:AddLabel("This script Collects official YHUB scripts !")
+Info:AddLabel("All scripts and this was also developed by DeX ( جني )")
+Info:AddLabel("Thank you for using .")
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+-- Main :
+local Section = Main:AddSection({
+	Name = "Brookhaven"
+})
+
+Main:AddButton({
+	Name = "YHUB V3.1 ( Arabic )",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB%20Brookhaven"))()
+      		print("button pressed")
+  	end    
+})
+
+Main:AddButton({
+	Name = "YHUB V3.1 ( English )",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB%20ENGLISH"))()
+      		print("button pressed")
+  	end    
+})
+
+
+Main:AddButton({
+	Name = "Car Fly V1.3",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Car-fly-YHUB"))()
+      		print("button pressed")
+  	end    
+})
+
+local Section = Main:AddSection({
+	Name = "MM2"
+})
+Main:AddButton({
+	Name = "YHUB ( beta )",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB-MM2"))()
+
+      		print("")
+  	end    
+})
+
+local Section = Main:AddSection({
+	Name = "Bloxfruit"
+})
+Main:AddButton({
+	Name = "YHUB v5 ( Stopped )",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB%20Bloxfruitv5.txt"))()
+      		print("")
+  	end    
+})
+
+local Section = Main:AddSection({
+	Name = "Other"
+})
+
+Main:AddButton({
+	Name = "YHUB AimBot",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB-AimBot"))()
+      		print("")
+  	end    
+})
+
+
+Main:AddButton({
+	Name = "YHUB Fling",
+	Callback = function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Fling-GUI"))()
+      		print("")
+  	end    
+})
+local Section = Main:AddSection({
+	Name = "Underground War 2.0"
+})
+
+
+Main:AddButton({
+	Name = "YHUB Underground war ( Arabic ) ",
+	Callback = function()
+	wait(0.1)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "YHUB V1.3"; 
+    Text = "المطور : جني"; -- GYHUB TEAM --
+    Icon = "rbxassetid://88819916320666"})
+Duration = 5;
+
+
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local MarketplaceService = game:GetService("MarketplaceService")
+local GroupService = game:GetService("GroupService")
+local LocalizationService = game:GetService("LocalizationService")
+ 
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Gui")))()
+MakeWindow({
+  Hub = {
+    Title = "YHUB | V1.3 | Sword War Maps ",
+    Animation = "YHUB : المطور جني"
+    
+    
+  },
+  Key = {
+    KeySystem = false,
+    Title = " المفتاح",
+    Description = "أكتب مفتاحك",
+    KeyLink = "https://t.me/YHUB_16",
+    Keys = {"YHUB1234"},
+    Notifi = {
+      Notifications = true,
+      CorrectKey = "صحيح ✓ جار تحميل السكربت... ",
+      Incorrectkey = "المفتاح خطأ ×",
+      CopyKeyLink = "تم النسخ الى الحافظة ✓ "
+    
+    }
+  }
+})
+
+
+
+
+
+
+MinimizeButton({
+  Image = "rbxassetid://88819916320666",
+  Size = {40, 40},
+  Color = Color3.fromRGB(0, 0, 0),
+  Corner = true,
+  Stroke = false,
+  StrokeColor = Color3.fromRGB(0,0,255)
+})
+
+local soundId = "rbxassetid://15689451063"
+
+-- الكود البرمجي
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Parent = game.Workspace -- ضعه في مساحة العمل للتأكد من سماعك
+    sound:Play()
+end
+
+-- اياك ان تحذفه !
+playSound()
+-- Tabs :
+local Home = MakeTab({Name = "البداية"})
+local Main = MakeTab({Name = "الرئيسية"})
+local Settings = MakeTab({Name = "الاعدادات"})
+
+
+
+
+local Image = AddImageLabel(Home, {
+  Name = "YHUB • V1.3",
+  Image = "rbxassetid://88819916320666"
+})
+
+local Label = AddTextLabel(Home, "ارحب : " .. player.DisplayName )
+SetLabel(Label, "ارحب : " .. player.DisplayName)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function getExecutorName()
+    if identifyexecutor then
+        return identifyexecutor()
+    else
+        return "Unknown Executor"
+    end
+end
+
+local playerName = LocalPlayer.Name
+local executorName = getExecutorName()
+local Label = AddTextLabel(Home, "الهاك حقك : " .. executorName)
+SetLabel(Label, "الهاك حقك : " .. executorName)
+
+AddButton(Home, {
+  Name = "قناتي تيليجرام( اضغط للنسخ )",
+  Callback = function()
+    setclipboard('https://t.me/YHUB_16')
+  end
+})
+
+local section = AddSection(Home, {"»»»»»{ معلومات الماب }««««« "})
+
+local playerService = game:GetService("Players")
+local localPlayer = playerService.LocalPlayer
+local marketplaceService = game:GetService("MarketplaceService")
+local placeId = game.PlaceId
+local productInfo = marketplaceService:GetProductInfo(placeId)
+
+local creatorName = productInfo.Creator.Name
+local gameName = productInfo.Name
+local createdTime = string.sub(productInfo.Created, 1, 10)
+local updatedTime = string.sub(productInfo.Updated, 1, 10)
+
+local Label = AddTextLabel(Home, "Name : " ..  gameName)
+SetLabel(Label, "Name : " .. gameName)
+
+local Label = AddTextLabel(Home, "Creator : " .. creatorName)
+SetLabel(Label, "Creator : " .. creatorName)
+
+local Label = AddTextLabel(Home, "Created Time : " .. createdTime)
+SetLabel(Label, "Created Time : " .. createdTime)
+
+local Label = AddTextLabel(Home, "UpdatedTime : " .. updatedTime )
+SetLabel(Label, "UpdatedTime : " .. updatedTime )
+
+AddButton(Home, {
+  Name = "Place ID ( Click to copy ) : " .. tostring(placeId),
+  Callback = function()setclipboard(tostring(placeId))
+    
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ الرئيسية }««««« "})
+AddButton(Main, {
+  Name = "ريتش",
+  Callback = function()
+  MakeNotifi({
+                    Title = "YHUB" ,
+                    Text = "تم التفعيل √" ,
+                    Time = 6
+                })
+
+  local connections = getgenv().configs and getgenv().configs.connection
+if connections then
+    local Disable = configs.Disable
+    for i,v in connections do
+        v:Disconnect() 
+    end
+    Disable:Fire()
+    Disable:Destroy()
+    table.clear(configs)
+end
+
+local Disable = Instance.new("BindableEvent")
+getgenv().configs = {
+    connections = {},
+    Disable = Disable,
+    Size = Vector3.new(10,10,10),
+    DeathCheck = true
+}
+
+local Players = cloneref(game:GetService("Players"))
+local RunService = cloneref(game:GetService("RunService"))
+local lp = Players.LocalPlayer
+local Run = true
+local Ignorelist = OverlapParams.new()
+Ignorelist.FilterType = Enum.RaycastFilterType.Include
+
+local function getchar(plr)
+    local plr = plr or lp
+    return plr.Character
+end
+
+local function gethumanoid(plr: Player | Character)
+    local char = plr:IsA("Model") and plr or getchar(plr)
+
+    if char then
+        return char:FindFirstChildWhichIsA("Humanoid")
+    end
+end
+
+local function IsAlive(Humanoid)
+    return Humanoid and Humanoid.Health > 0
+end
+
+local function GetTouchInterest(Tool)
+    return Tool and Tool:FindFirstChildWhichIsA("TouchTransmitter",true)
+end
+
+local function GetCharacters(LocalPlayerChar)
+    local Characters = {}
+    for i,v in Players:GetPlayers() do
+        table.insert(Characters,getchar(v))
+    end
+    table.remove(Characters,table.find(Characters,LocalPlayerChar))
+    return Characters
+end
+
+local function Attack(Tool,TouchPart,ToTouch)
+    if Tool:IsDescendantOf(workspace) then
+        Tool:Activate()
+        firetouchinterest(TouchPart,ToTouch,1)
+        firetouchinterest(TouchPart,ToTouch,0)
+    end
+end
+
+table.insert(getgenv().configs.connections,Disable.Event:Connect(function()
+    Run = false
+end))
+
+while Run do
+    local char = getchar()
+    if IsAlive(gethumanoid(char)) then
+        local Tool = char and char:FindFirstChildWhichIsA("Tool")
+        local TouchInterest = Tool and GetTouchInterest(Tool)
+
+        if TouchInterest then
+            local TouchPart = TouchInterest.Parent
+            local Characters = GetCharacters(char)
+            Ignorelist.FilterDescendantsInstances = Characters
+            local InstancesInBox = workspace:GetPartBoundsInBox(TouchPart.CFrame,TouchPart.Size + getgenv().configs.Size,Ignorelist)
+
+            for i,v in InstancesInBox do
+                local Character = v:FindFirstAncestorWhichIsA("Model")
+
+                if table.find(Characters,Character) then
+                    if getgenv().configs.DeathCheck then                    
+                        if IsAlive(gethumanoid(Character)) then
+                            Attack(Tool,TouchPart,v)
+                        end
+                    else
+                        Attack(Tool,TouchPart,v)
+                    end
+                end
+            end
+        end
+    end
+    RunService.Heartbeat:Wait()
+end
+  
+  end
+})
+
+
+AddButton(Main, {
+  Name = "ريتش v2",
+  Callback = function()
+  getgenv().Range = 10
+  local players = game:GetService("Players")
+local player = players.LocalPlayer
+local camera = workspace.CurrentCamera
+
+local function getPartsInViewport(maxDistance)
+	local partsInViewport = {}
+	for _, part in ipairs(workspace:GetDescendants()) do
+		if part:IsA("BasePart") then
+			local distance = player:DistanceFromCharacter(part.Position)
+			if distance <= maxDistance then
+				local _, isVisible = camera:WorldToViewportPoint(part.Position)
+				if isVisible then
+					table.insert(partsInViewport, part)
+				end
+			end
+		end
+	end
+	return partsInViewport
+end
+
+
+
+while true do 
+    wait()
+local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+local parts = getPartsInViewport(Range)
+
+if tool and tool:FindFirstChild("Handle") then
+for _, part in ipairs(parts) do
+if part and part.Parent and part.Parent ~= game.Players.localPlayer.Character and part.Parent:FindFirstChildWhichIsA("Humanoid") and part.Parent:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                        tool:Activate()
+                        firetouchinterest(tool.Handle,part,0)
+                        firetouchinterest(tool.Handle,part,1)
+end
+end
+end
+end
+
+  end
+})
+
+
+
+AddTextBox(Main, {
+  Name = "Set range ( kill aura v2 only )",
+  Default = "put range",
+  PlaceholderText = "",
+  ClearText = true,
+  Callback = function(Y)
+  getgenv().Range = Y
+      
+
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ الايم }««««« "})
+
+AddButton(Main, {
+  Name = "بولت تراك",
+  Callback = function()
+  getgenv().TargetTeamName = "Blue"  -- Initial target team
+getgenv().cooldown = 0  -- Cooldown in seconds between shots
+getgenv().bulletSpeed = 90.5  -- Speed of the bullet in studs/second
+getgenv().minPredictionDistance = 0  -- Minimum distance for prediction in studs
+getgenv().maxPredictionDistance = 15  -- Maximum distance for prediction in studs
+getgenv().lastShotTime = 0  -- Variable to track the last time a shot was fired
+
+-- You want to steal?.. 😔.
+-- ...
+
+
+-- Wait for 2 seconds
+wait(1)
+
+-- Function to animate notification
+local function animateNotification(notification)
+    local endPos = UDim2.new(0.5, -100, 0.4, -50) -- Adjusted position
+    
+    local tweenInfo = TweenInfo.new(
+        1, -- Duration
+        Enum.EasingStyle.Elastic, -- Easing style
+        Enum.EasingDirection.Out, -- Easing direction
+        0, -- Repeat count (0 means play once)
+        false, -- Reverses after finishing
+        0 -- Delay
+    )
+    
+    local tween = game:GetService("TweenService"):Create(notification, tweenInfo, {Position = endPos})
+    
+    tween:Play()
+    
+    wait(2) -- Adjust the duration the notification is displayed
+    
+    tween:Destroy()
+end
+
+-- Create a function to display a notification
+local function displayNotification(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "Notification"
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = notification
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, -100, 0.55, -50) -- Adjusted position
+    textLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    textLabel.Text = message
+    textLabel.TextSize = 20
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    -- Animate notification
+    animateNotification(textLabel)
+
+    -- Fade out and destroy the notification after the animation finishes
+    wait(1)
+    for transparency = 0, 1, 0.1 do
+        textLabel.BackgroundTransparency = transparency
+        wait(0.1)
+    end
+    notification:Destroy()
+end
+
+-- Display the first notification
+displayNotification("المطور جني")
+
+-- Display the second notification
+wait(0.1)
+displayNotification("بولت تراك")
+
+-- Execute the main script
+local player = game.Players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RemoteEvent = ReplicatedStorage.Events.Remote.ShotTarget
+local SoundService = game:GetService("SoundService")
+
+local targetTeamName = "Red"  -- Initial target team
+local cooldown = 0  -- Cooldown in seconds between shots
+local bulletSpeed = 49.5  -- Speed of the bullet in studs/second
+local minPredictionDistance = 0  -- Minimum distance for prediction in studs
+local maxPredictionDistance = 10  -- Maximum distance for prediction in studs
+local lastShotTime = 0  -- Variable to track the last time a shot was fired
+
+-- Function to animate notification
+local function animateNotification(notification)
+    local endPos = UDim2.new(0.5, -100, 0.4, -50) -- Adjusted position
+    
+    local tweenInfo = TweenInfo.new(
+        1, -- Duration
+        Enum.EasingStyle.Elastic, -- Easing style
+        Enum.EasingDirection.Out, -- Easing direction
+        0, -- Repeat count (0 means play once)
+        false, -- Reverses after finishing
+        0 -- Delay
+    )
+    
+    local tween = game:GetService("TweenService"):Create(notification, tweenInfo, {Position = endPos})
+    
+    tween:Play()
+    
+    wait(2) -- Adjust the duration the notification is displayed
+    
+    tween:Destroy()
+end
+
+-- Function to display a notification
+local function displayNotification(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "Notification"
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = notification
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, -100, 0.55, -50) -- Adjusted position
+    textLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.Text = message
+    textLabel.TextSize = 20
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    -- Animate notification
+    animateNotification(textLabel)
+
+    -- Fade out and destroy the notification after the animation finishes
+    wait(2)
+    for transparency = 0, 1, 0.1 do
+        textLabel.BackgroundTransparency = transparency
+        wait(0.1)
+    end
+    notification:Destroy()
+end
+
+-- Function to play a sound
+local function playSound(soundId, delay)
+    delay = delay or 0
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://" .. soundId
+    sound.Parent = SoundService
+    sound:Play()
+    wait(delay)
+    sound:Destroy()
+end
+
+-- Play sound with delay
+spawn(function()
+    playSound(2865227271, 0.5)
+    wait(0.5)
+    playSound(1676318332)
+end)
+
+local function findClosestPlayer()
+    local players = game.Players:GetPlayers()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    
+    -- Get the equipped tool
+    local tool = player.Character:FindFirstChildOfClass("Tool")
+    
+    if tool then
+        local toolHandle = tool:FindFirstChild("Handle")
+        if toolHandle then
+            -- Use the position of the tool handle as the shooter's position
+            local shooterPosition = toolHandle.Position
+            
+            for _, plyr in ipairs(players) do
+                if plyr ~= player and plyr.Team and plyr.Team.Name == targetTeamName and plyr.Character and plyr.Character:FindFirstChild("Humanoid") and plyr.Character.Humanoid.Health > 0 then
+                    local targetPosition = plyr.Character.HumanoidRootPart.Position
+                    
+                    -- Calculate horizontal distance
+                    local horizontalDistance = (targetPosition - shooterPosition).magnitude
+                    
+                    -- Calculate vertical distance
+                    local heightDifference = math.abs(targetPosition.Y - shooterPosition.Y)
+                    
+                    -- Calculate total distance considering both horizontal and vertical distances
+                    local totalDistance = (horizontalDistance^1 + heightDifference^2)^0.5
+                    
+                    if totalDistance < shortestDistance then
+                        closestPlayer = plyr
+                        shortestDistance = totalDistance
+                    end
+                end
+            end
+        else
+            print("Tool does not have a handle.")
+        end
+    else
+        print("No tool equipped.")
+    end
+    
+    return closestPlayer, shortestDistance
+end
+
+local function predictPosition(targetPosition, targetVelocity)
+    local shooterPosition = player.Character.HumanoidRootPart.Position
+    local distanceToTarget = (targetPosition - shooterPosition).magnitude
+    
+    -- Adjust prediction based on distance
+    local predictionDistance = math.clamp(distanceToTarget, minPredictionDistance, maxPredictionDistance)
+    local timeToImpact = predictionDistance / bulletSpeed
+    
+    -- Predict the future position of the target based on their current position and velocity
+    return targetPosition + targetVelocity * timeToImpact
+end
+
+local function fireRemoteEvent(targetPlayer)
+    if targetPlayer then
+        local currentTime = os.time()
+        if currentTime - lastShotTime >= cooldown then
+            local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
+            local targetVelocity = targetPlayer.Character.HumanoidRootPart.Velocity
+            
+            local predictedPosition = predictPosition(targetPosition, targetVelocity)
+            
+            local args = {
+                [1] = predictedPosition,
+                [2] = "Sniper"
+            }
+            RemoteEvent:FireServer(unpack(args))
+            
+            -- Activate the equipped tool
+            local tool = player.Character:FindFirstChildOfClass("Tool")
+            if tool then
+                tool:Activate()
+            end
+            
+            lastShotTime = currentTime
+        end
+    else
+        print("No valid players found on the specified team nearby.")
+    end
+end
+
+local function toggleTargetTeam()
+    if targetTeamName == "Red" then
+        targetTeamName = "Blue"
+    else
+        targetTeamName = "Red"
+    end
+    displayNotification("الان يتم الاطلاق على  " .. targetTeamName .. " تيم .")
+end
+
+-- Create a ScreenGui to hold the buttons
+local gui = Instance.new("ScreenGui")
+gui.Parent = game:GetService("CoreGui")
+
+-- Create a TextButton for toggling between red and blue teams
+local teamToggleButton = Instance.new("TextButton")
+teamToggleButton.Parent = gui
+teamToggleButton.Position = UDim2.new(0.7, 0, 0.1, 0)
+teamToggleButton.Size = UDim2.new(0, 100, 0, 50)
+teamToggleButton.Text = "نوع التيم"
+teamToggleButton.MouseButton1Click:Connect(toggleTargetTeam)
+
+-- Create a TextButton to target the closest player
+local targetButton = Instance.new("TextButton")
+targetButton.Parent = gui
+targetButton.Position = UDim2.new(0.7, 0, 0.25, 0)
+targetButton.Size = UDim2.new(0, 100, 0, 50)
+BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+targetButton.Text = "اطلاق"
+targetButton.MouseButton1Click:Connect(function()
+    fireRemoteEvent(findClosestPlayer())
+end)
+
+
+
+
+
+  end
+})
+
+
+
+AddButton(Main, {
+  Name = "ايم بوت",
+  Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB-AimBot"))()
+  
+  end
+})
+
+
+
+pcall(function()
+    getgenv().Crosshair.Functions:Exit()
+end)
+
+--// Environment
+
+getgenv().Crosshair = {}
+local Environment = getgenv().Crosshair
+
+--// Services
+
+local StarterGui = game:GetService("StarterGui")
+local RunService = game:GetService("RunService")
+local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
+local Camera = game:GetService("Workspace").CurrentCamera
+
+--// Variables
+
+local Title = "Exunys Developer"
+local FileNames = {"Crosshair", "Configuration.json", "Crosshair.json"}
+local AxisX, AxisY = nil, nil
+local AxisConnection, CrosshairConnection = nil
+
+--// Script Settings
+
+Environment.Settings = {
+    SendNotifications = false,  -- Set to false to disable notifications
+    SaveSettings = true,
+    ReloadOnTeleport = true,
+    Enabled = true,
+    ToMouse = true
+}
+
+--// Crosshair Settings
+
+Environment.CrosshairSettings = {
+    Size = 12,
+    Thickness = 1,
+    Color = "255, 0, 0",  -- Default color in RGB format
+    Transparency = 1,
+    GapSize = 5,
+    CenterDot = false,
+    CenterDotColor = "255, 0, 0",  -- Default center dot color
+    CenterDotSize = 1,
+    CenterDotTransparency = 1,
+    CenterDotFilled = true,
+}
+
+Environment.Construction = {
+    LeftLine = Drawing.new("Line"),
+    RightLine = Drawing.new("Line"),
+    TopLine = Drawing.new("Line"),
+    BottomLine = Drawing.new("Line"),
+    CenterDot = Drawing.new("Circle")
+}
+
+--// Core Functions
+
+local function Encode(Table)
+    if Table and type(Table) == "table" then
+        return HttpService:JSONEncode(Table)
+    end
+end
+
+local function Decode(String)
+    if String and type(String) == "string" then
+        return HttpService:JSONDecode(String)
+    end
+end
+
+local function SendNotification(TitleArg, DescriptionArg, DurationArg)
+    -- Notifications are disabled, so this function does nothing
+end
+
+local function GetColor(Color)
+    local R, G, B = string.match(Color, "(%d+),%s*(%d+),%s*(%d+)")
+    return Color3.fromRGB(tonumber(R), tonumber(G), tonumber(B))
+end
+
+local function Load()
+    AxisConnection, CrosshairConnection = RunService.RenderStepped:Connect(function()
+        if Environment.Settings.ToMouse then
+            AxisX, AxisY = UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y
+        else
+            AxisX, AxisY = Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2
+        end
+    end), RunService.RenderStepped:Connect(function()
+
+        --// Left Line
+        Environment.Construction.LeftLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.LeftLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.LeftLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.LeftLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.LeftLine.From = Vector2.new(AxisX + Environment.CrosshairSettings.GapSize, AxisY)
+        Environment.Construction.LeftLine.To = Vector2.new(AxisX + Environment.CrosshairSettings.Size, AxisY)
+
+        --// Right Line
+        Environment.Construction.RightLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.RightLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.RightLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.RightLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.RightLine.From = Vector2.new(AxisX - Environment.CrosshairSettings.GapSize, AxisY)
+        Environment.Construction.RightLine.To = Vector2.new(AxisX - Environment.CrosshairSettings.Size, AxisY)
+
+        --// Top Line
+        Environment.Construction.TopLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.TopLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.TopLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.TopLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.TopLine.From = Vector2.new(AxisX, AxisY + Environment.CrosshairSettings.GapSize)
+        Environment.Construction.TopLine.To = Vector2.new(AxisX, AxisY + Environment.CrosshairSettings.Size)
+
+        --// Bottom Line
+        Environment.Construction.BottomLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.BottomLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.BottomLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.BottomLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.BottomLine.From = Vector2.new(AxisX, AxisY - Environment.CrosshairSettings.GapSize)
+        Environment.Construction.BottomLine.To = Vector2.new(AxisX, AxisY - Environment.CrosshairSettings.Size)
+
+        --// Center Dot
+        Environment.Construction.CenterDot.Visible = Environment.Settings.Enabled and Environment.CrosshairSettings.CenterDot
+        Environment.Construction.CenterDot.Color = GetColor(Environment.CrosshairSettings.CenterDotColor)
+        Environment.Construction.CenterDot.Radius = Environment.CrosshairSettings.CenterDotSize
+        Environment.Construction.CenterDot.Transparency = Environment.CrosshairSettings.CenterDotTransparency
+        Environment.Construction.CenterDot.Filled = Environment.CrosshairSettings.CenterDotFilled
+        Environment.Construction.CenterDot.Position = Vector2.new(AxisX, AxisY)
+    end)
+end
+
+--// Functions
+
+local function SaveSettings()
+    if isfile(Title.."/"..FileNames[1].."/"..FileNames[2]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[2], Encode(Environment.Settings))
+    end
+
+    if isfile(Title.."/"..FileNames[1].."/"..FileNames[3]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[3], Encode(Environment.CrosshairSettings))
+    end
+end
+
+if Environment.Settings.SaveSettings then
+    if not isfolder(Title) then
+        makefolder(Title)
+    end
+
+    if not isfolder(Title.."/"..FileNames[1]) then
+        makefolder(Title.."/"..FileNames[1])
+    end
+
+    if not isfile(Title.."/"..FileNames[1].."/"..FileNames[2]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[2], Encode(Environment.Settings))
+    else
+        Environment.Settings = Decode(readfile(Title.."/"..FileNames[1].."/"..FileNames[2]))
+    end
+
+    if not isfile(Title.."/"..FileNames[1].."/"..FileNames[3]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[3], Encode(Environment.CrosshairSettings))
+    else
+        Environment.CrosshairSettings = Decode(readfile(Title.."/"..FileNames[1].."/"..FileNames[3]))
+    end
+
+    coroutine.wrap(function()
+        while wait(10) do
+            SaveSettings()
+        end
+    end)()
+else
+    if isfolder(Title) then
+        delfolder(Title)
+    end
+end
+
+--// Reload On Teleport
+
+if Environment.Settings.ReloadOnTeleport then
+    if syn and syn.queue_on_teleport then
+        syn.queue_on_teleport(game:HttpGet("https://pastebin.com/raw/4L7an7MY"))
+    else
+        -- No notification sent since they are disabled
+    end
+end
+
+--// Script Functions
+
+Environment.Functions = {}
+
+function Environment.Functions:Exit()
+    table.foreach(Environment.Construction, function(_, Value)
+        Value:Remove()
+    end)
+
+    AxisConnection:Disconnect()
+    CrosshairConnection:Disconnect()
+
+    getgenv().Crosshair = nil
+end
+
+function Environment.Functions:Restart()
+    table.foreach(Environment.Construction, function(_, Value)
+        Value:Remove()
+    end)
+
+    AxisConnection:Disconnect()
+    CrosshairConnection:Disconnect()
+
+    Load()
+end
+
+function Environment.Functions:ResetSettings()
+    Environment.Settings = {
+        SendNotifications = false,
+        SaveSettings = true,
+        ReloadOnTeleport = true,
+        Enabled = true,
+        ToMouse = true
+    }
+
+    Environment.CrosshairSettings = {
+        Size = 12,
+        Thickness = 1,
+        Color = "255, 0, 0",  -- Default color in RGB format
+        Transparency = 1,
+        GapSize = 5,
+        CenterDot = false,
+        CenterDotColor = "255, 0, 0",
+        CenterDotSize = 1,
+        CenterDotTransparency = 1,
+        CenterDotFilled = true,
+    }
+
+    SaveSettings()
+end
+
+function Environment.Functions:SetMouseIcon(Value)
+    if Value == nil then Value = true end
+
+    UserInputService.MouseIconEnabled = Value
+end
+
+function Environment.Functions:GetDocumentation()
+    setclipboard("https://github.com/Exunys/Crosshair-V2")
+    -- No notification sent since they are disabled
+end
+
+--// API Check
+
+if not Drawing or not writefile or not makefolder then
+    -- No notification sent since they are disabled
+    return
+end
+AddToggle(Main, {
+  Name = "مؤشر",
+  Callback = function(Value)
+  Environment.Settings.Enabled = Value 
+  end
+})
+
+AddColorPicker(Main, {
+  Name = "لون المؤشر",
+  Default = Color3.fromRGB(255, 0, 0),
+  Callback = function(Value)
+    local r, g, b = Value.R * 255, Value.G * 255, Value.B * 255
+        Environment.CrosshairSettings.Color = string.format("%d, %d, %d", r, g, b)
+        Environment.CrosshairSettings.CenterDotColor = string.format("%d, %d, %d", r, g, b)  -- Change center dot color too
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ الكشف }««««« "})
+
+local ESP = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+ESP:Toggle(true)
+ESP.Players = false
+ESP.Tracers = false
+ESP.Boxes = false
+ESP.Names = false
+ESP.TeamColor = false
+ESP.TeamMates = false
+ESP.Highlight = false 
+
+
+
+local Toggle = AddToggle(Main, {
+  Name = "تفعيل",
+  Default = false,
+  Callback = function(Value)
+    ESP.Players = Value
+    ESP.TeamMates = Value
+    ESP.Highlight = Value 
+  end
+})
+
+
+local Toggle = AddToggle(Main, {
+  Name = "الاسم",
+  Default = false,
+  Callback = function(Value)
+    ESP.Names = Value
+  end
+})
+
+local Toggle = AddToggle(Main, {
+  Name = "بوكس",
+  Default = false,
+  Callback = function(Value)
+    ESP.Boxes = Value
+  end
+})
+
+local Toggle = AddToggle(Main, {
+  Name = "خط",
+  Default = false,
+  Callback = function(Value)
+   ESP.Tracers = Value
+  end
+})
+
+AddColorPicker(Main, {
+  Name = "لون الكشف",
+  Default = Color3.fromRGB(0, 0, 0),
+  Callback = function(Value)
+    ESP.Color = Value
+  end
+})
+
+local section = AddSection(Settings, {"»»»»»{ مساعدات }««««« "})
+
+AddButton(Settings, {
+  Name = "تسريع الفريمات",
+  Callback = function(Value)local decalsyeeted = true 
+        local g = game
+        local w = g.Workspace
+        local l = g.Lighting
+        local t = w.Terrain
+        
+        if Value then -- Activate FPS booster only if toggle is enabled
+            -- Set hidden properties for lighting and terrain
+            sethiddenproperty(l, "Technology", 2)
+            sethiddenproperty(t, "Decoration", false)
+            t.WaterWaveSize = 0
+            t.WaterWaveSpeed = 0
+            t.WaterReflectance = 0
+            t.WaterTransparency = 0
+            l.GlobalShadows = 0
+            l.FogEnd = 9e9
+            l.Brightness = 0
+            settings().Rendering.QualityLevel = "Level01"
+
+            -- Optimize workspace parts
+            for _, v in pairs(w:GetDescendants()) do
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") and decalsyeeted then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh") and decalsyeeted then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") and decalsyeeted then
+                    v.Graphic = 0
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+                    v[v.ClassName.."Template"] = 0
+                end
+            end
+
+            -- Disable visual effects
+            for _, e in pairs(l:GetChildren()) do
+                if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                    e.Enabled = false
+                end
+            end
+
+            -- Handle newly added descendants
+            w.DescendantAdded:Connect(function(v)
+                wait() -- Prevent errors
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") and decalsyeeted then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh") and decalsyeeted then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") and decalsyeeted then
+                    v.Graphic = 0
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+                    v[v.ClassName.."Template"] = 0
+                end
+            end)
+        else
+            -- Reset changes when toggle is disabled (optional)
+            -- You may want to implement resetting logic here
+        end
+        
+  
+  end
+})
+local section = AddSection(Settings, {"RTX"})
+SetSection(section, "»»»»»{ RTX ( الوقت & الجودة ) }«««««")
+
+AddButton(Settings, {
+  Name = "الصباح",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 14
+  end
+})
+
+
+AddButton(Settings, {
+  Name = "الليل",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 19
+  end
+})
+
+AddButton(Settings, {
+  Name = "شادر واقعي",
+  Callback = function()
+  -- local Vignette = false
+
+
+local Lighting = game:GetService("Lighting")
+local StarterGui = game:GetService("StarterGui")
+local Bloom = Instance.new("BloomEffect")
+local Blur = Instance.new("BlurEffect")
+local ColorCor = Instance.new("ColorCorrectionEffect")
+local SunRays = Instance.new("SunRaysEffect")
+local Sky = Instance.new("Sky")
+local Atm = Instance.new("Atmosphere")
+
+
+for i, v in pairs(Lighting:GetChildren()) do
+    if v then
+        v:Destroy()
+    end
+end
+
+Bloom.Parent = Lighting
+Blur.Parent = Lighting
+ColorCor.Parent = Lighting
+SunRays.Parent = Lighting
+Sky.Parent = Lighting
+Atm.Parent = Lighting
+
+if Vignette == true then
+    local Gui = Instance.new("ScreenGui")
+    Gui.Parent = StarterGui
+    Gui.IgnoreGuiInset = true
+    
+    local ShadowFrame = Instance.new("ImageLabel")
+    ShadowFrame.Parent = Gui
+    ShadowFrame.AnchorPoint = Vector2.new(0.5,1)
+    ShadowFrame.Position = UDim2.new(0.5,0,1,0)
+    ShadowFrame.Size = UDim2.new(1,0,1.05,0)
+    ShadowFrame.BackgroundTransparency = 1
+    ShadowFrame.Image = "rbxassetid://4576475446"
+    ShadowFrame.ImageTransparency = 0.3
+    ShadowFrame.ZIndex = 10
+end
+
+Bloom.Intensity = 0.3
+Bloom.Size = 10
+Bloom.Threshold = 0.8
+
+Blur.Size = 5
+ColorCor.Brightness = 0.1
+ColorCor.Contrast = 0.5
+ColorCor.Saturation = -0.3
+ColorCor.TintColor = Color3.fromRGB(255, 235, 203)
+
+SunRays.Intensity = 0.075
+SunRays.Spread = 0.727
+
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=151165214"
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=151165197"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=151165224"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=151165191"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=151165206"
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=151165227"
+Sky.SunAngularSize = 10
+
+
+Lighting.Ambient = Color3.fromRGB(2,2,2)
+Lighting.Brightness = 2.25
+Lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+Lighting.ColorShift_Top = Color3.fromRGB(0,0,0)
+Lighting.EnvironmentDiffuseScale = 0.2
+Lighting.EnvironmentSpecularScale = 0.2
+Lighting.GlobalShadows = true
+Lighting.OutdoorAmbient = Color3.fromRGB(0,0,0)
+Lighting.ShadowSoftness = 0.2
+Lighting.ClockTime = 17
+Lighting.GeographicLatitude = 45
+Lighting.ExposureCompensation = 0.5
+
+Atm.Density = 0.364
+Atm.Offset = 0.556
+Atm.Color = Color3.fromRGB(199, 175, 166)
+Atm.Decay = Color3.fromRGB(44, 39, 33)
+Atm.Glare = 0.36
+Atm.Haze = 1.72
+
+script:Destroy()
+  end
+})
+
+
+AddButton(Settings, {
+  Name = "الصباح & الليل ( مسرع ) ",
+  Callback = function()local Lighting = game:GetService("Lighting")
+
+local Minutes = 7 * 60
+
+while task.wait() do
+	Lighting:SetMinutesAfterMidnight(Minutes)
+	Minutes = Lighting:GetMinutesAfterMidnight()
+
+	if Minutes > 19 * 60 then
+		Minutes = Minutes + 3
+	elseif Minutes > 7 * 60 then
+		Minutes = Minutes + 1
+	else
+		Minutes = Minutes + 3
+	end
+end
+    
+  end
+})
+local section = AddSection(Settings, {"»»»»»{ السيرفر }«««««"})
+SetSection(section, "»»»»»{ السيرفر }«««««")
+
+AddButton(Settings, {
+  Name = "اعادة دخول السيرفر",
+  Callback = function()
+  game:GetService("TeleportService"):Teleport(game.placeId) 
+  end
+})
+
+
+
+
+
+
+Load()
+      		print("")
+  	end    
+})
+
+
+Main:AddButton({
+	Name = "YHUB underground war ( English )",
+	Callback = function()
+wait(0.1)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "YHUB V1.3"; 
+    Text = "By : DeX"; -- GYHUB TEAM --
+    Icon = "rbxassetid://88819916320666"})
+Duration = 5;
+
+
+local player = game.Players.LocalPlayer
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local MarketplaceService = game:GetService("MarketplaceService")
+local GroupService = game:GetService("GroupService")
+local LocalizationService = game:GetService("LocalizationService")
+ 
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/Gui")))()
+MakeWindow({
+  Hub = {
+    Title = "YHUB | V1.3 | Sword War Maps ",
+    Animation = "YHUB : by DeX "
+    
+    
+  },
+  Key = {
+    KeySystem = false,
+    Title = " المفتاح",
+    Description = "أكتب مفتاحك",
+    KeyLink = "https://t.me/YHUB_16",
+    Keys = {"YHUB1234"},
+    Notifi = {
+      Notifications = true,
+      CorrectKey = "صحيح ✓ جار تحميل السكربت... ",
+      Incorrectkey = "المفتاح خطأ ×",
+      CopyKeyLink = "تم النسخ الى الحافظة ✓ "
+    
+    }
+  }
+})
+
+
+
+
+
+
+MinimizeButton({
+  Image = "rbxassetid://88819916320666",
+  Size = {40, 40},
+  Color = Color3.fromRGB(0, 0, 0),
+  Corner = true,
+  Stroke = false,
+  StrokeColor = Color3.fromRGB(0,0,255)
+})
+
+local soundId = "rbxassetid://15689451063"
+
+-- الكود البرمجي
+local function playSound()
+    local sound = Instance.new("Sound")
+    sound.SoundId = soundId
+    sound.Parent = game.Workspace -- ضعه في مساحة العمل للتأكد من سماعك
+    sound:Play()
+end
+
+-- اياك ان تحذفه !
+playSound()
+-- Tabs :
+local Home = MakeTab({Name = "Home"})
+local Main = MakeTab({Name = "Main"})
+local Settings = MakeTab({Name = "Settings"})
+
+
+
+
+local Image = AddImageLabel(Home, {
+  Name = "YHUB • V1.3",
+  Image = "rbxassetid://88819916320666"
+})
+
+local Label = AddTextLabel(Home, "Welcome : " .. player.DisplayName )
+SetLabel(Label, "Welcome : " .. player.DisplayName)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function getExecutorName()
+    if identifyexecutor then
+        return identifyexecutor()
+    else
+        return "Unknown Executor"
+    end
+end
+
+local playerName = LocalPlayer.Name
+local executorName = getExecutorName()
+local Label = AddTextLabel(Home, "Executor : " .. executorName)
+SetLabel(Label, "Executor : " .. executorName)
+
+AddButton(Home, {
+  Name = "Join the Telegram community ( Click to copy )",
+  Callback = function()
+    setclipboard('https://t.me/YHUB_16')
+  end
+})
+
+local section = AddSection(Home, {"»»»»»{ Map info }««««« "})
+
+local playerService = game:GetService("Players")
+local localPlayer = playerService.LocalPlayer
+local marketplaceService = game:GetService("MarketplaceService")
+local placeId = game.PlaceId
+local productInfo = marketplaceService:GetProductInfo(placeId)
+
+local creatorName = productInfo.Creator.Name
+local gameName = productInfo.Name
+local createdTime = string.sub(productInfo.Created, 1, 10)
+local updatedTime = string.sub(productInfo.Updated, 1, 10)
+
+local Label = AddTextLabel(Home, "Name : " ..  gameName)
+SetLabel(Label, "Name : " .. gameName)
+
+local Label = AddTextLabel(Home, "Creator : " .. creatorName)
+SetLabel(Label, "Creator : " .. creatorName)
+
+local Label = AddTextLabel(Home, "Created Time : " .. createdTime)
+SetLabel(Label, "Created Time : " .. createdTime)
+
+local Label = AddTextLabel(Home, "UpdatedTime : " .. updatedTime )
+SetLabel(Label, "UpdatedTime : " .. updatedTime )
+
+AddButton(Home, {
+  Name = "Place ID ( Click to copy ) : " .. tostring(placeId),
+  Callback = function()setclipboard(tostring(placeId))
+    
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ MAIN }««««« "})
+AddButton(Main, {
+  Name = "kill aura",
+  Callback = function()
+  MakeNotifi({
+                    Title = "YHUB" ,
+                    Text = "Activated √" ,
+                    Time = 6
+                })
+
+  local connections = getgenv().configs and getgenv().configs.connection
+if connections then
+    local Disable = configs.Disable
+    for i,v in connections do
+        v:Disconnect() 
+    end
+    Disable:Fire()
+    Disable:Destroy()
+    table.clear(configs)
+end
+
+local Disable = Instance.new("BindableEvent")
+getgenv().configs = {
+    connections = {},
+    Disable = Disable,
+    Size = Vector3.new(10,10,10),
+    DeathCheck = true
+}
+
+local Players = cloneref(game:GetService("Players"))
+local RunService = cloneref(game:GetService("RunService"))
+local lp = Players.LocalPlayer
+local Run = true
+local Ignorelist = OverlapParams.new()
+Ignorelist.FilterType = Enum.RaycastFilterType.Include
+
+local function getchar(plr)
+    local plr = plr or lp
+    return plr.Character
+end
+
+local function gethumanoid(plr: Player | Character)
+    local char = plr:IsA("Model") and plr or getchar(plr)
+
+    if char then
+        return char:FindFirstChildWhichIsA("Humanoid")
+    end
+end
+
+local function IsAlive(Humanoid)
+    return Humanoid and Humanoid.Health > 0
+end
+
+local function GetTouchInterest(Tool)
+    return Tool and Tool:FindFirstChildWhichIsA("TouchTransmitter",true)
+end
+
+local function GetCharacters(LocalPlayerChar)
+    local Characters = {}
+    for i,v in Players:GetPlayers() do
+        table.insert(Characters,getchar(v))
+    end
+    table.remove(Characters,table.find(Characters,LocalPlayerChar))
+    return Characters
+end
+
+local function Attack(Tool,TouchPart,ToTouch)
+    if Tool:IsDescendantOf(workspace) then
+        Tool:Activate()
+        firetouchinterest(TouchPart,ToTouch,1)
+        firetouchinterest(TouchPart,ToTouch,0)
+    end
+end
+
+table.insert(getgenv().configs.connections,Disable.Event:Connect(function()
+    Run = false
+end))
+
+while Run do
+    local char = getchar()
+    if IsAlive(gethumanoid(char)) then
+        local Tool = char and char:FindFirstChildWhichIsA("Tool")
+        local TouchInterest = Tool and GetTouchInterest(Tool)
+
+        if TouchInterest then
+            local TouchPart = TouchInterest.Parent
+            local Characters = GetCharacters(char)
+            Ignorelist.FilterDescendantsInstances = Characters
+            local InstancesInBox = workspace:GetPartBoundsInBox(TouchPart.CFrame,TouchPart.Size + getgenv().configs.Size,Ignorelist)
+
+            for i,v in InstancesInBox do
+                local Character = v:FindFirstAncestorWhichIsA("Model")
+
+                if table.find(Characters,Character) then
+                    if getgenv().configs.DeathCheck then                    
+                        if IsAlive(gethumanoid(Character)) then
+                            Attack(Tool,TouchPart,v)
+                        end
+                    else
+                        Attack(Tool,TouchPart,v)
+                    end
+                end
+            end
+        end
+    end
+    RunService.Heartbeat:Wait()
+end
+  
+  end
+})
+
+
+AddButton(Main, {
+  Name = "Kill aura v2",
+  Callback = function()local players = game:GetService("Players")
+local player = players.LocalPlayer
+local camera = workspace.CurrentCamera
+
+local function getPartsInViewport(maxDistance)
+	local partsInViewport = {}
+	for _, part in ipairs(workspace:GetDescendants()) do
+		if part:IsA("BasePart") then
+			local distance = player:DistanceFromCharacter(part.Position)
+			if distance <= maxDistance then
+				local _, isVisible = camera:WorldToViewportPoint(part.Position)
+				if isVisible then
+					table.insert(partsInViewport, part)
+				end
+			end
+		end
+	end
+	return partsInViewport
+end
+
+
+
+while true do 
+    wait()
+local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+local parts = getPartsInViewport(Range)
+
+if tool and tool:FindFirstChild("Handle") then
+for _, part in ipairs(parts) do
+if part and part.Parent and part.Parent ~= game.Players.localPlayer.Character and part.Parent:FindFirstChildWhichIsA("Humanoid") and part.Parent:FindFirstChildWhichIsA("Humanoid").Health > 0 then
+                        tool:Activate()
+                        firetouchinterest(tool.Handle,part,0)
+                        firetouchinterest(tool.Handle,part,1)
+end
+end
+end
+end
+
+  end
+})
+
+
+
+AddTextBox(Main, {
+  Name = "Set range ( kill aura v2 only )",
+  Default = "put range",
+  PlaceholderText = "",
+  ClearText = true,
+  Callback = function(Y)
+  getgenv().Range = Y
+      
+
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ AIM }««««« "})
+
+AddButton(Main, {
+  Name = "SILENT AIM",
+  Callback = function()
+  getgenv().TargetTeamName = "Blue"  -- Initial target team
+getgenv().cooldown = 0  -- Cooldown in seconds between shots
+getgenv().bulletSpeed = 90.5  -- Speed of the bullet in studs/second
+getgenv().minPredictionDistance = 0  -- Minimum distance for prediction in studs
+getgenv().maxPredictionDistance = 15  -- Maximum distance for prediction in studs
+getgenv().lastShotTime = 0  -- Variable to track the last time a shot was fired
+
+-- You want to steal?.. 😔.
+-- ...
+
+
+-- Wait for 2 seconds
+wait(1)
+
+-- Function to animate notification
+local function animateNotification(notification)
+    local endPos = UDim2.new(0.5, -100, 0.4, -50) -- Adjusted position
+    
+    local tweenInfo = TweenInfo.new(
+        1, -- Duration
+        Enum.EasingStyle.Elastic, -- Easing style
+        Enum.EasingDirection.Out, -- Easing direction
+        0, -- Repeat count (0 means play once)
+        false, -- Reverses after finishing
+        0 -- Delay
+    )
+    
+    local tween = game:GetService("TweenService"):Create(notification, tweenInfo, {Position = endPos})
+    
+    tween:Play()
+    
+    wait(2) -- Adjust the duration the notification is displayed
+    
+    tween:Destroy()
+end
+
+-- Create a function to display a notification
+local function displayNotification(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "Notification"
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = notification
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, -100, 0.55, -50) -- Adjusted position
+    textLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    textLabel.Text = message
+    textLabel.TextSize = 20
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    -- Animate notification
+    animateNotification(textLabel)
+
+    -- Fade out and destroy the notification after the animation finishes
+    wait(2)
+    for transparency = 0, 1, 0.1 do
+        textLabel.BackgroundTransparency = transparency
+        wait(0.1)
+    end
+    notification:Destroy()
+end
+
+-- Display the first notification
+displayNotification("from YHUB")
+
+-- Display the second notification
+wait(0.1)
+displayNotification("SILENT AIM")
+
+-- Execute the main script
+local player = game.Players.LocalPlayer
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RemoteEvent = ReplicatedStorage.Events.Remote.ShotTarget
+local SoundService = game:GetService("SoundService")
+
+local targetTeamName = "Red"  -- Initial target team
+local cooldown = 0  -- Cooldown in seconds between shots
+local bulletSpeed = 49.5  -- Speed of the bullet in studs/second
+local minPredictionDistance = 0  -- Minimum distance for prediction in studs
+local maxPredictionDistance = 10  -- Maximum distance for prediction in studs
+local lastShotTime = 0  -- Variable to track the last time a shot was fired
+
+-- Function to animate notification
+local function animateNotification(notification)
+    local endPos = UDim2.new(0.5, -100, 0.4, -50) -- Adjusted position
+    
+    local tweenInfo = TweenInfo.new(
+        1, -- Duration
+        Enum.EasingStyle.Elastic, -- Easing style
+        Enum.EasingDirection.Out, -- Easing direction
+        0, -- Repeat count (0 means play once)
+        false, -- Reverses after finishing
+        0 -- Delay
+    )
+    
+    local tween = game:GetService("TweenService"):Create(notification, tweenInfo, {Position = endPos})
+    
+    tween:Play()
+    
+    wait(2) -- Adjust the duration the notification is displayed
+    
+    tween:Destroy()
+end
+
+-- Function to display a notification
+local function displayNotification(message)
+    local notification = Instance.new("ScreenGui")
+    notification.Name = "Notification"
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = notification
+    textLabel.Size = UDim2.new(0, 200, 0, 50)
+    textLabel.Position = UDim2.new(0.5, -100, 0.55, -50) -- Adjusted position
+    textLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    textLabel.Text = message
+    textLabel.TextSize = 20
+    textLabel.Font = Enum.Font.SourceSans
+    textLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+    notification.Parent = game.Players.LocalPlayer.PlayerGui
+
+    -- Animate notification
+    animateNotification(textLabel)
+
+    -- Fade out and destroy the notification after the animation finishes
+    wait(2)
+    for transparency = 0, 1, 0.1 do
+        textLabel.BackgroundTransparency = transparency
+        wait(0.1)
+    end
+    notification:Destroy()
+end
+
+-- Function to play a sound
+local function playSound(soundId, delay)
+    delay = delay or 0
+    local sound = Instance.new("Sound")
+    sound.SoundId = "rbxassetid://" .. soundId
+    sound.Parent = SoundService
+    sound:Play()
+    wait(delay)
+    sound:Destroy()
+end
+
+-- Play sound with delay
+spawn(function()
+    playSound(2865227271, 0.5)
+    wait(0.5)
+    playSound(1676318332)
+end)
+
+local function findClosestPlayer()
+    local players = game.Players:GetPlayers()
+    local closestPlayer = nil
+    local shortestDistance = math.huge
+    
+    -- Get the equipped tool
+    local tool = player.Character:FindFirstChildOfClass("Tool")
+    
+    if tool then
+        local toolHandle = tool:FindFirstChild("Handle")
+        if toolHandle then
+            -- Use the position of the tool handle as the shooter's position
+            local shooterPosition = toolHandle.Position
+            
+            for _, plyr in ipairs(players) do
+                if plyr ~= player and plyr.Team and plyr.Team.Name == targetTeamName and plyr.Character and plyr.Character:FindFirstChild("Humanoid") and plyr.Character.Humanoid.Health > 0 then
+                    local targetPosition = plyr.Character.HumanoidRootPart.Position
+                    
+                    -- Calculate horizontal distance
+                    local horizontalDistance = (targetPosition - shooterPosition).magnitude
+                    
+                    -- Calculate vertical distance
+                    local heightDifference = math.abs(targetPosition.Y - shooterPosition.Y)
+                    
+                    -- Calculate total distance considering both horizontal and vertical distances
+                    local totalDistance = (horizontalDistance^1 + heightDifference^2)^0.5
+                    
+                    if totalDistance < shortestDistance then
+                        closestPlayer = plyr
+                        shortestDistance = totalDistance
+                    end
+                end
+            end
+        else
+            print("Tool does not have a handle.")
+        end
+    else
+        print("No tool equipped.")
+    end
+    
+    return closestPlayer, shortestDistance
+end
+
+local function predictPosition(targetPosition, targetVelocity)
+    local shooterPosition = player.Character.HumanoidRootPart.Position
+    local distanceToTarget = (targetPosition - shooterPosition).magnitude
+    
+    -- Adjust prediction based on distance
+    local predictionDistance = math.clamp(distanceToTarget, minPredictionDistance, maxPredictionDistance)
+    local timeToImpact = predictionDistance / bulletSpeed
+    
+    -- Predict the future position of the target based on their current position and velocity
+    return targetPosition + targetVelocity * timeToImpact
+end
+
+local function fireRemoteEvent(targetPlayer)
+    if targetPlayer then
+        local currentTime = os.time()
+        if currentTime - lastShotTime >= cooldown then
+            local targetPosition = targetPlayer.Character.HumanoidRootPart.Position
+            local targetVelocity = targetPlayer.Character.HumanoidRootPart.Velocity
+            
+            local predictedPosition = predictPosition(targetPosition, targetVelocity)
+            
+            local args = {
+                [1] = predictedPosition,
+                [2] = "Sniper"
+            }
+            RemoteEvent:FireServer(unpack(args))
+            
+            -- Activate the equipped tool
+            local tool = player.Character:FindFirstChildOfClass("Tool")
+            if tool then
+                tool:Activate()
+            end
+            
+            lastShotTime = currentTime
+        end
+    else
+        print("No valid players found on the specified team nearby.")
+    end
+end
+
+local function toggleTargetTeam()
+    if targetTeamName == "Red" then
+        targetTeamName = "Blue"
+    else
+        targetTeamName = "Red"
+    end
+    displayNotification("Now targeting " .. targetTeamName .. " team.")
+end
+
+-- Create a ScreenGui to hold the buttons
+local gui = Instance.new("ScreenGui")
+gui.Parent = game:GetService("CoreGui")
+
+-- Create a TextButton for toggling between red and blue teams
+local teamToggleButton = Instance.new("TextButton")
+teamToggleButton.Parent = gui
+teamToggleButton.Position = UDim2.new(0.7, 0, 0.1, 0)
+teamToggleButton.Size = UDim2.new(0, 100, 0, 50)
+teamToggleButton.Text = "Target Team"
+teamToggleButton.MouseButton1Click:Connect(toggleTargetTeam)
+
+-- Create a TextButton to target the closest player
+local targetButton = Instance.new("TextButton")
+targetButton.Parent = gui
+targetButton.Position = UDim2.new(0.7, 0, 0.25, 0)
+targetButton.Size = UDim2.new(0, 100, 0, 50)
+BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+targetButton.Text = "Shoot"
+targetButton.MouseButton1Click:Connect(function()
+    fireRemoteEvent(findClosestPlayer())
+end)
+
+
+
+
+
+  end
+})
+
+
+
+AddButton(Main, {
+  Name = "AimBot",
+  Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Luarmor123/community-Y-HUB/refs/heads/main/YHUB-AimBot"))()
+  
+  end
+})
+
+
+
+pcall(function()
+    getgenv().Crosshair.Functions:Exit()
+end)
+
+--// Environment
+
+getgenv().Crosshair = {}
+local Environment = getgenv().Crosshair
+
+--// Services
+
+local StarterGui = game:GetService("StarterGui")
+local RunService = game:GetService("RunService")
+local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
+local Camera = game:GetService("Workspace").CurrentCamera
+
+--// Variables
+
+local Title = "Exunys Developer"
+local FileNames = {"Crosshair", "Configuration.json", "Crosshair.json"}
+local AxisX, AxisY = nil, nil
+local AxisConnection, CrosshairConnection = nil
+
+--// Script Settings
+
+Environment.Settings = {
+    SendNotifications = false,  -- Set to false to disable notifications
+    SaveSettings = true,
+    ReloadOnTeleport = true,
+    Enabled = true,
+    ToMouse = true
+}
+
+--// Crosshair Settings
+
+Environment.CrosshairSettings = {
+    Size = 12,
+    Thickness = 1,
+    Color = "255, 0, 0",  -- Default color in RGB format
+    Transparency = 1,
+    GapSize = 5,
+    CenterDot = false,
+    CenterDotColor = "255, 0, 0",  -- Default center dot color
+    CenterDotSize = 1,
+    CenterDotTransparency = 1,
+    CenterDotFilled = true,
+}
+
+Environment.Construction = {
+    LeftLine = Drawing.new("Line"),
+    RightLine = Drawing.new("Line"),
+    TopLine = Drawing.new("Line"),
+    BottomLine = Drawing.new("Line"),
+    CenterDot = Drawing.new("Circle")
+}
+
+--// Core Functions
+
+local function Encode(Table)
+    if Table and type(Table) == "table" then
+        return HttpService:JSONEncode(Table)
+    end
+end
+
+local function Decode(String)
+    if String and type(String) == "string" then
+        return HttpService:JSONDecode(String)
+    end
+end
+
+local function SendNotification(TitleArg, DescriptionArg, DurationArg)
+    -- Notifications are disabled, so this function does nothing
+end
+
+local function GetColor(Color)
+    local R, G, B = string.match(Color, "(%d+),%s*(%d+),%s*(%d+)")
+    return Color3.fromRGB(tonumber(R), tonumber(G), tonumber(B))
+end
+
+local function Load()
+    AxisConnection, CrosshairConnection = RunService.RenderStepped:Connect(function()
+        if Environment.Settings.ToMouse then
+            AxisX, AxisY = UserInputService:GetMouseLocation().X, UserInputService:GetMouseLocation().Y
+        else
+            AxisX, AxisY = Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2
+        end
+    end), RunService.RenderStepped:Connect(function()
+
+        --// Left Line
+        Environment.Construction.LeftLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.LeftLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.LeftLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.LeftLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.LeftLine.From = Vector2.new(AxisX + Environment.CrosshairSettings.GapSize, AxisY)
+        Environment.Construction.LeftLine.To = Vector2.new(AxisX + Environment.CrosshairSettings.Size, AxisY)
+
+        --// Right Line
+        Environment.Construction.RightLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.RightLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.RightLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.RightLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.RightLine.From = Vector2.new(AxisX - Environment.CrosshairSettings.GapSize, AxisY)
+        Environment.Construction.RightLine.To = Vector2.new(AxisX - Environment.CrosshairSettings.Size, AxisY)
+
+        --// Top Line
+        Environment.Construction.TopLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.TopLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.TopLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.TopLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.TopLine.From = Vector2.new(AxisX, AxisY + Environment.CrosshairSettings.GapSize)
+        Environment.Construction.TopLine.To = Vector2.new(AxisX, AxisY + Environment.CrosshairSettings.Size)
+
+        --// Bottom Line
+        Environment.Construction.BottomLine.Visible = Environment.Settings.Enabled
+        Environment.Construction.BottomLine.Color = GetColor(Environment.CrosshairSettings.Color)
+        Environment.Construction.BottomLine.Thickness = Environment.CrosshairSettings.Thickness
+        Environment.Construction.BottomLine.Transparency = Environment.CrosshairSettings.Transparency
+        Environment.Construction.BottomLine.From = Vector2.new(AxisX, AxisY - Environment.CrosshairSettings.GapSize)
+        Environment.Construction.BottomLine.To = Vector2.new(AxisX, AxisY - Environment.CrosshairSettings.Size)
+
+        --// Center Dot
+        Environment.Construction.CenterDot.Visible = Environment.Settings.Enabled and Environment.CrosshairSettings.CenterDot
+        Environment.Construction.CenterDot.Color = GetColor(Environment.CrosshairSettings.CenterDotColor)
+        Environment.Construction.CenterDot.Radius = Environment.CrosshairSettings.CenterDotSize
+        Environment.Construction.CenterDot.Transparency = Environment.CrosshairSettings.CenterDotTransparency
+        Environment.Construction.CenterDot.Filled = Environment.CrosshairSettings.CenterDotFilled
+        Environment.Construction.CenterDot.Position = Vector2.new(AxisX, AxisY)
+    end)
+end
+
+--// Functions
+
+local function SaveSettings()
+    if isfile(Title.."/"..FileNames[1].."/"..FileNames[2]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[2], Encode(Environment.Settings))
+    end
+
+    if isfile(Title.."/"..FileNames[1].."/"..FileNames[3]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[3], Encode(Environment.CrosshairSettings))
+    end
+end
+
+if Environment.Settings.SaveSettings then
+    if not isfolder(Title) then
+        makefolder(Title)
+    end
+
+    if not isfolder(Title.."/"..FileNames[1]) then
+        makefolder(Title.."/"..FileNames[1])
+    end
+
+    if not isfile(Title.."/"..FileNames[1].."/"..FileNames[2]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[2], Encode(Environment.Settings))
+    else
+        Environment.Settings = Decode(readfile(Title.."/"..FileNames[1].."/"..FileNames[2]))
+    end
+
+    if not isfile(Title.."/"..FileNames[1].."/"..FileNames[3]) then
+        writefile(Title.."/"..FileNames[1].."/"..FileNames[3], Encode(Environment.CrosshairSettings))
+    else
+        Environment.CrosshairSettings = Decode(readfile(Title.."/"..FileNames[1].."/"..FileNames[3]))
+    end
+
+    coroutine.wrap(function()
+        while wait(10) do
+            SaveSettings()
+        end
+    end)()
+else
+    if isfolder(Title) then
+        delfolder(Title)
+    end
+end
+
+--// Reload On Teleport
+
+if Environment.Settings.ReloadOnTeleport then
+    if syn and syn.queue_on_teleport then
+        syn.queue_on_teleport(game:HttpGet("https://pastebin.com/raw/4L7an7MY"))
+    else
+        -- No notification sent since they are disabled
+    end
+end
+
+--// Script Functions
+
+Environment.Functions = {}
+
+function Environment.Functions:Exit()
+    table.foreach(Environment.Construction, function(_, Value)
+        Value:Remove()
+    end)
+
+    AxisConnection:Disconnect()
+    CrosshairConnection:Disconnect()
+
+    getgenv().Crosshair = nil
+end
+
+function Environment.Functions:Restart()
+    table.foreach(Environment.Construction, function(_, Value)
+        Value:Remove()
+    end)
+
+    AxisConnection:Disconnect()
+    CrosshairConnection:Disconnect()
+
+    Load()
+end
+
+function Environment.Functions:ResetSettings()
+    Environment.Settings = {
+        SendNotifications = false,
+        SaveSettings = true,
+        ReloadOnTeleport = true,
+        Enabled = true,
+        ToMouse = true
+    }
+
+    Environment.CrosshairSettings = {
+        Size = 12,
+        Thickness = 1,
+        Color = "255, 0, 0",  -- Default color in RGB format
+        Transparency = 1,
+        GapSize = 5,
+        CenterDot = false,
+        CenterDotColor = "255, 0, 0",
+        CenterDotSize = 1,
+        CenterDotTransparency = 1,
+        CenterDotFilled = true,
+    }
+
+    SaveSettings()
+end
+
+function Environment.Functions:SetMouseIcon(Value)
+    if Value == nil then Value = true end
+
+    UserInputService.MouseIconEnabled = Value
+end
+
+function Environment.Functions:GetDocumentation()
+    setclipboard("https://github.com/Exunys/Crosshair-V2")
+    -- No notification sent since they are disabled
+end
+
+--// API Check
+
+if not Drawing or not writefile or not makefolder then
+    -- No notification sent since they are disabled
+    return
+end
+AddToggle(Main, {
+  Name = "Crosshair",
+  Callback = function(Value)
+  Environment.Settings.Enabled = Value 
+  end
+})
+
+AddColorPicker(Main, {
+  Name = "Crosshair color",
+  Default = Color3.fromRGB(255, 0, 0),
+  Callback = function(Value)
+    local r, g, b = Value.R * 255, Value.G * 255, Value.B * 255
+        Environment.CrosshairSettings.Color = string.format("%d, %d, %d", r, g, b)
+        Environment.CrosshairSettings.CenterDotColor = string.format("%d, %d, %d", r, g, b)  -- Change center dot color too
+  end
+})
+
+
+local section = AddSection(Main, {"»»»»»{ ESP }««««« "})
+
+local ESP = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+ESP:Toggle(true)
+ESP.Players = false
+ESP.Tracers = false
+ESP.Boxes = false
+ESP.Names = false
+ESP.TeamColor = false
+ESP.TeamMates = false
+ESP.Highlight = false 
+
+
+
+local Toggle = AddToggle(Main, {
+  Name = "Enable",
+  Default = false,
+  Callback = function(Value)
+    ESP.Players = Value
+    ESP.TeamMates = Value
+    ESP.Highlight = Value 
+  end
+})
+
+
+local Toggle = AddToggle(Main, {
+  Name = "Name",
+  Default = false,
+  Callback = function(Value)
+    ESP.Names = Value
+  end
+})
+
+local Toggle = AddToggle(Main, {
+  Name = "Box",
+  Default = false,
+  Callback = function(Value)
+    ESP.Boxes = Value
+  end
+})
+
+local Toggle = AddToggle(Main, {
+  Name = "Line",
+  Default = false,
+  Callback = function(Value)
+   ESP.Tracers = Value
+  end
+})
+
+AddColorPicker(Main, {
+  Name = "ESP Color",
+  Default = Color3.fromRGB(0, 0, 0),
+  Callback = function(Value)
+    ESP.Color = Value
+  end
+})
+
+local section = AddSection(Settings, {"»»»»»{ Aid }««««« "})
+
+AddButton(Settings, {
+  Name = "Boost FPS",
+  Callback = function(Value)local decalsyeeted = true 
+        local g = game
+        local w = g.Workspace
+        local l = g.Lighting
+        local t = w.Terrain
+        
+        if Value then -- Activate FPS booster only if toggle is enabled
+            -- Set hidden properties for lighting and terrain
+            sethiddenproperty(l, "Technology", 2)
+            sethiddenproperty(t, "Decoration", false)
+            t.WaterWaveSize = 0
+            t.WaterWaveSpeed = 0
+            t.WaterReflectance = 0
+            t.WaterTransparency = 0
+            l.GlobalShadows = 0
+            l.FogEnd = 9e9
+            l.Brightness = 0
+            settings().Rendering.QualityLevel = "Level01"
+
+            -- Optimize workspace parts
+            for _, v in pairs(w:GetDescendants()) do
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") and decalsyeeted then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh") and decalsyeeted then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") and decalsyeeted then
+                    v.Graphic = 0
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+                    v[v.ClassName.."Template"] = 0
+                end
+            end
+
+            -- Disable visual effects
+            for _, e in pairs(l:GetChildren()) do
+                if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                    e.Enabled = false
+                end
+            end
+
+            -- Handle newly added descendants
+            w.DescendantAdded:Connect(function(v)
+                wait() -- Prevent errors
+                if v:IsA("BasePart") and not v:IsA("MeshPart") then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+                    v.Transparency = 1
+                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                    v.Lifetime = NumberRange.new(0)
+                elseif v:IsA("Explosion") then
+                    v.BlastPressure = 1
+                    v.BlastRadius = 1
+                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                    v.Enabled = false
+                elseif v:IsA("MeshPart") and decalsyeeted then
+                    v.Material = "Plastic"
+                    v.Reflectance = 0
+                    v.TextureID = 10385902758728957
+                elseif v:IsA("SpecialMesh") and decalsyeeted then
+                    v.TextureId = 0
+                elseif v:IsA("ShirtGraphic") and decalsyeeted then
+                    v.Graphic = 0
+                elseif (v:IsA("Shirt") or v:IsA("Pants")) and decalsyeeted then
+                    v[v.ClassName.."Template"] = 0
+                end
+            end)
+        else
+            -- Reset changes when toggle is disabled (optional)
+            -- You may want to implement resetting logic here
+        end
+        
+  
+  end
+})
+local section = AddSection(Settings, {"RTX"})
+SetSection(section, "»»»»»{ RTX ( Time & Quality ) }«««««")
+
+AddButton(Settings, {
+  Name = "Morning",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 14
+  end
+})
+
+
+AddButton(Settings, {
+  Name = "Night",
+  Callback = function()
+  game:GetService("Lighting").ClockTime = 19
+  end
+})
+
+AddButton(Settings, {
+  Name = "Realistic shader",
+  Callback = function()
+  -- local Vignette = false
+
+
+local Lighting = game:GetService("Lighting")
+local StarterGui = game:GetService("StarterGui")
+local Bloom = Instance.new("BloomEffect")
+local Blur = Instance.new("BlurEffect")
+local ColorCor = Instance.new("ColorCorrectionEffect")
+local SunRays = Instance.new("SunRaysEffect")
+local Sky = Instance.new("Sky")
+local Atm = Instance.new("Atmosphere")
+
+
+for i, v in pairs(Lighting:GetChildren()) do
+    if v then
+        v:Destroy()
+    end
+end
+
+Bloom.Parent = Lighting
+Blur.Parent = Lighting
+ColorCor.Parent = Lighting
+SunRays.Parent = Lighting
+Sky.Parent = Lighting
+Atm.Parent = Lighting
+
+if Vignette == true then
+    local Gui = Instance.new("ScreenGui")
+    Gui.Parent = StarterGui
+    Gui.IgnoreGuiInset = true
+    
+    local ShadowFrame = Instance.new("ImageLabel")
+    ShadowFrame.Parent = Gui
+    ShadowFrame.AnchorPoint = Vector2.new(0.5,1)
+    ShadowFrame.Position = UDim2.new(0.5,0,1,0)
+    ShadowFrame.Size = UDim2.new(1,0,1.05,0)
+    ShadowFrame.BackgroundTransparency = 1
+    ShadowFrame.Image = "rbxassetid://4576475446"
+    ShadowFrame.ImageTransparency = 0.3
+    ShadowFrame.ZIndex = 10
+end
+
+Bloom.Intensity = 0.3
+Bloom.Size = 10
+Bloom.Threshold = 0.8
+
+Blur.Size = 5
+ColorCor.Brightness = 0.1
+ColorCor.Contrast = 0.5
+ColorCor.Saturation = -0.3
+ColorCor.TintColor = Color3.fromRGB(255, 235, 203)
+
+SunRays.Intensity = 0.075
+SunRays.Spread = 0.727
+
+Sky.SkyboxBk = "http://www.roblox.com/asset/?id=151165214"
+Sky.SkyboxDn = "http://www.roblox.com/asset/?id=151165197"
+Sky.SkyboxFt = "http://www.roblox.com/asset/?id=151165224"
+Sky.SkyboxLf = "http://www.roblox.com/asset/?id=151165191"
+Sky.SkyboxRt = "http://www.roblox.com/asset/?id=151165206"
+Sky.SkyboxUp = "http://www.roblox.com/asset/?id=151165227"
+Sky.SunAngularSize = 10
+
+
+Lighting.Ambient = Color3.fromRGB(2,2,2)
+Lighting.Brightness = 2.25
+Lighting.ColorShift_Bottom = Color3.fromRGB(0,0,0)
+Lighting.ColorShift_Top = Color3.fromRGB(0,0,0)
+Lighting.EnvironmentDiffuseScale = 0.2
+Lighting.EnvironmentSpecularScale = 0.2
+Lighting.GlobalShadows = true
+Lighting.OutdoorAmbient = Color3.fromRGB(0,0,0)
+Lighting.ShadowSoftness = 0.2
+Lighting.ClockTime = 17
+Lighting.GeographicLatitude = 45
+Lighting.ExposureCompensation = 0.5
+
+Atm.Density = 0.364
+Atm.Offset = 0.556
+Atm.Color = Color3.fromRGB(199, 175, 166)
+Atm.Decay = Color3.fromRGB(44, 39, 33)
+Atm.Glare = 0.36
+Atm.Haze = 1.72
+
+script:Destroy()
+  end
+})
+
+
+AddButton(Settings, {
+  Name = "morning & night (fast) ",
+  Callback = function()local Lighting = game:GetService("Lighting")
+
+local Minutes = 7 * 60
+
+while task.wait() do
+	Lighting:SetMinutesAfterMidnight(Minutes)
+	Minutes = Lighting:GetMinutesAfterMidnight()
+
+	if Minutes > 19 * 60 then
+		Minutes = Minutes + 3
+	elseif Minutes > 7 * 60 then
+		Minutes = Minutes + 1
+	else
+		Minutes = Minutes + 3
+	end
+end
+    
+  end
+})
+local section = AddSection(Settings, {"»»»»»{ Server }«««««"})
+SetSection(section, "»»»»»{ Server }«««««")
+
+AddButton(Settings, {
+  Name = "Region Server",
+  Callback = function()
+  game:GetService("TeleportService"):Teleport(game.placeId) 
+  end
+})
+
+
+
+
+
+
+Load()
+      		print("")
+  	end    
+})
+
+
+
+
+
+
+local Section = Main:AddSection({
+	Name = "Key System"
+})
+Main:AddButton({
+	Name = "YHUB Key : YFDQMASrE ( Click to copy )",
+	Callback = function()
+	setclipboard('YFDQMASrE')
+      		print("")
+  	end    
+})
+
+-------------------------------------------------------
+-- home :
+
+Home:AddLabel("Welcome : " .. game.Players.LocalPlayer.DisplayName)
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function getExecutorName()
+    if identifyexecutor then
+        return identifyexecutor()
+    else
+        return "Unknown Executor"
+    end
+end
+
+local playerName = LocalPlayer.Name
+local executorName = getExecutorName()
+
+Home:AddLabel("Executor : " ..executorName)
+
+local Section = Home:AddSection({
+	Name = "-------------------------------------------------------"
+})
+
+Home:AddButton({
+	Name = "My Telegram channel ( Click to copy )",
+	Callback = function()
+	setclipboard('https://t.me/YHUB_16')
+      		print("button pressed")
+  	end    
+})
+
+
+
+end)
+
+
+TG.MouseButton1Click:Connect(function()
+  animateOut()
+
+
+
+  end)
