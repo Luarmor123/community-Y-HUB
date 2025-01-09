@@ -1559,10 +1559,11 @@ function MakeWindow(Configs)
   end
   
   function AddDiscord(parent, Configs)
-    local DiscordLink = Configs[1] or Configs.DiscordLink or "https://discord.gg/"
-    local DiscordIcon = Configs[2] or Configs.DiscordIcon or "rbxassetid://"
-    local DiscordTitle = Configs[3] or Configs.DiscordTitle or ""
-    
+    local DiscordLink = Configs[1] or Configs.DiscordLink or "https://t.me/YHUB_16"
+    local DiscordIcon = Configs[2] or Configs.DiscordIcon or "rbxassetid://88819916320666"
+    local DiscordTitle = Configs[3] or Configs.DiscordTitle or "Here Title ( by YHUB )"
+    local DiscordDes = Configs[4] or Configs.DiscordDec or "Here Description ( by YHUB )"
+
     local Frame = Create("Frame", parent, {
       Size = UDim2.new(1, 0, 0, 110),
       BackgroundColor3 = Color3.fromRGB(30, 30, 30),
@@ -1591,7 +1592,19 @@ function MakeWindow(Configs)
       Font = Enum.Font.GothamBold,
       TextSize = 14
     })
-    
+
+local DesLabel = Create("TextLabel", Frame, {
+      Size = UDim2.new(1, 0, 0, 25),
+      Text = DiscordDes,
+      TextXAlignment = "Left",
+      BackgroundTransparency = 1,
+      Position = UDim2.new(0, 70, 0, 25),
+      TextColor3 = Color3.fromRGB(200, 200, 200),
+      Font = Enum.Font.GothamBold,
+      TextSize = 14
+    })
+
+
     local IconLabel = Create("ImageLabel", Frame, {
       Size = UDim2.new(0, 40, 0, 40),
       AnchorPoint = Vector2.new(0, 0.5),
