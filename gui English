@@ -1594,11 +1594,11 @@ function MakeWindow(Configs)
     })
 
 local DesLabel = Create("TextLabel", Frame, {
-      Size = UDim2.new(1, 0, 0, 25),
+      Size = UDim2.new(1, 0, 0, 20),
       Text = DiscordDes,
       TextXAlignment = "Left",
       BackgroundTransparency = 1,
-      Position = UDim2.new(0, 70, 0, 25),
+      Position = UDim2.new(0, 60, 0, 40),
       TextColor3 = Color3.fromRGB(200, 200, 200),
       Font = Enum.Font.GothamBold,
       TextSize = 14
